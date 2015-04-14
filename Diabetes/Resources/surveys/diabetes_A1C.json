@@ -1,0 +1,78 @@
+{
+    "identifier": "A1C_check",
+    "type": "Survey",
+    "name": "A1C Check",
+    "questions": [
+                  
+                  
+                 {
+						"identifier": "diabetesCheck",
+						"prompt": "Have you had a recent hemoglobin A1C checked by your doctor?",
+						"uiHint": "checkbox",
+						"guid": "854cff10-3b2f-41c2-9b8a-17b79725819a",
+						"type": "SurveyQuestion",
+						"constraints": {
+							"rules": [
+								{
+									"operator": "eq",
+									"skipTo": "END_OF_SURVEY",
+									"type": "SurveyRule",
+									"value": 0
+								}
+							],
+							"dataType": "boolean",
+							"type": "BooleanConstraints"
+						}
+					},
+
+                   {
+						"guid": "854bfd00-3d2b-41e2-9a36-17c72dfs81a3",
+						"identifier": "A1C_value",
+						"prompt": "Enter your hemoglobin A1C value",
+						"detail" : "",
+						"constraints":
+                          {
+                          "dataType":"decimal",
+                          "minValue":4.0,
+                          "maxValue":20.0,
+                          "step":null,
+                          "type":"DecimalConstraints"
+                          },
+                          "uiHint":"numberfield",
+                          "type":"SurveyQuestion"
+					},
+					
+					{
+						"guid":"a872f85a-c157-457b-890e-9e28edsed6ea4",
+						"identifier":"averageglucos",
+						 "prompt":"Enter your estimated average glucose (in mg/dL)",
+						 "constraints":
+						 {
+						 "dataType":"integer",
+						 "minValue":90,
+						 "maxValue":500,
+						 "step":null,
+						 "type":"IntegerConstraints"
+						 },
+						 "uiHint":"numberfield",
+						 "type":"SurveyQuestion"
+					 }
+
+
+                  
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                  
+                  
+                  ]
+                  
+}
+                  
+                  
+                

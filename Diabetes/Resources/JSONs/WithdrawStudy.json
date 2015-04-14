@@ -1,0 +1,23 @@
+{
+    "options":
+    [
+     {
+     "option":"This study was taking up too much of my time.",
+     },
+     {
+     "option":"There was not enough benefit for me to want to continue.",
+     },
+     {
+     "option":"Parts of this study were too difficult for me to complete.",
+     },
+     {
+     "option":"I am withdrawing for personal reasons that do not involve this study.",
+     },
+     {
+     "option":"I prefer not to answer.",
+     },
+     {
+     "option":"Describe why you are withdrawing in your own words.",
+     },
+    ]
+}

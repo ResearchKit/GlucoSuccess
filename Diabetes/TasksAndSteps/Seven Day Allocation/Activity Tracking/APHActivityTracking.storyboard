@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VrU-qS-l30">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity Tracking Step View Controller-->
+        <scene sceneID="C4k-sv-uG8">
+            <objects>
+                <viewController id="VrU-qS-l30" customClass="APHActivityTrackingStepViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S6x-uK-2Oa"/>
+                        <viewControllerLayoutGuide type="bottom" id="upX-AZ-JBq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IaW-xM-au3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Days Remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uN4-Ax-0TN">
+                                <rect key="frame" x="16" y="8" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55686277151107788" green="0.55686277151107788" blue="0.57647061347961426" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6v-h5-YfZ">
+                                <rect key="frame" x="0.0" y="37" width="320" height="44"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="XEY-UO-FTF">
+                                        <rect key="frame" x="8" y="8" width="304" height="29"/>
+                                        <segments>
+                                            <segment title="Yesterday"/>
+                                            <segment title="Today"/>
+                                            <segment title="Week"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="handleDays:" destination="VrU-qS-l30" eventType="valueChanged" id="yUt-Hd-BDh"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="XEY-UO-FTF" firstAttribute="leading" secondItem="U6v-h5-YfZ" secondAttribute="leadingMargin" id="AoM-OO-HFl"/>
+                                    <constraint firstAttribute="height" constant="44" id="Icr-RN-NOx"/>
+                                    <constraint firstItem="XEY-UO-FTF" firstAttribute="top" secondItem="U6v-h5-YfZ" secondAttribute="topMargin" id="bhx-bo-2VZ"/>
+                                    <constraint firstItem="XEY-UO-FTF" firstAttribute="trailing" secondItem="U6v-h5-YfZ" secondAttribute="trailingMargin" id="qNZ-mR-7Yl"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-Qy-ghC" customClass="APCPieGraphView">
+                                <rect key="frame" x="0.0" y="81" width="320" height="423"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZF-P2-foS">
+                                <rect key="frame" x="123" y="400" width="75" height="30"/>
+                                <state key="normal" title="Reset Task">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.050854331879999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetTaskStartDate:" destination="VrU-qS-l30" eventType="touchUpInside" id="644-RJ-dyB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254902124404907" green="0.97254902124404907" blue="0.97254902124404907" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1ZF-P2-foS" secondAttribute="centerX" id="0Pz-99-VZn"/>
+                            <constraint firstItem="uN4-Ax-0TN" firstAttribute="top" secondItem="S6x-uK-2Oa" secondAttribute="bottom" constant="8" id="4n5-JV-2H9"/>
+                            <constraint firstAttribute="trailing" secondItem="5zS-Qy-ghC" secondAttribute="trailing" id="8eU-wU-KoX"/>
+                            <constraint firstAttribute="centerX" secondItem="uN4-Ax-0TN" secondAttribute="centerX" id="CRv-Ot-qnk"/>
+                            <constraint firstItem="5zS-Qy-ghC" firstAttribute="bottom" secondItem="upX-AZ-JBq" secondAttribute="top" id="NOx-Ls-tHs"/>
+                            <constraint firstItem="U6v-h5-YfZ" firstAttribute="leading" secondItem="IaW-xM-au3" secondAttribute="leading" id="OLD-8J-Y8Y"/>
+                            <constraint firstAttribute="trailing" secondItem="U6v-h5-YfZ" secondAttribute="trailing" id="U1v-9f-PwD"/>
+                            <constraint firstItem="5zS-Qy-ghC" firstAttribute="top" secondItem="U6v-h5-YfZ" secondAttribute="bottom" id="hre-Vw-Cgm"/>
+                            <constraint firstItem="5zS-Qy-ghC" firstAttribute="leading" secondItem="IaW-xM-au3" secondAttribute="leading" id="nkk-ex-o4f"/>
+                            <constraint firstItem="5zS-Qy-ghC" firstAttribute="top" secondItem="IaW-xM-au3" secondAttribute="top" constant="81" id="rSd-s2-yhk"/>
+                            <constraint firstItem="uN4-Ax-0TN" firstAttribute="leading" secondItem="IaW-xM-au3" secondAttribute="leading" constant="16" id="tPD-Vt-teP"/>
+                            <constraint firstItem="U6v-h5-YfZ" firstAttribute="top" secondItem="uN4-Ax-0TN" secondAttribute="bottom" constant="8" id="typ-GZ-LEJ"/>
+                            <constraint firstItem="upX-AZ-JBq" firstAttribute="top" secondItem="1ZF-P2-foS" secondAttribute="bottom" constant="74" id="zqw-hB-WdV"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="chartView" destination="5zS-Qy-ghC" id="H3w-TY-Isq"/>
+                        <outlet property="daysRemaining" destination="uN4-Ax-0TN" id="fHh-gs-f2j"/>
+                        <outlet property="segmentDays" destination="XEY-UO-FTF" id="e27-iu-z4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVk-sI-Vwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="787" y="385"/>
+        </scene>
+    </scenes>
+</document>

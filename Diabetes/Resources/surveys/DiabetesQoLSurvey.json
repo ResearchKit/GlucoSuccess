@@ -1,0 +1,436 @@
+{
+    "name" : "Sleep Quality Survey",
+    "type" : "Survey",
+  	"identifier" : "QoL_GlucoSuccess",
+  	"questions" :
+  	 [
+      
+      {
+      "guid": "d50d4262-1e22-4c05-ba3e-e3637db62f99",
+      "identifier": "QoL-introduction",
+      "type": "SurveyQuestion",
+      "prompt":"This survey will ask you about how your health affects your quality of life.",
+      "detail": "This questionnaire was adapted from Centers for Disease Control and Prevention (CDC) survey called “HRQOL-14: Healthy Days Measure",
+      "constraints": {
+      "dataType": "string",
+      "rules": [],
+      "enumeration": [
+                      {
+                      "label": "I read and I understood the information above.",
+                      "value": "0",
+                      "type": "SurveyQuestionOption"
+                      }                      ],
+      "allowOther": false,
+      "allowMultiple": false,
+      "type": "MultiValueConstraints"
+      },
+      "uiHint": "list"
+      },
+
+        {
+            "guid": "550d4262-1e22-4c05-ba3e-e3630db62a01",
+            "identifier": "QoL-1",
+            "type": "SurveyQuestion",
+            "prompt": "Would you say that in general your health is:",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Excellent",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Very good",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Good",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Fair",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Poor",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+         {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba02",
+            "identifier": "QoL-2",
+            "type": "SurveyQuestion",
+            "prompt": "Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba03",
+            "identifier": "QoL-3",
+            "type": "SurveyQuestion",
+            "prompt": "Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        
+         {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba04",
+            "identifier": "QoL-4",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days did poor physical or mental health keep you from doing your usual activities, such as self-care, work, or recreation?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba05",
+            "identifier": "QoL-5",
+            "type": "SurveyQuestion",
+            "prompt": "Are you limited in any way in any activities because of any impairment or health problem?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know/Not sure",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba06",
+            "identifier": "QoL-6",
+            "type": "SurveyQuestion",
+            "prompt": "What is the MAJOR impairment or health problem that limits your activities? ",
+            "detail": "Select only one",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Arthritis/rheumatism",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Back or neck problem",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Fractures, bone/joint injury",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Walking problem",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Lung/breathing problem",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Hearing problem",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Eye/vision problem",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Heart problem",
+                        "value": "7",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Stroke problem",
+                        "value": "8",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Hypertension/high blood pressure",
+                        "value": "8",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Diabetes",
+                        "value": "9",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Cancer",
+                        "value": "10",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Stroke problem",
+                        "value": "11",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Depression/anxiety/emotional problem",
+                        "value": "12",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Other impairment/problem",
+                        "value": "13",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know/Not sure",
+                        "value": "14",
+                        "type": "SurveyQuestionOption"
+                    }
+                    
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba07",
+            "identifier": "QoL-7",
+            "type": "SurveyQuestion",
+            "prompt": "If you listed a MAJOR health problem in the previous question, for how long have your activities been limited because of that major impairment or health problem?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Days",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Weeks",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Months",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Years",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know/Not sure",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba08",
+            "identifier": "QoL-8",
+            "type": "SurveyQuestion",
+            "prompt": "Because of ANY impairment or health problem, do you need the help of other persons with your personal care needs, such as eating, bathing, dressing, or getting around the house?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know/Not sure",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba09",
+            "identifier": "QoL-9",
+            "type": "SurveyQuestion",
+            "prompt": "Because of ANY impairment or health problem, do you need the help of other persons in handling your routine needs, such as everyday household chores, doing necessary business, shopping, or getting around for other purposes?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know/Not sure",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba10",
+            "identifier": "QoL-10",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days did pain make it hard for you to do your usual activities, such as self-care, work, or recreation?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba11",
+            "identifier": "QoL-11",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days have you felt sad, blue or depressed?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba12",
+            "identifier": "QoL-12",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days have you felt worried, tense or anxious?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba13",
+            "identifier": "QoL-13",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days have you felt you did not get enough rest or sleep?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        {
+            "guid": "55e6973b-da37-4eb0-b817-43e0f15dba14",
+            "identifier": "QoL-14",
+            "type": "SurveyQuestion",
+            "prompt": "During the past 30 days, for about how many days have you felt very healthy and full of energy?",
+            "detail": "Enter number of days.  Enter 0 for none.",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 31,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        }
+        
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "items": [
+        {
+            "section_title": "",
+            "row_items": [
+                {
+                    "title":"About This Study",
+                    "details":"AboutStudy",
+                    "icon_image":"paperplus_icon",
+                    "tint_color" : "purple"
+                },
+
+                {
+                    "title":"How This Study Works",
+                    "details":"howstudyworks",
+                    "icon_image":"how_it_works",
+                    "tint_color" : "red"
+                },
+
+                {
+                    "title":"Who Can Participate?",
+                    "details":"EligibleToParticipate",
+                    "icon_image":"participate_icon",
+                    "tint_color" : "green"
+                },
+                          
+                {
+                    "title": "Life with Diabetes",
+                    "details": "disease_information",
+                    "icon_image": "disease_icon",
+                    "tint_color": "blue"
+                },
+                          
+                {
+                    "title": "Symptoms",
+                    "details": "symptoms",
+                    "icon_image": "diagnostics_icon",
+                    "tint_color": "yellow"
+                },
+                {
+                    "title": "Online Resources",
+                    "details": "online_resources",
+                    "icon_image": "globe_icon",
+                    "tint_color": "gray"
+                }
+            ]
+        }
+    ]
+}

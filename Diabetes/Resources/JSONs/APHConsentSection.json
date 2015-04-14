@@ -1,0 +1,128 @@
+{
+    "documentProperties" :
+    {
+        "htmlDocument" : "diabetes_fullconsent",
+        "investigatorShortDescription": "The GlucoSuccess team",
+        "investigatorLongDescription": "The GlucoSuccess team",
+        "htmlContent": "15sharing_rsch"
+    },
+    "sections":
+    [
+     {
+     "sectionType" : "overview",
+     "sectionSummary" : "This simple walkthrough will help you to understand the study, the impact it will have on your life, and will allow you to provide consent to participate.",
+     "sectionHtmlContent" : "1welcome"
+     },
+     
+     
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Activities",
+     "sectionSummary": "This study will ask you to perform tasks and respond to surveys.",
+     "sectionHtmlContent" : "3activities",
+     "sectionImage": "00_Blank_to_Activities",
+     "sectionAnimationUrl": "00_Blank_to_Activities"
+     },
+     
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Sensor and Health Data",
+     "sectionSummary": "This study will gather sensor data from your phone.",
+     "sectionHtmlContent" : "4sensordata",
+     "sectionImage": "01_Activities_to_SensorData",
+     "sectionAnimationUrl":"01_Activities_to_SensorData"
+     
+     },
+     
+     
+     {
+     "sectionType" : "dataGathering",
+     "sectionTitle": "Data Gathering  ",
+     "sectionSummary" : "Collected data may reveal patterns of how health behaviors affect your blood glucose, and also advance clinical research into type 2 diabetes.",
+     "sectionHtmlContent" : "5dataprocessing",
+     "sectionAnimationUrl":"02_SensorData_to_DataGathering"
+     },
+     
+     {
+     "sectionType" : "privacy",
+     "sectionTitle": "Privacy",
+     "sectionSummary": "Your data will be sent to a secure database, where it will be separated from your personal identity.",
+     "sectionHtmlContent" : "6protectingdata"
+     },
+     {
+     "sectionType" : "dataUse",
+     "sectionTitle": "Utilizing Data",
+     "sectionSummary": "Your coded data will be used for research and may be shared with other researchers.",
+     "sectionHtmlContent" : "7datause"
+     
+     },
+     {
+     "sectionType" : "timeCommitment",
+     "sectionTitle" : "Issues to Consider",
+     "sectionSummary": "Your participation in this study will take a few minutes per day on average.",
+     "sectionHtmlContent" : "8time"
+     
+     },
+     
+     {
+     "sectionType" : "studySurvey",
+     "sectionTitle" : "Study Survey",
+     "sectionSummary": "Some of the tasks in this study will require you to answer to survey questions about various health and lifestyle factors.",
+     "sectionHtmlContent" : "9study_survey"
+     
+     },
+     
+     {
+     "sectionType" : "studyTasks",
+     "sectionTitle" : "Study Tasks",
+     "sectionSummary": "Some other interactions with the app are designed to maximize both data gathering and the feedback you receive.",
+     "sectionHtmlContent" : "10study_task"
+     },
+     {
+     "sectionType" : "withdrawing",
+     "sectionTitle" : "Withdrawing",
+     "sectionSummary" : "You may withdraw your consent and discontinue participation at any time.",
+     "sectionHtmlContent" : "11withdrawing"
+     
+     },
+     
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Potential Benefits",
+     "sectionSummary": "The information collected by this study may help you better understand and monitor your type 2 diabetes.",
+     "sectionHtmlContent" : "12potentialbenefits1",
+     "sectionImage": "10_PotentialBenifits",
+     "sectionAnimationUrl":"10_PotentialBenifits"
+     
+     },
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Issues to Consider",
+     "sectionSummary": "Some questions may make you uncomfortable. Simply do not respond.",
+     "sectionHtmlContent" : "13issues_survey",
+     "sectionImage": "11_IssuesToConsider1",
+     "sectionAnimationUrl":"11_IssuesToConsider1"
+     
+     },
+     
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Risks and Benefits",
+     "sectionSummary": "Participating in this study may change how you feel. You may feel more tired, sad, energized, or happy.",
+     "sectionHtmlContent" : "14issues_mood",
+     "sectionImage": "12_IssuesToConsider2",
+     "sectionAnimationUrl":"12_IssuesToConside2"
+     
+     },
+     
+     {
+     "sectionType" : "custom",
+     "sectionTitle": "Risk to Privacy",
+     "sectionSummary": "Some of the data that you provide may be sensitive. We will de-identify your data and use secure computers, but we cannot ensure complete privacy.",
+     "sectionHtmlContent" : "15privacy_risk",
+     "sectionImage": "13_RiskToPrivacy",
+     "sectionAnimationUrl":"13_RiskToPrivacy"
+     
+     }
+     ]
+}

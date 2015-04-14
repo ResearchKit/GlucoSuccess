@@ -1,0 +1,1562 @@
+{
+    "identifier": "baseline",
+    "type": "Survey",
+    "name": "Baseline Survey",
+    "questions": [
+        
+        {  
+           
+         "guid":"535d9b7e-6548-4bf8-8a4d-fb113211e684",
+         "identifier":"yearBorn",
+         "type":"SurveyQuestion",
+         "prompt":"What year were you born?",
+         "constraints":{  
+            "dataType":"integer",
+            "rules":[  
+
+            ],
+            "dataType":"integer",
+            "minValue":1900,
+            "maxValue":2015,
+            "type":"IntegerConstraints"
+         },
+         "uiHint":"numberfield"
+      },
+      
+      {
+            "identifier": "diabetesCheck",
+            "prompt": "Do you have diabetes or pre-diabetes?",
+            "uiHint": "checkbox",
+            "guid": "854cff10-3b2f-41c2-9b8a-17b79768b819a",
+            "type": "SurveyQuestion",
+            "constraints": {
+                "rules": [
+                    {
+                        "operator": "eq",
+                        "skipTo": "health_devices",
+                        "type": "SurveyRule",
+                        "value": 0
+                    }
+                ],
+                "dataType": "boolean",
+                "type": "BooleanConstraints"
+            }
+        },
+        
+      
+      
+      
+      
+      {  
+           
+         "guid":"535d9b7e-9514-4bf8-8a4d-fb113211e684",
+         "identifier":"yearsDiabetes",
+         "type":"SurveyQuestion",
+         "prompt":"If you have type 2 diabetes, how many years have you had it?",
+         "detail": "Enter 0 if you only have pre-diabetes",
+         "constraints":{  
+            "dataType":"integer",
+            "rules":[  
+
+            ],
+            "dataType":"integer",
+            "minValue":0,
+            "maxValue":100,
+            "type":"IntegerConstraints"
+         },
+         "uiHint":"numberfield"
+      },
+		{  
+		 "guid":"e3e89592-2ef0-44e4-8123-186c872f161b",
+		 "identifier":"race",
+		 "type":"SurveyQuestion",
+		 "prompt":"Which race do you identify with?",
+		 "constraints":{  
+			"dataType":"multivalue",
+			"rules":[  
+
+			],
+			"dataType":"string",
+			"enumeration":[  
+			   {  
+				  "label":"Black or African",
+				  "value":"Black or African",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Latino/Hispanic",
+				  "value":"Latino/Hispanic",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Native American",
+				  "value":"Native American",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Pacific Islander",
+				  "value":"Pacific Islander",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Middle Eastern",
+				  "value":"Middle Eastern",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Caribbean",
+				  "value":"Caribbean",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"South Asian",
+				  "value":"South Asian",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"East Asian",
+				  "value":"East Asian",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"White or Caucasian",
+				  "value":"White or Caucasian",
+				  "type":"SurveyQuestionOption"
+			   },
+			   {  
+				  "label":"Mixed",
+				  "value":"Mixed",
+				  "type":"SurveyQuestionOption"
+			   }
+			],
+			"allowOther":true,
+			"allowMultiple":true,
+			"type":"MultiValueConstraints"
+		 },
+		 "uiHint":"checkbox"
+	  },
+	  
+	  {  
+         "guid":"a4dbf77d-dfa4-4c52-ae4b-bdae49997926",
+         "identifier":"education",
+         "type":"SurveyQuestion",
+         "prompt":"What is the highest level of education that you have completed?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"string",
+            "enumeration":[  
+               {  
+                  "label":"Doctoral Degree",
+                  "value":"Doctoral Degree",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Master's Degree",
+                  "value":"Master's Degree",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Some graduate school",
+                  "value":"Some graduate school",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"4-year college degree",
+                  "value":"4-year college degree",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"2-year college degree",
+                  "value":"2-year college degree",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Some college",
+                  "value":"Some college",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"High School Diploma/GED",
+                  "value":"High School Diploma/GED",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Some high school",
+                  "value":"Some high school",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"select"
+      },
+                  
+      {
+         "guid":"80d1eff9-701f-4f6a-931c-93342db212677b72",
+         "identifier":"smokingHistory",
+         "type":"SurveyQuestion",
+         "prompt":"How would you characterize your cigarette-smoking status?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"integer",
+            "enumeration":[  
+               {  
+                  "label":"Current smoker",
+                  "value":"1",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Former smoker",
+                  "value":"2",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Never smoked",
+                  "value":"3",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"select"
+      },
+      
+       {
+         "guid":"8043534f9-701f-4f6a-931c-9334ff212677b72",
+         "identifier":"diseaseHistory",
+         "type":"SurveyQuestion",
+         "prompt":"Have you ever been told by a doctor that you have any of the following?",
+         "detail": "select all that apply",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"integer",
+            "enumeration":[  
+               {  
+                  "label":"Heart attack",
+                  "value":"1",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Stroke",
+                  "value":"2",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Congestive heart failure",
+                  "value":"3",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"High blood pressure (hypertension)",
+                  "value":"4",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Abnormal cholesterol or lipids test",
+                  "value":"5",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Kidney disease related to your diabetes",
+                  "value":"6",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Problems with the circulation to your legs",
+                  "value":"7",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Eye problems related to your diabetes",
+                  "value":"8",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Low blood sugars (hypoglycemia) because of your diabetes medications",
+                  "value":"9",
+                  "type":"SurveyQuestionOption"
+               },
+               {
+               "label":"None of the above",
+               "value":"10",
+               "type":"SurveyQuestionOption"
+               }
+            
+               
+            ],
+            "allowOther":false,
+            "allowMultiple":true,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"select"
+      },
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+            "identifier": "med1_Check",
+            "prompt": "Do you take any medications for your diabetes?",
+            "detail": "",
+            "uiHint": "checkbox",
+            "guid": "854cff10-3b2f-41c2-9b88-17b72287819a",
+            "type": "SurveyQuestion",
+            "constraints": {
+                "rules": [
+                    {
+                        "operator": "eq",
+                        "skipTo": "health_devices",
+                        "type": "SurveyRule",
+                        "value": 0
+                    }
+                ],
+                "dataType": "boolean",
+                "type": "BooleanConstraints"
+            }
+        },
+        {
+            "guid": "824cff10-3b2f-49c2-8c43-17b72287819a",
+            "identifier": "med1_select",
+            "type": "SurveyQuestion",
+            "prompt": "Please select your main diabetes medication from the list below",
+            "detail": "You will be able to add other medications in upcoming questions.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Insulin (Humulin R, Novolin R)",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin lispro (Humalog)",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin aspart (Novolog)",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glulisine (Apidra)",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Prompt insulin zinc (Semilente)",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Neutral protamine Hagedorn (NPH) (Humulin N, Novolin N)",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin zinc (Lente)",
+                        "value": "7",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extended insulin zinc (Ultralente)",
+                        "value": "8",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glargine (Lantus)",
+                        "value": "9",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin detemir (Levemir)",
+                        "value": "10",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Metformin (Glucophage)",
+                        "value": "11",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Phenformin (DBI)",
+                        "value": "12",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Buformin",
+                        "value": "13",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "rosiglitazone (Avandia)",
+                        "value": "14",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "pioglitazone (Actos)",
+                        "value": "15",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "troglitazone (Rezulin)",
+                        "value": "16",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolbutamide (Orinase, Rastinon brand name )",
+                        "value": "17",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acetohexamide (Dymelor)",
+                        "value": "18",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolazamide (Tolinase)",
+                        "value": "19",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "chlorpropamide (Diabinese)",
+                        "value": "20",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glipizide (Glucotrol, Minidiab, Glibenese)",
+                        "value": "21",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glyburide/glibenclamide (Diabeta,Micronase,Glynase,Daonil,Euglycon)",
+                        "value": "22",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glimepiride (Amaryl)",
+                        "value": "23",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliclazide (Uni Diamicron)",
+                        "value": "24",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glycopyramide",
+                        "value": "25",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliquidone (Glurenorm)",
+                        "value": "26",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "repaglinide (Prandin, NovoNorm)",
+                        "value": "27",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "nateglinide (Starlix)",
+                        "value": "28",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "miglitol (Glyset)",
+                        "value": "29",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acarbose (Precose/Glucobay)",
+                        "value": "30",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "voglibose",
+                        "value": "31",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Exenatide (Exendin-4,Byetta)",
+                        "value": "32",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Liraglutide",
+                        "value": "33",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Taspoglutide",
+                        "value": "34",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Lixisenatide (Lyxumia)",
+                        "value": "35",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "vildagliptin (Galvus)",
+                        "value": "36",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "sitagliptin (Januvia)",
+                        "value": "37",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "saxagliptin (Onglyza)",
+                        "value": "38",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "linagliptin (Tradjenta)",
+                        "value": "39",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "allogliptin",
+                        "value": "40",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "septagliptin",
+                        "value": "41",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Canagliflozin (Invokana)",
+                        "value": "42",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Dapagliflozin (Forxiga)",
+                        "value": "43",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": true,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "db8d54db-c00e-4203-af71-2701253aa9e9",
+            "identifier": "med1_dose",
+            "type": "SurveyQuestion",
+            "prompt": "What is your main medicine usual dose?",
+            "detail": "Enter your dose in mg (or in units for Insulin)",
+            "constraints": {
+                "dataType": "decimal",
+                "rules": [],
+                "minValue": 0,
+                "type": "DecimalConstraints"
+            },
+            "uiHint": "numberfield"
+        },
+        {
+            "guid": "824cff10-3b2f-49c2-8c43-17b79997819a",
+            "identifier": "med1_freq",
+            "type": "SurveyQuestion",
+            "prompt": "How frequently do you take this medicine?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Once a day",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Twice a day",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Three times per day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Four times per day",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Five times per day",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Six times or more per day",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "824cff10-3b2f-49c2-8c43-17b79997819a",
+            "identifier": "med1_type",
+            "type": "SurveyQuestion",
+            "prompt": "What type of intake do you take for this medication?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Oral",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Injection",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "identifier": "med2_check",
+            "prompt": "Do you take any other medications for your diabetes?",
+            "detail": "",
+            "uiHint": "checkbox",
+            "guid": "832cff10-3b2f-41c2-9b32-17b72287819a",
+            "type": "SurveyQuestion",
+            "constraints": {
+                "rules": [
+                    {
+                        "operator": "eq",
+                        "skipTo": "health_devices",
+                        "type": "SurveyRule",
+                        "value": 0
+                    }
+                ],
+                "dataType": "boolean",
+                "type": "BooleanConstraints"
+            }
+        },
+        {
+            "guid": "824cff10-3b2f-49c2-8c13-17b72337819a",
+            "identifier": "med2_select",
+            "type": "SurveyQuestion",
+            "prompt": "Please select another of your diabetes medications from the list below",
+            "detail": "You will be able to add other medications in upcoming questions.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Insulin (Humulin R, Novolin R)",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin lispro (Humalog)",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin aspart (Novolog)",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glulisine (Apidra)",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Prompt insulin zinc (Semilente)",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Neutral protamine Hagedorn (NPH) (Humulin N, Novolin N)",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin zinc (Lente)",
+                        "value": "7",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extended insulin zinc (Ultralente)",
+                        "value": "8",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glargine (Lantus)",
+                        "value": "9",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin detemir (Levemir)",
+                        "value": "10",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Metformin (Glucophage)",
+                        "value": "11",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Phenformin (DBI)",
+                        "value": "12",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Buformin",
+                        "value": "13",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "rosiglitazone (Avandia)",
+                        "value": "14",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "pioglitazone (Actos)",
+                        "value": "15",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "troglitazone (Rezulin)",
+                        "value": "16",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolbutamide (Orinase, Rastinon brand name )",
+                        "value": "17",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acetohexamide (Dymelor)",
+                        "value": "18",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolazamide (Tolinase)",
+                        "value": "19",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "chlorpropamide (Diabinese)",
+                        "value": "20",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glipizide (Glucotrol, Minidiab, Glibenese)",
+                        "value": "21",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glyburide/glibenclamide (Diabeta,Micronase,Glynase,Daonil,Euglycon)",
+                        "value": "22",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glimepiride (Amaryl)",
+                        "value": "23",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliclazide (Uni Diamicron)",
+                        "value": "24",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glycopyramide",
+                        "value": "25",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliquidone (Glurenorm)",
+                        "value": "26",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "repaglinide (Prandin, NovoNorm)",
+                        "value": "27",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "nateglinide (Starlix)",
+                        "value": "28",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "miglitol (Glyset)",
+                        "value": "29",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acarbose (Precose/Glucobay)",
+                        "value": "30",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "voglibose",
+                        "value": "31",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Exenatide (Exendin-4,Byetta)",
+                        "value": "32",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Liraglutide",
+                        "value": "33",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Taspoglutide",
+                        "value": "34",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Lixisenatide (Lyxumia)",
+                        "value": "35",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "vildagliptin (Galvus)",
+                        "value": "36",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "sitagliptin (Januvia)",
+                        "value": "37",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "saxagliptin (Onglyza)",
+                        "value": "38",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "linagliptin (Tradjenta)",
+                        "value": "39",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "allogliptin",
+                        "value": "40",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "septagliptin",
+                        "value": "41",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Canagliflozin (Invokana)",
+                        "value": "42",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Dapagliflozin (Forxiga)",
+                        "value": "43",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": true,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "db8d54db-c00e-4789-af71-2701253aa9e9",
+            "identifier": "med2_dose",
+            "type": "SurveyQuestion",
+            "prompt": "What is your intake dose for this medication?",
+            "detail": "Enter your dose in mg (or in units for Insulin)",
+            "constraints": {
+                "dataType": "decimal",
+                "rules": [],
+                "minValue": 0,
+                "type": "DecimalConstraints"
+            },
+            "uiHint": "numberfield"
+        },
+        {
+            "guid": "824cff06-3b2f-49c2-8c43-17b79997819a",
+            "identifier": "med2_freq",
+            "type": "SurveyQuestion",
+            "prompt": "How frequently do you take this medication?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Once a day",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Twice a day",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Three times per day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Four times per day",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Five times per day",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Six times or more per day",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "824cff10-3b2f-49c2-8c43-17b79557519a",
+            "identifier": "med2_type",
+            "type": "SurveyQuestion",
+            "prompt": "What type of intake do you take for this medication?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Oral",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Injection",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "identifier": "med3_check",
+            "prompt": "Would you like to add a third diabetes medication?",
+            "detail": "",
+            "uiHint": "checkbox",
+            "guid": "211cff10-3b2f-41c2-9b32-17b72287819a",
+            "type": "SurveyQuestion",
+            "constraints": {
+                "rules": [
+                    {
+                        "operator": "eq",
+                        "skipTo": "health_devices",
+                        "type": "SurveyRule",
+                        "value": 0
+                    }
+                ],
+                "dataType": "boolean",
+                "type": "BooleanConstraints"
+            }
+        },
+        {
+            "guid": "332cff10-3b2f-49c2-8c13-17b72322219a",
+            "identifier": "med3_select",
+            "type": "SurveyQuestion",
+            "prompt": "Please select another of your diabetes medications from the list below",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Insulin (Humulin R, Novolin R)",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin lispro (Humalog)",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin aspart (Novolog)",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glulisine (Apidra)",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Prompt insulin zinc (Semilente)",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Neutral protamine Hagedorn (NPH) (Humulin N, Novolin N)",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin zinc (Lente)",
+                        "value": "7",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extended insulin zinc (Ultralente)",
+                        "value": "8",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin glargine (Lantus)",
+                        "value": "9",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insulin detemir (Levemir)",
+                        "value": "10",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Metformin (Glucophage)",
+                        "value": "11",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Phenformin (DBI)",
+                        "value": "12",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Buformin",
+                        "value": "13",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "rosiglitazone (Avandia)",
+                        "value": "14",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "pioglitazone (Actos)",
+                        "value": "15",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "troglitazone (Rezulin)",
+                        "value": "16",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolbutamide (Orinase, Rastinon brand name )",
+                        "value": "17",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acetohexamide (Dymelor)",
+                        "value": "18",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "tolazamide (Tolinase)",
+                        "value": "19",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "chlorpropamide (Diabinese)",
+                        "value": "20",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glipizide (Glucotrol, Minidiab, Glibenese)",
+                        "value": "21",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glyburide/glibenclamide (Diabeta,Micronase,Glynase,Daonil,Euglycon)",
+                        "value": "22",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glimepiride (Amaryl)",
+                        "value": "23",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliclazide (Uni Diamicron)",
+                        "value": "24",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "glycopyramide",
+                        "value": "25",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "gliquidone (Glurenorm)",
+                        "value": "26",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "repaglinide (Prandin, NovoNorm)",
+                        "value": "27",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "nateglinide (Starlix)",
+                        "value": "28",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "miglitol (Glyset)",
+                        "value": "29",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "acarbose (Precose/Glucobay)",
+                        "value": "30",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "voglibose",
+                        "value": "31",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Exenatide (Exendin-4,Byetta)",
+                        "value": "32",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Liraglutide",
+                        "value": "33",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Taspoglutide",
+                        "value": "34",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Lixisenatide (Lyxumia)",
+                        "value": "35",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "vildagliptin (Galvus)",
+                        "value": "36",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "sitagliptin (Januvia)",
+                        "value": "37",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "saxagliptin (Onglyza)",
+                        "value": "38",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "linagliptin (Tradjenta)",
+                        "value": "39",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "allogliptin",
+                        "value": "40",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "septagliptin",
+                        "value": "41",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Canagliflozin (Invokana)",
+                        "value": "42",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Dapagliflozin (Forxiga)",
+                        "value": "43",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": true,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "db8d54db-c00e-4789-af99-2701743aa9e9",
+            "identifier": "med3_dose",
+            "type": "SurveyQuestion",
+            "prompt": "What is your intake dose for this medication?",
+            "detail": "Enter your dose in mg (or in units for Insulin)",
+            "constraints": {
+                "dataType": "decimal",
+                "rules": [],
+                "minValue": 0,
+                "type": "DecimalConstraints"
+            },
+            "uiHint": "numberfield"
+        },
+        {
+            "guid": "824cff06-84a3-55c2-8c43-17b77894419a",
+            "identifier": "med3_freq",
+            "type": "SurveyQuestion",
+            "prompt": "How frequently do you take this medication?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Once a day",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Twice a day",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Three times per day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Four times per day",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Five times per day",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Six times or more per day",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "824cff48-3b2f-49c2-8c43-17b79557849a",
+            "identifier": "med3_type",
+            "type": "SurveyQuestion",
+            "prompt": "What type of intake do you take for this medication?",
+            "detail": "",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Oral",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Injection",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "824cff48-3b2f-49c2-9874-17b7abc7849a",
+            "identifier": "health_devices",
+            "type": "SurveyQuestion",
+            "prompt": "Do you use any of the below health-related devices?",
+            "detail": "select all that apply.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Fitness tracker",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Smartwatch",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Digital Glucometer",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Bluetooth-connected scale",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Other",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the above",
+                        "value": "6",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": true,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {  
+         "guid":"d24a61ea-e41a-4c3d-8874-791e55aac2e4",
+         "identifier":"smartphone",
+         "type":"SurveyQuestion",
+         "prompt":"How easy is it for you to use your smartphone?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"string",
+            "enumeration":[  
+               {  
+                  "label":"Very easy",
+                  "value":"Very easy",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Easy",
+                  "value":"Easy",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Neither easy nor difficult",
+                  "value":"Neither easy nor difficult",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Difficult",
+                  "value":"Difficult",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Very Difficult",
+                  "value":"Very Difficult",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"radiobutton"
+      },
+      {  
+         "guid":"1f5a3faa-25fe-44c1-819b-c94cb2afca0d",
+         "identifier":"phone-usage",
+         "type":"SurveyQuestion",
+         "prompt":"Do you ever use your smartphone to look for health or medical information online?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"string",
+            "enumeration":[  
+               {  
+                  "label":"Yes",
+                  "value":"Yes",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"No",
+                  "value":"No",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"Not sure",
+                  "value":"Not sure",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"radiobutton"
+      },
+      {  
+         "guid":"8c610ffd-f533-4d11-9396-43611ab7b9ce",
+         "identifier":"home-usage",
+         "type":"SurveyQuestion",
+         "prompt":"Do you use the Internet or email at home?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+
+            ],
+            "dataType":"boolean",
+            "enumeration":[  
+               {  
+                  "label":"Yes",
+                  "value":"true",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"No",
+                  "value":"false",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"radiobutton"
+      },
+      {  
+         "guid":"5dff3238-18f0-4eb6-b024-7b70c1334698",
+         "identifier":"medical-usage",
+         "type":"SurveyQuestion",
+         "prompt":"Do you ever use the Internet to look for health or medical information online?",
+         "constraints":{  
+            "dataType":"multivalue",
+            "rules":[  
+               {  
+                  "operator":"eq",
+                  "value":"yes",
+                  "skipTo":"medical-usage-yesterday",
+                  "type":"SurveyRule"
+               },
+               {  
+                  "operator":"de",
+                  "skipTo":"video-usage",
+                  "type":"SurveyRule"
+               },
+               {  
+                  "operator":"ne",
+                  "value":"yes",
+                  "skipTo":"video-usage",
+                  "type":"SurveyRule"
+               }
+            ],
+            "dataType":"string",
+            "enumeration":[  
+               {  
+                  "label":"Yes, I have done this",
+                  "value":"yes",
+                  "type":"SurveyQuestionOption"
+               },
+               {  
+                  "label":"No, I have never done this",
+                  "value":"no",
+                  "type":"SurveyQuestionOption"
+               }
+            ],
+            "allowOther":false,
+            "allowMultiple":false,
+            "type":"MultiValueConstraints"
+         },
+         "uiHint":"radiobutton"
+      }
+
+        
+        
+        
+        
+        
+        
+        
+        
+    ]
+}

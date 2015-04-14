@@ -1,0 +1,126 @@
+{
+    "tasks": [
+              {
+              "taskTitle": "Glucose Log",
+              "taskID": "APHLogGlucose-42449E07-7124-40EF-AC93-CA5BBF95FC15",
+              "taskClassName": "APHGlucoseLogTaskViewController"
+              },
+              {
+              "taskTitle": "Waist Measurement",
+              "taskID": "APHMeasureWaist-8BCC1BB7-4991-4018-B9CA-4DE820B1CC73",
+              "taskClassName": "APHWaistTaskViewController"
+              
+              },
+              {
+              "taskTitle": "Weight Measurement",
+              "taskID": "APHEnterWeight-76C03691-4417-4AD6-8F67-F708A8897FF6",
+              "taskClassName": "APHEnterWeightTaskViewController"
+              },
+              {
+              "taskTitle": "Log Food",
+              "taskID": "FoodLog-92F2B523-C7A1-40DF-B89E-BC60EB801AF0",
+              "taskClassName": "APHFoodLogTaskViewController"
+              },
+              {
+              "taskTitle" : "Daily Check",
+              "taskID": "DailyCheck-1E174061-5B02-11E4-8ED6-0800200C9A66",
+              "taskFileName" : "diabetes_daily_check",
+              "taskClassName" : "APHDailyCheckSurveyViewController",
+              "taskCompletionTimeString" : "2 Questions"
+              },
+              {
+              "taskTitle" : "Weekly Check",
+              "taskID": "WeeklyCheck-1E174061-5B02-11E4-8ED6-0800200C9A66",
+              "taskFileName" : "diabetes_weekly_survey",
+              "taskClassName" : "APHWeeklyCheckSurveyViewController",
+              "taskCompletionTimeString" : "2 Questions"
+              },
+              {
+              "taskTitle": "Activity Tracker",
+              "taskID": "APHSevenDayAllocation-00000000-1111-1111-1111-F810BE28D995",
+              "taskClassName": "APHSevenDayFitnessAllocationTaskViewController"
+              },
+              {
+              "taskTitle" : "Baseline Survey",
+              "taskID": "BaselineSurvey-1E77771-5B02-11E4-8ED6-0800200C9A66",
+              "taskFileName" : "BaselineSurvey",
+              "taskClassName" : "APHbaseline",
+              "taskCompletionTimeString" : "27 Questions"
+              },
+              {
+              "taskTitle" : "Hemoglobin A1C Check",
+              "taskID": "Hemoglobin-1E77771-5B02-11E4-8ED6-0811200C9A66",
+              "taskFileName" : "diabetes_A1C",
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "3 Questions"
+              },
+              {
+              "taskTitle" : "Sleep Survey",
+              "taskID": "SleepSurvey-1E77771-5B02-11E4-8ED6-0811200C9A66",
+              "taskFileName" : "DiabetesSleepSurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "25 Questions"
+              },
+              {
+              "taskTitle" : "Quality of Life Survery",
+              "taskID": "QualityOfLife-1E77771-5B02-11E4-8ED6-0811200C9A66",
+              "taskFileName" : "DiabetesQoLSurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "15 Questions"
+              }
+              
+              ],
+    "schedules": [
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 28 * *",
+                  "taskID": "APHMeasureWaist-8BCC1BB7-4991-4018-B9CA-4DE820B1CC73"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "APHEnterWeight-76C03691-4417-4AD6-8F67-F708A8897FF6"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "FoodLog-92F2B523-C7A1-40DF-B89E-BC60EB801AF0"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "DailyCheck-1E174061-5B02-11E4-8ED6-0800200C9A66"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "WeeklyCheck-1E174061-5B02-11E4-8ED6-0800200C9A66"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "APHSevenDayAllocation-00000000-1111-1111-1111-F810BE28D995"
+                  },
+                  {
+                  "scheduleType": "once",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "BaselineSurvey-1E77771-5B02-11E4-8ED6-0800200C9A66"
+                  },
+                  {
+                  "scheduleType": "once",
+                  "scheduleString": "0 5 1 * *",
+                  "taskID": "Hemoglobin-1E77771-5B02-11E4-8ED6-0811200C9A66"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 30 * *",
+                  "taskID": "SleepSurvey-1E77771-5B02-11E4-8ED6-0811200C9A66"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 30 * *",
+                  "taskID": "QualityOfLife-1E77771-5B02-11E4-8ED6-0811200C9A66"
+                  }
+                  
+                ]
+}

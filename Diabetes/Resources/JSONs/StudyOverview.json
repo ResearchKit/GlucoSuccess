@@ -1,0 +1,34 @@
+{
+    "disease_name":"GlucoSuccess",
+    "from_date":"",
+    "to_date":"",
+    "logo_name": "logo_research_institute",
+    "questions":
+    [
+     {
+     "title":"Welcome to GlucoSuccess",
+     "details":"A Diabetes Research Study",
+     "show_consent": "yes",
+     },
+     {
+     "title":"About this Study",
+     "details":"AboutStudy_intro",
+     "icon_image":"paperplus_icon",
+     "tint_color" : "blue"
+     },
+     
+     {
+     "title":"How this Study works",
+     "details":"howstudyworks_intro",
+     "icon_image":"rulerpencil_icon",
+     "tint_color" : "red"
+     },
+     
+     {
+     "title":"Who is Eligible to Participate",
+     "details":"EligibleToParticipate_intro",
+     "icon_image":"clipboard_icon",
+     "tint_color" : "green"
+     } 
+     ]
+}

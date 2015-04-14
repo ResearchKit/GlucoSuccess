@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+a  {
+	
+	color:#1d97c2;
+	
+}
+
+
+a:active {
+    color:#1d97c2;
+	background-color: #ffffff;
+}
+
+body {
+    font-family: "Helvetica Neue", 'HelveticaNeue', 'HelveticaNeue';
+    font-size:16pt;
+    color:#000000;
+    line-height:normal;
+    font-weight:normal;
+    padding-top:0px;
+    padding-bottom:20px;
+}
+
+p,  h2 {
+    margin-top: 0;
+    padding-right: 0px;
+    padding-left: 0px;
+    
+}
+
+h1 {
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue light', 'Helvetica Neue';
+    font-size:19pt;
+    color:#000000;
+    line-height:normal;
+    font-weight:normal;
+    padding-top:0px;
+    padding-bottom:0px;
+    text-align:center;
+    
+}
+
+
+
+
+
+.footer {
+    background-color: #FFFFFF;
+    width: 20%;
+    margin: 0 auto;
+    
+    
+    
+}
+
+
+.content {
+    padding: 10px 10px 10px 15px;
+}
+
+
+.content ul, .content ol {
+    padding: 0 0px 0px 0px;
+}
+
+
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+
+
+boldie
+{
+    font-family:'HelveticaNeue-Medium', 'Helvetica Neue Medium', Helvetica;
+    font-size:16pt;
+    color:#000000;
+    line-height:normal;
+    font-weight:normal;
+    padding-top:0px;
+    padding-bottom:0px;
+    
+}
+
+ul, ol {
+    font-family: "Helvetica Neue", 'HelveticaNeue', 'HelveticaNeue';
+    font-size:16pt;
+    color:#000000;
+    list-style-type: round;
+    list-style-position: outside;
+    line-height:115%;
+    
+}
+
+.ExternalClass * {line-height: 100%}

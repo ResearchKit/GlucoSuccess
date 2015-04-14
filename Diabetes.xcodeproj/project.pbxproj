@@ -1,0 +1,1286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		083B0B8C1A78236700C19E68 /* consent_01@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B7D1A78236700C19E68 /* consent_01@2x.m4v */; };
+		083B0B8D1A78236700C19E68 /* consent_02@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B7E1A78236700C19E68 /* consent_02@2x.m4v */; };
+		083B0B8E1A78236700C19E68 /* consent_03@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B7F1A78236700C19E68 /* consent_03@2x.m4v */; };
+		083B0B8F1A78236700C19E68 /* consent_04@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B801A78236700C19E68 /* consent_04@2x.m4v */; };
+		083B0B901A78236700C19E68 /* consent_05@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B811A78236700C19E68 /* consent_05@2x.m4v */; };
+		083B0B911A78236700C19E68 /* consent_06@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B821A78236700C19E68 /* consent_06@2x.m4v */; };
+		083B0B921A78236700C19E68 /* consent_07@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B831A78236700C19E68 /* consent_07@2x.m4v */; };
+		083B0B931A78236700C19E68 /* consent_01@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B851A78236700C19E68 /* consent_01@3x.m4v */; };
+		083B0B941A78236700C19E68 /* consent_02@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B861A78236700C19E68 /* consent_02@3x.m4v */; };
+		083B0B951A78236700C19E68 /* consent_03@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B871A78236700C19E68 /* consent_03@3x.m4v */; };
+		083B0B961A78236700C19E68 /* consent_04@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B881A78236700C19E68 /* consent_04@3x.m4v */; };
+		083B0B971A78236700C19E68 /* consent_05@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B891A78236700C19E68 /* consent_05@3x.m4v */; };
+		083B0B981A78236700C19E68 /* consent_06@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B8A1A78236700C19E68 /* consent_06@3x.m4v */; };
+		083B0B991A78236700C19E68 /* consent_07@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 083B0B8B1A78236700C19E68 /* consent_07@3x.m4v */; };
+		085612271A9682EC00BA27DC /* APHGlucoseLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612261A9682EC00BA27DC /* APHGlucoseLevelsViewController.m */; };
+		0856122C1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856122B1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.m */; };
+		0856122F1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856122E1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.m */; };
+		085614E01A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085614DF1A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m */; };
+		0857F2ED1A9F85E800587E4D /* diabetes_daily_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 0857F2EB1A9F85E800587E4D /* diabetes_daily_check.json */; };
+		0857F2EE1A9F85E800587E4D /* diabetes_weekly_survey.json in Resources */ = {isa = PBXBuildFile; fileRef = 0857F2EC1A9F85E800587E4D /* diabetes_weekly_survey.json */; };
+		0857F2F21A9F877600587E4D /* APHDailyCheckSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0857F2F11A9F877600587E4D /* APHDailyCheckSurveyViewController.m */; };
+		0857F2F61A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0857F2F51A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m */; };
+		085DAAA11A92876700C30911 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 085DAAA01A92876700C30911 /* APHConsentSection.json */; };
+		0864D5CF1A25A77400A7856C /* APHBaselineSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0864D5CE1A25A77400A7856C /* APHBaselineSurvey.m */; };
+		0867AF911ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0867AF901ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m */; };
+		087EC8751A2FA428009A6768 /* APHFoodLogTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC8741A2FA428009A6768 /* APHFoodLogTaskViewController.m */; };
+		087EC87C1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC87B1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m */; };
+		087EC87F1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087EC87E1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard */; };
+		088FCFB81A9CF34300D4BC3B /* APHSliderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 088FCFB71A9CF34300D4BC3B /* APHSliderCellView.m */; };
+		088FCFBB1A9CF64B00D4BC3B /* APHSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088FCFBA1A9CF64B00D4BC3B /* APHSliderViewController.m */; };
+		0894653D1A8C178700A983AC /* APHGlucoseInsightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0894653C1A8C178700A983AC /* APHGlucoseInsightsViewController.m */; };
+		08ADDD771AA0463700EAE1D6 /* APHProfileExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADDD761AA0463700EAE1D6 /* APHProfileExtender.m */; };
+		08B972791A22584200316D49 /* APHGlucoseLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B972781A22584200316D49 /* APHGlucoseLog.storyboard */; };
+		08B9727C1A225D7700316D49 /* APHGlucoseLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9727B1A225D7700316D49 /* APHGlucoseLogViewController.m */; };
+		08B972841A2300D200316D49 /* APHGlucoseLogTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B972831A2300D200316D49 /* APHGlucoseLogTaskViewController.m */; };
+		08B9728E1A23CC7F00316D49 /* APHGlucoseEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9728D1A23CC7F00316D49 /* APHGlucoseEntryViewController.m */; };
+		08B9B9671A8FF7010073F77B /* APHFoodInsightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B9B9661A8FF7010073F77B /* APHFoodInsightsViewController.m */; };
+		08DA0E841AD018D500D71E0B /* DiabetesQoLSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 08DA0E821AD018D500D71E0B /* DiabetesQoLSurvey.json */; };
+		08DA0E851AD018D500D71E0B /* DiabetesSleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 08DA0E831AD018D500D71E0B /* DiabetesSleepSurvey.json */; };
+		5A004DFB1AA76C1D00F7A9A9 /* BaselineSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A004DFA1AA76C1D00F7A9A9 /* BaselineSurvey.json */; };
+		5A004DFF1AA76C3D00F7A9A9 /* APHbaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A004DFE1AA76C3D00F7A9A9 /* APHbaseline.m */; };
+		5A004E391AAA47DC00F7A9A9 /* diabetes_A1C.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A004E381AAA47DC00F7A9A9 /* diabetes_A1C.json */; };
+		5B1095C51A9FA2CE006631F5 /* consent.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B1095C41A9FA2CE006631F5 /* consent.pdf */; };
+		5B15DCE61A114B5600BEA0D1 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCE41A114B5600BEA0D1 /* Learn.json */; };
+		5B15DCE71A114B5600BEA0D1 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCE51A114B5600BEA0D1 /* WithdrawStudy.json */; };
+		5B1D9D7E1A1BD581000F4AD6 /* APHDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1D9D791A1BD581000F4AD6 /* APHDashboard.storyboard */; };
+		5B1D9D7F1A1BD581000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D7B1A1BD581000F4AD6 /* APHDashboardEditViewController.m */; };
+		5B1D9D801A1BD581000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D7D1A1BD581000F4AD6 /* APHDashboardViewController.m */; };
+		5B908AA61A265B1400F9E907 /* TermsAndConditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B908AA51A265B1400F9E907 /* TermsAndConditions.json */; };
+		5B908AAB1A265DDF00F9E907 /* APHOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B908AAA1A265DDF00F9E907 /* APHOnboarding.storyboard */; };
+		5BB10C201A921286002D2DD2 /* APHTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */; };
+		5BBDAECB1A33E7440047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAECA1A33E7440047DF87 /* HTMLContent */; };
+		743AD1041ABE363C0071C218 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD0F61ABE36180071C218 /* ResearchKit.framework */; };
+		743AD1051ABE36420071C218 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1011ABE36280071C218 /* APCAppCore.framework */; };
+		743AD1071ABE36490071C218 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1011ABE36280071C218 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		743AD10B1ABE36500071C218 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD0F61ABE36180071C218 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74B713C91AC0714800FE2553 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B7138A1ABF032D00FE2553 /* BridgeSDK.framework */; };
+		74B713CA1AC0714800FE2553 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74B7138A1ABF032D00FE2553 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B20DC6D1A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20DC691A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.m */; };
+		A781160A1A96AE5700CEC822 /* 00_Blank_to_Activities@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78115FB1A96AE5700CEC822 /* 00_Blank_to_Activities@2x.m4v */; };
+		A781160B1A96AE5700CEC822 /* 01_Activities_to_SensorData@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78115FC1A96AE5700CEC822 /* 01_Activities_to_SensorData@2x.m4v */; };
+		A781160C1A96AE5700CEC822 /* 02_SensorData_to_DataGathering@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78115FD1A96AE5700CEC822 /* 02_SensorData_to_DataGathering@2x.m4v */; };
+		A781160D1A96AE5700CEC822 /* 10_PotentialBenifits@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78115FE1A96AE5700CEC822 /* 10_PotentialBenifits@2x.m4v */; };
+		A781160E1A96AE5700CEC822 /* 11_IssuesToConsider1@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78115FF1A96AE5700CEC822 /* 11_IssuesToConsider1@2x.m4v */; };
+		A781160F1A96AE5700CEC822 /* 12_IssuesToConside2@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116001A96AE5700CEC822 /* 12_IssuesToConside2@2x.m4v */; };
+		A78116101A96AE5700CEC822 /* 13_RiskToPrivacy@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116011A96AE5700CEC822 /* 13_RiskToPrivacy@2x.m4v */; };
+		A78116111A96AE5700CEC822 /* 00_Blank_to_Activities@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116031A96AE5700CEC822 /* 00_Blank_to_Activities@3x.m4v */; };
+		A78116121A96AE5700CEC822 /* 01_Activities_to_SensorData@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116041A96AE5700CEC822 /* 01_Activities_to_SensorData@3x.m4v */; };
+		A78116131A96AE5700CEC822 /* 02_SensorData_to_DataGathering@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116051A96AE5700CEC822 /* 02_SensorData_to_DataGathering@3x.m4v */; };
+		A78116141A96AE5700CEC822 /* 10_PotentialBenifits@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116061A96AE5700CEC822 /* 10_PotentialBenifits@3x.m4v */; };
+		A78116151A96AE5700CEC822 /* 11_IssuesToConsider1@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116071A96AE5700CEC822 /* 11_IssuesToConsider1@3x.m4v */; };
+		A78116161A96AE5700CEC822 /* 12_IssuesToConside2@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116081A96AE5700CEC822 /* 12_IssuesToConside2@3x.m4v */; };
+		A78116171A96AE5700CEC822 /* 13_RiskToPrivacy@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = A78116091A96AE5700CEC822 /* 13_RiskToPrivacy@3x.m4v */; };
+		F5CD31701A0D7AB300341E51 /* APHBaselineTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD316F1A0D7AB300341E51 /* APHBaselineTaskViewController.m */; };
+		F5CD31771A0D86E900341E51 /* APHEnterWeightTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD31761A0D86E900341E51 /* APHEnterWeightTaskViewController.m */; };
+		F5D44D6419F83F6F0011B334 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D44D6319F83F6F0011B334 /* main.m */; };
+		F5D44D6F19F83F6F0011B334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D44D6E19F83F6F0011B334 /* Images.xcassets */; };
+		F5D44DAF19F840D80011B334 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D44DAE19F840D80011B334 /* CoreData.framework */; };
+		F5D44DB119F840E20011B334 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D44DB019F840E20011B334 /* AVFoundation.framework */; };
+		F5D44DB319F841520011B334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D44DB219F841520011B334 /* HealthKit.framework */; };
+		F5D44E0919F841C00011B334 /* NSString+CustomMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D44DB819F841C00011B334 /* NSString+CustomMethods.m */; };
+		F5D44E0C19F841C00011B334 /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D44DBF19F841C00011B334 /* APHInclusionCriteriaViewController.m */; };
+		F5D44E1619F841C00011B334 /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DD319F841C00011B334 /* APCParameters.json */; };
+		F5D44E1719F841C00011B334 /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DD419F841C00011B334 /* APHTasksAndSchedules.json */; };
+		F5D44E1919F841C00011B334 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DD619F841C00011B334 /* StudyOverview.json */; };
+		F5D44E1A19F841C00011B334 /* sample.task in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DD819F841C00011B334 /* sample.task */; };
+		F5D44E1C19F841C00011B334 /* APHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D44DDD19F841C00011B334 /* APHAppDelegate.m */; };
+		F5D44E1E19F841C00011B334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DE019F841C00011B334 /* LaunchScreen.xib */; };
+		F5D44E1F19F841C00011B334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D44DE119F841C00011B334 /* Main.storyboard */; };
+		F5D44E3419F8434F0011B334 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D44E3319F8434F0011B334 /* Security.framework */; };
+		F5E542221A0D8AD500639891 /* APHWaistTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E542211A0D8AD500639891 /* APHWaistTaskViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		743AD0F51ABE36180071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
+		743AD1001ABE36280071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5179B2919D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		743AD1021ABE36280071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5179B3419D09128001DCCB7;
+			remoteInfo = APCAppCoreTests;
+		};
+		743AD1081ABE36490071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5179B2819D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		743AD10C1ABE36500071C218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
+		745DB4531ADB22B80007C484 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		74B713891ABF032D00FE2553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5019BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		74B7138B1ABF032D00FE2553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5B19BE258C006601C7;
+			remoteInfo = BridgeSDKTests;
+		};
+		74B713921ABF034F00FE2553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		74B713CB1AC0714800FE2553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5D44DA919F840A80011B334 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				743AD1071ABE36490071C218 /* APCAppCore.framework in Embed Frameworks */,
+				743AD10B1ABE36500071C218 /* ResearchKit.framework in Embed Frameworks */,
+				74B713CA1AC0714800FE2553 /* BridgeSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		083B0B7D1A78236700C19E68 /* consent_01@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_01@2x.m4v"; sourceTree = "<group>"; };
+		083B0B7E1A78236700C19E68 /* consent_02@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_02@2x.m4v"; sourceTree = "<group>"; };
+		083B0B7F1A78236700C19E68 /* consent_03@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_03@2x.m4v"; sourceTree = "<group>"; };
+		083B0B801A78236700C19E68 /* consent_04@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_04@2x.m4v"; sourceTree = "<group>"; };
+		083B0B811A78236700C19E68 /* consent_05@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_05@2x.m4v"; sourceTree = "<group>"; };
+		083B0B821A78236700C19E68 /* consent_06@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_06@2x.m4v"; sourceTree = "<group>"; };
+		083B0B831A78236700C19E68 /* consent_07@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_07@2x.m4v"; sourceTree = "<group>"; };
+		083B0B851A78236700C19E68 /* consent_01@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_01@3x.m4v"; sourceTree = "<group>"; };
+		083B0B861A78236700C19E68 /* consent_02@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_02@3x.m4v"; sourceTree = "<group>"; };
+		083B0B871A78236700C19E68 /* consent_03@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_03@3x.m4v"; sourceTree = "<group>"; };
+		083B0B881A78236700C19E68 /* consent_04@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_04@3x.m4v"; sourceTree = "<group>"; };
+		083B0B891A78236700C19E68 /* consent_05@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_05@3x.m4v"; sourceTree = "<group>"; };
+		083B0B8A1A78236700C19E68 /* consent_06@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_06@3x.m4v"; sourceTree = "<group>"; };
+		083B0B8B1A78236700C19E68 /* consent_07@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_07@3x.m4v"; sourceTree = "<group>"; };
+		085612251A9682EC00BA27DC /* APHGlucoseLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHGlucoseLevelsViewController.h; path = "Glucose Levels/APHGlucoseLevelsViewController.h"; sourceTree = "<group>"; };
+		085612261A9682EC00BA27DC /* APHGlucoseLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHGlucoseLevelsViewController.m; path = "Glucose Levels/APHGlucoseLevelsViewController.m"; sourceTree = "<group>"; };
+		0856122A1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHGlucoseLevelsDaysViewController.h; path = "Glucose Levels/APHGlucoseLevelsDaysViewController.h"; sourceTree = "<group>"; };
+		0856122B1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHGlucoseLevelsDaysViewController.m; path = "Glucose Levels/APHGlucoseLevelsDaysViewController.m"; sourceTree = "<group>"; };
+		0856122D1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHGlucoseLevelsMealTimesViewController.h; path = "Glucose Levels/APHGlucoseLevelsMealTimesViewController.h"; sourceTree = "<group>"; };
+		0856122E1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHGlucoseLevelsMealTimesViewController.m; path = "Glucose Levels/APHGlucoseLevelsMealTimesViewController.m"; sourceTree = "<group>"; };
+		085614DE1A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseLevelTaskViewController.h; sourceTree = "<group>"; };
+		085614DF1A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseLevelTaskViewController.m; sourceTree = "<group>"; };
+		0857F2EB1A9F85E800587E4D /* diabetes_daily_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diabetes_daily_check.json; sourceTree = "<group>"; };
+		0857F2EC1A9F85E800587E4D /* diabetes_weekly_survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diabetes_weekly_survey.json; sourceTree = "<group>"; };
+		0857F2F01A9F877600587E4D /* APHDailyCheckSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyCheckSurveyViewController.h; path = Surveys/APHDailyCheckSurveyViewController.h; sourceTree = "<group>"; };
+		0857F2F11A9F877600587E4D /* APHDailyCheckSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyCheckSurveyViewController.m; path = Surveys/APHDailyCheckSurveyViewController.m; sourceTree = "<group>"; };
+		0857F2F41A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWeeklyCheckSurveyViewController.h; path = Surveys/APHWeeklyCheckSurveyViewController.h; sourceTree = "<group>"; };
+		0857F2F51A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWeeklyCheckSurveyViewController.m; path = Surveys/APHWeeklyCheckSurveyViewController.m; sourceTree = "<group>"; };
+		085DAAA01A92876700C30911 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
+		0864D5CD1A25A77400A7856C /* APHBaselineSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHBaselineSurvey.h; sourceTree = "<group>"; };
+		0864D5CE1A25A77400A7856C /* APHBaselineSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHBaselineSurvey.m; sourceTree = "<group>"; };
+		0867AF8F1ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseEntryTableViewCell.h; sourceTree = "<group>"; };
+		0867AF901ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseEntryTableViewCell.m; sourceTree = "<group>"; };
+		087EC8731A2FA428009A6768 /* APHFoodLogTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHFoodLogTaskViewController.h; path = "Food Log/APHFoodLogTaskViewController.h"; sourceTree = "<group>"; };
+		087EC8741A2FA428009A6768 /* APHFoodLogTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHFoodLogTaskViewController.m; path = "Food Log/APHFoodLogTaskViewController.m"; sourceTree = "<group>"; };
+		087EC87A1A2FACF9009A6768 /* APHFoodLogLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHFoodLogLaunchViewController.h; path = "Food Log/APHFoodLogLaunchViewController.h"; sourceTree = "<group>"; };
+		087EC87B1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHFoodLogLaunchViewController.m; path = "Food Log/APHFoodLogLaunchViewController.m"; sourceTree = "<group>"; };
+		087EC87E1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = APHFoodLogLaunch.storyboard; path = "Food Log/APHFoodLogLaunch.storyboard"; sourceTree = "<group>"; };
+		088FCFB61A9CF34300D4BC3B /* APHSliderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSliderCellView.h; sourceTree = "<group>"; };
+		088FCFB71A9CF34300D4BC3B /* APHSliderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSliderCellView.m; sourceTree = "<group>"; };
+		088FCFB91A9CF64B00D4BC3B /* APHSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSliderViewController.h; sourceTree = "<group>"; };
+		088FCFBA1A9CF64B00D4BC3B /* APHSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSliderViewController.m; sourceTree = "<group>"; };
+		0894653B1A8C178700A983AC /* APHGlucoseInsightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseInsightsViewController.h; sourceTree = "<group>"; };
+		0894653C1A8C178700A983AC /* APHGlucoseInsightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseInsightsViewController.m; sourceTree = "<group>"; };
+		08ADDD751AA0463700EAE1D6 /* APHProfileExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHProfileExtender.h; sourceTree = "<group>"; };
+		08ADDD761AA0463700EAE1D6 /* APHProfileExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHProfileExtender.m; sourceTree = "<group>"; };
+		08B972781A22584200316D49 /* APHGlucoseLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHGlucoseLog.storyboard; sourceTree = "<group>"; };
+		08B9727A1A225D7700316D49 /* APHGlucoseLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseLogViewController.h; sourceTree = "<group>"; };
+		08B9727B1A225D7700316D49 /* APHGlucoseLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseLogViewController.m; sourceTree = "<group>"; };
+		08B972821A2300D200316D49 /* APHGlucoseLogTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseLogTaskViewController.h; sourceTree = "<group>"; };
+		08B972831A2300D200316D49 /* APHGlucoseLogTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseLogTaskViewController.m; sourceTree = "<group>"; };
+		08B9728C1A23CC7F00316D49 /* APHGlucoseEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseEntryViewController.h; sourceTree = "<group>"; };
+		08B9728D1A23CC7F00316D49 /* APHGlucoseEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseEntryViewController.m; sourceTree = "<group>"; };
+		08B9B9651A8FF7010073F77B /* APHFoodInsightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHFoodInsightsViewController.h; sourceTree = "<group>"; };
+		08B9B9661A8FF7010073F77B /* APHFoodInsightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHFoodInsightsViewController.m; sourceTree = "<group>"; };
+		08DA0E821AD018D500D71E0B /* DiabetesQoLSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DiabetesQoLSurvey.json; sourceTree = "<group>"; };
+		08DA0E831AD018D500D71E0B /* DiabetesSleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DiabetesSleepSurvey.json; sourceTree = "<group>"; };
+		5A004DFA1AA76C1D00F7A9A9 /* BaselineSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaselineSurvey.json; sourceTree = "<group>"; };
+		5A004DFD1AA76C3D00F7A9A9 /* APHbaseline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHbaseline.h; sourceTree = "<group>"; };
+		5A004DFE1AA76C3D00F7A9A9 /* APHbaseline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHbaseline.m; sourceTree = "<group>"; };
+		5A004E381AAA47DC00F7A9A9 /* diabetes_A1C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diabetes_A1C.json; sourceTree = "<group>"; };
+		5B1095C41A9FA2CE006631F5 /* consent.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = consent.pdf; sourceTree = "<group>"; };
+		5B15DCE41A114B5600BEA0D1 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
+		5B15DCE51A114B5600BEA0D1 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
+		5B1D9D791A1BD581000F4AD6 /* APHDashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHDashboard.storyboard; sourceTree = "<group>"; };
+		5B1D9D7A1A1BD581000F4AD6 /* APHDashboardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardEditViewController.h; sourceTree = "<group>"; };
+		5B1D9D7B1A1BD581000F4AD6 /* APHDashboardEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardEditViewController.m; sourceTree = "<group>"; };
+		5B1D9D7C1A1BD581000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
+		5B1D9D7D1A1BD581000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
+		5B908AA51A265B1400F9E907 /* TermsAndConditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TermsAndConditions.json; sourceTree = "<group>"; };
+		5B908AAA1A265DDF00F9E907 /* APHOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHOnboarding.storyboard; sourceTree = "<group>"; };
+		5BB10C1E1A921286002D2DD2 /* APHTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewItem.h; sourceTree = "<group>"; };
+		5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewItem.m; sourceTree = "<group>"; };
+		5BBDAECA1A33E7440047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
+		743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = researchkit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
+		74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = BridgeSDK/BridgeSDK.xcodeproj; sourceTree = "<group>"; };
+		7B20DC681A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSevenDayFitnessAllocationTaskViewController.h; sourceTree = "<group>"; };
+		7B20DC691A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSevenDayFitnessAllocationTaskViewController.m; sourceTree = "<group>"; };
+		A78115FB1A96AE5700CEC822 /* 00_Blank_to_Activities@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00_Blank_to_Activities@2x.m4v"; sourceTree = "<group>"; };
+		A78115FC1A96AE5700CEC822 /* 01_Activities_to_SensorData@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01_Activities_to_SensorData@2x.m4v"; sourceTree = "<group>"; };
+		A78115FD1A96AE5700CEC822 /* 02_SensorData_to_DataGathering@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "02_SensorData_to_DataGathering@2x.m4v"; sourceTree = "<group>"; };
+		A78115FE1A96AE5700CEC822 /* 10_PotentialBenifits@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits@2x.m4v"; sourceTree = "<group>"; };
+		A78115FF1A96AE5700CEC822 /* 11_IssuesToConsider1@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_IssuesToConsider1@2x.m4v"; sourceTree = "<group>"; };
+		A78116001A96AE5700CEC822 /* 12_IssuesToConside2@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_IssuesToConside2@2x.m4v"; sourceTree = "<group>"; };
+		A78116011A96AE5700CEC822 /* 13_RiskToPrivacy@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "13_RiskToPrivacy@2x.m4v"; sourceTree = "<group>"; };
+		A78116031A96AE5700CEC822 /* 00_Blank_to_Activities@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "00_Blank_to_Activities@3x.m4v"; sourceTree = "<group>"; };
+		A78116041A96AE5700CEC822 /* 01_Activities_to_SensorData@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01_Activities_to_SensorData@3x.m4v"; sourceTree = "<group>"; };
+		A78116051A96AE5700CEC822 /* 02_SensorData_to_DataGathering@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "02_SensorData_to_DataGathering@3x.m4v"; sourceTree = "<group>"; };
+		A78116061A96AE5700CEC822 /* 10_PotentialBenifits@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "10_PotentialBenifits@3x.m4v"; sourceTree = "<group>"; };
+		A78116071A96AE5700CEC822 /* 11_IssuesToConsider1@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "11_IssuesToConsider1@3x.m4v"; sourceTree = "<group>"; };
+		A78116081A96AE5700CEC822 /* 12_IssuesToConside2@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12_IssuesToConside2@3x.m4v"; sourceTree = "<group>"; };
+		A78116091A96AE5700CEC822 /* 13_RiskToPrivacy@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "13_RiskToPrivacy@3x.m4v"; sourceTree = "<group>"; };
+		F5CD316E1A0D7AB300341E51 /* APHBaselineTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHBaselineTaskViewController.h; sourceTree = "<group>"; };
+		F5CD316F1A0D7AB300341E51 /* APHBaselineTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHBaselineTaskViewController.m; sourceTree = "<group>"; };
+		F5CD31751A0D86E900341E51 /* APHEnterWeightTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEnterWeightTaskViewController.h; sourceTree = "<group>"; };
+		F5CD31761A0D86E900341E51 /* APHEnterWeightTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEnterWeightTaskViewController.m; sourceTree = "<group>"; };
+		F5D44D5E19F83F6F0011B334 /* Diabetes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diabetes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D44D6219F83F6F0011B334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5D44D6319F83F6F0011B334 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5D44D6E19F83F6F0011B334 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F5D44DAE19F840D80011B334 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5D44DB019F840E20011B334 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F5D44DB219F841520011B334 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F5D44DB419F841520011B334 /* Diabetes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Diabetes.entitlements; sourceTree = "<group>"; };
+		F5D44DB719F841C00011B334 /* NSString+CustomMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CustomMethods.h"; sourceTree = "<group>"; };
+		F5D44DB819F841C00011B334 /* NSString+CustomMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CustomMethods.m"; sourceTree = "<group>"; };
+		F5D44DBE19F841C00011B334 /* APHInclusionCriteriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInclusionCriteriaViewController.h; sourceTree = "<group>"; };
+		F5D44DBF19F841C00011B334 /* APHInclusionCriteriaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHInclusionCriteriaViewController.m; sourceTree = "<group>"; };
+		F5D44DD319F841C00011B334 /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
+		F5D44DD419F841C00011B334 /* APHTasksAndSchedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedules.json; sourceTree = "<group>"; };
+		F5D44DD619F841C00011B334 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
+		F5D44DD819F841C00011B334 /* sample.task */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sample.task; sourceTree = "<group>"; };
+		F5D44DDC19F841C00011B334 /* APHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAppDelegate.h; sourceTree = "<group>"; };
+		F5D44DDD19F841C00011B334 /* APHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAppDelegate.m; sourceTree = "<group>"; };
+		F5D44DE019F841C00011B334 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		F5D44DE119F841C00011B334 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F5D44E3319F8434F0011B334 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F5E542201A0D8AD500639891 /* APHWaistTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWaistTaskViewController.h; sourceTree = "<group>"; };
+		F5E542211A0D8AD500639891 /* APHWaistTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWaistTaskViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5D44D5B19F83F6F0011B334 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743AD1051ABE36420071C218 /* APCAppCore.framework in Frameworks */,
+				743AD1041ABE363C0071C218 /* ResearchKit.framework in Frameworks */,
+				F5D44E3419F8434F0011B334 /* Security.framework in Frameworks */,
+				F5D44DB119F840E20011B334 /* AVFoundation.framework in Frameworks */,
+				74B713C91AC0714800FE2553 /* BridgeSDK.framework in Frameworks */,
+				F5D44DAF19F840D80011B334 /* CoreData.framework in Frameworks */,
+				F5D44DB319F841520011B334 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		083B0B7A1A78236700C19E68 /* ResearchKit-Assets */ = {
+			isa = PBXGroup;
+			children = (
+				083B0B7B1A78236700C19E68 /* Consent */,
+			);
+			path = "ResearchKit-Assets";
+			sourceTree = "<group>";
+		};
+		083B0B7B1A78236700C19E68 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				083B0B7C1A78236700C19E68 /* phone@2x */,
+				083B0B841A78236700C19E68 /* phone@3x */,
+			);
+			path = Consent;
+			sourceTree = "<group>";
+		};
+		083B0B7C1A78236700C19E68 /* phone@2x */ = {
+			isa = PBXGroup;
+			children = (
+				083B0B7D1A78236700C19E68 /* consent_01@2x.m4v */,
+				083B0B7E1A78236700C19E68 /* consent_02@2x.m4v */,
+				083B0B7F1A78236700C19E68 /* consent_03@2x.m4v */,
+				083B0B801A78236700C19E68 /* consent_04@2x.m4v */,
+				083B0B811A78236700C19E68 /* consent_05@2x.m4v */,
+				083B0B821A78236700C19E68 /* consent_06@2x.m4v */,
+				083B0B831A78236700C19E68 /* consent_07@2x.m4v */,
+			);
+			path = "phone@2x";
+			sourceTree = "<group>";
+		};
+		083B0B841A78236700C19E68 /* phone@3x */ = {
+			isa = PBXGroup;
+			children = (
+				083B0B851A78236700C19E68 /* consent_01@3x.m4v */,
+				083B0B861A78236700C19E68 /* consent_02@3x.m4v */,
+				083B0B871A78236700C19E68 /* consent_03@3x.m4v */,
+				083B0B881A78236700C19E68 /* consent_04@3x.m4v */,
+				083B0B891A78236700C19E68 /* consent_05@3x.m4v */,
+				083B0B8A1A78236700C19E68 /* consent_06@3x.m4v */,
+				083B0B8B1A78236700C19E68 /* consent_07@3x.m4v */,
+			);
+			path = "phone@3x";
+			sourceTree = "<group>";
+		};
+		085612291A9682F000BA27DC /* Glucose Levels */ = {
+			isa = PBXGroup;
+			children = (
+				085612251A9682EC00BA27DC /* APHGlucoseLevelsViewController.h */,
+				085612261A9682EC00BA27DC /* APHGlucoseLevelsViewController.m */,
+				0856122A1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.h */,
+				0856122B1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.m */,
+				0856122D1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.h */,
+				0856122E1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.m */,
+			);
+			name = "Glucose Levels";
+			sourceTree = "<group>";
+		};
+		0857F2EA1A9F85E800587E4D /* surveys */ = {
+			isa = PBXGroup;
+			children = (
+				08DA0E821AD018D500D71E0B /* DiabetesQoLSurvey.json */,
+				08DA0E831AD018D500D71E0B /* DiabetesSleepSurvey.json */,
+				5A004DFA1AA76C1D00F7A9A9 /* BaselineSurvey.json */,
+				5A004E381AAA47DC00F7A9A9 /* diabetes_A1C.json */,
+				0857F2EB1A9F85E800587E4D /* diabetes_daily_check.json */,
+				0857F2EC1A9F85E800587E4D /* diabetes_weekly_survey.json */,
+			);
+			path = surveys;
+			sourceTree = "<group>";
+		};
+		0857F2F31A9F877B00587E4D /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				0857F2F01A9F877600587E4D /* APHDailyCheckSurveyViewController.h */,
+				0857F2F11A9F877600587E4D /* APHDailyCheckSurveyViewController.m */,
+				0857F2F41A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.h */,
+				0857F2F51A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m */,
+			);
+			name = Surveys;
+			sourceTree = "<group>";
+		};
+		087EC8771A2FA42E009A6768 /* Food Log */ = {
+			isa = PBXGroup;
+			children = (
+				087EC8731A2FA428009A6768 /* APHFoodLogTaskViewController.h */,
+				087EC8741A2FA428009A6768 /* APHFoodLogTaskViewController.m */,
+				087EC87A1A2FACF9009A6768 /* APHFoodLogLaunchViewController.h */,
+				087EC87B1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m */,
+				087EC87E1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard */,
+			);
+			name = "Food Log";
+			sourceTree = "<group>";
+		};
+		5B1095C31A9FA2CE006631F5 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				5B1095C41A9FA2CE006631F5 /* consent.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
+		5B1D9D781A1BD581000F4AD6 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0894653B1A8C178700A983AC /* APHGlucoseInsightsViewController.h */,
+				0894653C1A8C178700A983AC /* APHGlucoseInsightsViewController.m */,
+				5B1D9D791A1BD581000F4AD6 /* APHDashboard.storyboard */,
+				5B1D9D7A1A1BD581000F4AD6 /* APHDashboardEditViewController.h */,
+				5B1D9D7B1A1BD581000F4AD6 /* APHDashboardEditViewController.m */,
+				5A004DFD1AA76C3D00F7A9A9 /* APHbaseline.h */,
+				5A004DFE1AA76C3D00F7A9A9 /* APHbaseline.m */,
+				5B1D9D7C1A1BD581000F4AD6 /* APHDashboardViewController.h */,
+				5B1D9D7D1A1BD581000F4AD6 /* APHDashboardViewController.m */,
+				08B9B9651A8FF7010073F77B /* APHFoodInsightsViewController.h */,
+				08B9B9661A8FF7010073F77B /* APHFoodInsightsViewController.m */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		5BB10C1D1A921286002D2DD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BB10C1E1A921286002D2DD2 /* APHTableViewItem.h */,
+				5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		743AD0EF1ABE36180071C218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				743AD0F61ABE36180071C218 /* ResearchKit.framework */,
+				745DB4541ADB22B80007C484 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		743AD0FC1ABE36280071C218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				743AD1011ABE36280071C218 /* APCAppCore.framework */,
+				743AD1031ABE36280071C218 /* APCAppCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74B7137F1ABF032C00FE2553 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74B7138A1ABF032D00FE2553 /* BridgeSDK.framework */,
+				74B7138C1ABF032D00FE2553 /* BridgeSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B20DC611A9F9E9200AAF855 /* Seven Day Allocation */ = {
+			isa = PBXGroup;
+			children = (
+				7B20DC681A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.h */,
+				7B20DC691A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.m */,
+			);
+			path = "Seven Day Allocation";
+			sourceTree = "<group>";
+		};
+		A78115F91A96AE5700CEC822 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				A78115FA1A96AE5700CEC822 /* 2x */,
+				A78116021A96AE5700CEC822 /* 3x */,
+			);
+			path = Consent;
+			sourceTree = "<group>";
+		};
+		A78115FA1A96AE5700CEC822 /* 2x */ = {
+			isa = PBXGroup;
+			children = (
+				A78115FB1A96AE5700CEC822 /* 00_Blank_to_Activities@2x.m4v */,
+				A78115FC1A96AE5700CEC822 /* 01_Activities_to_SensorData@2x.m4v */,
+				A78115FD1A96AE5700CEC822 /* 02_SensorData_to_DataGathering@2x.m4v */,
+				A78115FE1A96AE5700CEC822 /* 10_PotentialBenifits@2x.m4v */,
+				A78115FF1A96AE5700CEC822 /* 11_IssuesToConsider1@2x.m4v */,
+				A78116001A96AE5700CEC822 /* 12_IssuesToConside2@2x.m4v */,
+				A78116011A96AE5700CEC822 /* 13_RiskToPrivacy@2x.m4v */,
+			);
+			path = 2x;
+			sourceTree = "<group>";
+		};
+		A78116021A96AE5700CEC822 /* 3x */ = {
+			isa = PBXGroup;
+			children = (
+				A78116031A96AE5700CEC822 /* 00_Blank_to_Activities@3x.m4v */,
+				A78116041A96AE5700CEC822 /* 01_Activities_to_SensorData@3x.m4v */,
+				A78116051A96AE5700CEC822 /* 02_SensorData_to_DataGathering@3x.m4v */,
+				A78116061A96AE5700CEC822 /* 10_PotentialBenifits@3x.m4v */,
+				A78116071A96AE5700CEC822 /* 11_IssuesToConsider1@3x.m4v */,
+				A78116081A96AE5700CEC822 /* 12_IssuesToConside2@3x.m4v */,
+				A78116091A96AE5700CEC822 /* 13_RiskToPrivacy@3x.m4v */,
+			);
+			path = 3x;
+			sourceTree = "<group>";
+		};
+		F51F16D31A265BBD00FECDFF /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Certificates;
+			sourceTree = "<group>";
+		};
+		F5CD316C1A0D7A9B00341E51 /* BaselineSurvey */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD316E1A0D7AB300341E51 /* APHBaselineTaskViewController.h */,
+				F5CD316F1A0D7AB300341E51 /* APHBaselineTaskViewController.m */,
+				0864D5CD1A25A77400A7856C /* APHBaselineSurvey.h */,
+				0864D5CE1A25A77400A7856C /* APHBaselineSurvey.m */,
+			);
+			path = BaselineSurvey;
+			sourceTree = "<group>";
+		};
+		F5CD31721A0D86C700341E51 /* EnterWeight */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD31751A0D86E900341E51 /* APHEnterWeightTaskViewController.h */,
+				F5CD31761A0D86E900341E51 /* APHEnterWeightTaskViewController.m */,
+			);
+			path = EnterWeight;
+			sourceTree = "<group>";
+		};
+		F5CD31731A0D86C700341E51 /* Glucose Log */ = {
+			isa = PBXGroup;
+			children = (
+				08B972821A2300D200316D49 /* APHGlucoseLogTaskViewController.h */,
+				08B972831A2300D200316D49 /* APHGlucoseLogTaskViewController.m */,
+				08B972781A22584200316D49 /* APHGlucoseLog.storyboard */,
+				08B9727A1A225D7700316D49 /* APHGlucoseLogViewController.h */,
+				08B9727B1A225D7700316D49 /* APHGlucoseLogViewController.m */,
+				08B9728C1A23CC7F00316D49 /* APHGlucoseEntryViewController.h */,
+				08B9728D1A23CC7F00316D49 /* APHGlucoseEntryViewController.m */,
+				085614DE1A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.h */,
+				085614DF1A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m */,
+				088FCFB61A9CF34300D4BC3B /* APHSliderCellView.h */,
+				088FCFB71A9CF34300D4BC3B /* APHSliderCellView.m */,
+				088FCFB91A9CF64B00D4BC3B /* APHSliderViewController.h */,
+				088FCFBA1A9CF64B00D4BC3B /* APHSliderViewController.m */,
+				0867AF8F1ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.h */,
+				0867AF901ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m */,
+			);
+			name = "Glucose Log";
+			path = LogGlucose;
+			sourceTree = "<group>";
+		};
+		F5CD31741A0D86C700341E51 /* MeasureWaist */ = {
+			isa = PBXGroup;
+			children = (
+				F5E542201A0D8AD500639891 /* APHWaistTaskViewController.h */,
+				F5E542211A0D8AD500639891 /* APHWaistTaskViewController.m */,
+			);
+			path = MeasureWaist;
+			sourceTree = "<group>";
+		};
+		F5D44D5519F83F6F0011B334 = {
+			isa = PBXGroup;
+			children = (
+				F5D44D6019F83F6F0011B334 /* Diabetes */,
+				F5D44D5F19F83F6F0011B334 /* Products */,
+				F5D44D9519F840690011B334 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F5D44D5F19F83F6F0011B334 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44D5E19F83F6F0011B334 /* Diabetes.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5D44D6019F83F6F0011B334 /* Diabetes */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44DDB19F841C00011B334 /* Startup */,
+				F5D44DBB19F841C00011B334 /* Onboarding */,
+				F5D44DE219F841C00011B334 /* TabBarControllers */,
+				F5D44E0819F841C00011B334 /* TasksAndSteps */,
+				F5D44DB519F841C00011B334 /* Library */,
+				F5D44DD119F841C00011B334 /* Resources */,
+				F5D44D6E19F83F6F0011B334 /* Images.xcassets */,
+				F5D44D6119F83F6F0011B334 /* Supporting Files */,
+			);
+			path = Diabetes;
+			sourceTree = "<group>";
+		};
+		F5D44D6119F83F6F0011B334 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44DB419F841520011B334 /* Diabetes.entitlements */,
+				F5D44D6219F83F6F0011B334 /* Info.plist */,
+				F5D44D6319F83F6F0011B334 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5D44D9519F840690011B334 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */,
+				743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */,
+				743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */,
+				F5D44E3319F8434F0011B334 /* Security.framework */,
+				F5D44DB219F841520011B334 /* HealthKit.framework */,
+				F5D44DB019F840E20011B334 /* AVFoundation.framework */,
+				F5D44DAE19F840D80011B334 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5D44DB519F841C00011B334 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5BB10C1D1A921286002D2DD2 /* Model */,
+				F5D44DB619F841C00011B334 /* Categories */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F5D44DB619F841C00011B334 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44DB719F841C00011B334 /* NSString+CustomMethods.h */,
+				F5D44DB819F841C00011B334 /* NSString+CustomMethods.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F5D44DBB19F841C00011B334 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44DBE19F841C00011B334 /* APHInclusionCriteriaViewController.h */,
+				F5D44DBF19F841C00011B334 /* APHInclusionCriteriaViewController.m */,
+				5B908AAA1A265DDF00F9E907 /* APHOnboarding.storyboard */,
+				085612291A9682F000BA27DC /* Glucose Levels */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F5D44DD119F841C00011B334 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B1095C31A9FA2CE006631F5 /* PDF */,
+				0857F2EA1A9F85E800587E4D /* surveys */,
+				083B0B7A1A78236700C19E68 /* ResearchKit-Assets */,
+				5BBDAECA1A33E7440047DF87 /* HTMLContent */,
+				F51F16D31A265BBD00FECDFF /* Certificates */,
+				F5D44DD219F841C00011B334 /* JSONs */,
+				F5D44DD719F841C00011B334 /* Tasks */,
+				F5D44DD919F841C00011B334 /* Videos */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5D44DD219F841C00011B334 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				085DAAA01A92876700C30911 /* APHConsentSection.json */,
+				5B908AA51A265B1400F9E907 /* TermsAndConditions.json */,
+				5B15DCE41A114B5600BEA0D1 /* Learn.json */,
+				5B15DCE51A114B5600BEA0D1 /* WithdrawStudy.json */,
+				F5D44DD319F841C00011B334 /* APCParameters.json */,
+				F5D44DD419F841C00011B334 /* APHTasksAndSchedules.json */,
+				F5D44DD619F841C00011B334 /* StudyOverview.json */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		F5D44DD719F841C00011B334 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				F5D44DD819F841C00011B334 /* sample.task */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		F5D44DD919F841C00011B334 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				A78115F91A96AE5700CEC822 /* Consent */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		F5D44DDB19F841C00011B334 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				08ADDD751AA0463700EAE1D6 /* APHProfileExtender.h */,
+				08ADDD761AA0463700EAE1D6 /* APHProfileExtender.m */,
+				F5D44DDC19F841C00011B334 /* APHAppDelegate.h */,
+				F5D44DDD19F841C00011B334 /* APHAppDelegate.m */,
+				F5D44DE019F841C00011B334 /* LaunchScreen.xib */,
+				F5D44DE119F841C00011B334 /* Main.storyboard */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		F5D44DE219F841C00011B334 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B1D9D781A1BD581000F4AD6 /* Dashboard */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		F5D44E0819F841C00011B334 /* TasksAndSteps */ = {
+			isa = PBXGroup;
+			children = (
+				7B20DC611A9F9E9200AAF855 /* Seven Day Allocation */,
+				F5CD316C1A0D7A9B00341E51 /* BaselineSurvey */,
+				F5CD31731A0D86C700341E51 /* Glucose Log */,
+				F5CD31741A0D86C700341E51 /* MeasureWaist */,
+				F5CD31721A0D86C700341E51 /* EnterWeight */,
+				087EC8771A2FA42E009A6768 /* Food Log */,
+				0857F2F31A9F877B00587E4D /* Surveys */,
+			);
+			path = TasksAndSteps;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5D44D5D19F83F6F0011B334 /* Diabetes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5D44D8119F83F6F0011B334 /* Build configuration list for PBXNativeTarget "Diabetes" */;
+			buildPhases = (
+				F5D44D5A19F83F6F0011B334 /* Sources */,
+				F5D44D5B19F83F6F0011B334 /* Frameworks */,
+				F5D44D5C19F83F6F0011B334 /* Resources */,
+				F5D44DA919F840A80011B334 /* Embed Frameworks */,
+				F51F16DD1A26624D00FECDFF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74B713931ABF034F00FE2553 /* PBXTargetDependency */,
+				743AD1091ABE36490071C218 /* PBXTargetDependency */,
+				743AD10D1ABE36500071C218 /* PBXTargetDependency */,
+				74B713CC1AC0714800FE2553 /* PBXTargetDependency */,
+			);
+			name = Diabetes;
+			productName = Diabetes;
+			productReference = F5D44D5E19F83F6F0011B334 /* Diabetes.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5D44D5619F83F6F0011B334 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = APH;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Apple, Inc.";
+				TargetAttributes = {
+					F5D44D5D19F83F6F0011B334 = {
+						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F5D44D5919F83F6F0011B334 /* Build configuration list for PBXProject "Diabetes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ar,
+				ca,
+				cs,
+				da,
+				de,
+				el,
+				"en-AU",
+				"en-GB",
+				"es-MX",
+				es,
+				fi,
+				"fr-CA",
+				fr,
+				he,
+				hi,
+				hr,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nb,
+				nl,
+				pl,
+				"pt-PT",
+				pt,
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				uk,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
+				"zh-HK",
+				en_AU,
+				en_GB,
+				es_MX,
+				fr_CA,
+				no,
+				pt_PT,
+				zh_CN,
+				zh_HK,
+				zh_TW,
+			);
+			mainGroup = F5D44D5519F83F6F0011B334;
+			productRefGroup = F5D44D5F19F83F6F0011B334 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 743AD0FC1ABE36280071C218 /* Products */;
+					ProjectRef = 743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 74B7137F1ABF032C00FE2553 /* Products */;
+					ProjectRef = 74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = 743AD0EF1ABE36180071C218 /* Products */;
+					ProjectRef = 743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F5D44D5D19F83F6F0011B334 /* Diabetes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		743AD0F61ABE36180071C218 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 743AD0F51ABE36180071C218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		743AD1011ABE36280071C218 /* APCAppCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = APCAppCore.framework;
+			remoteRef = 743AD1001ABE36280071C218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		743AD1031ABE36280071C218 /* APCAppCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = APCAppCoreTests.xctest;
+			remoteRef = 743AD1021ABE36280071C218 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		745DB4541ADB22B80007C484 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 745DB4531ADB22B80007C484 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		74B7138A1ABF032D00FE2553 /* BridgeSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeSDK.framework;
+			remoteRef = 74B713891ABF032D00FE2553 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		74B7138C1ABF032D00FE2553 /* BridgeSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeSDKTests.xctest;
+			remoteRef = 74B7138B1ABF032D00FE2553 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5D44D5C19F83F6F0011B334 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B908AAB1A265DDF00F9E907 /* APHOnboarding.storyboard in Resources */,
+				0857F2ED1A9F85E800587E4D /* diabetes_daily_check.json in Resources */,
+				A78116111A96AE5700CEC822 /* 00_Blank_to_Activities@3x.m4v in Resources */,
+				A78116161A96AE5700CEC822 /* 12_IssuesToConside2@3x.m4v in Resources */,
+				083B0B991A78236700C19E68 /* consent_07@3x.m4v in Resources */,
+				F5D44E1A19F841C00011B334 /* sample.task in Resources */,
+				083B0B8C1A78236700C19E68 /* consent_01@2x.m4v in Resources */,
+				083B0B971A78236700C19E68 /* consent_05@3x.m4v in Resources */,
+				A781160C1A96AE5700CEC822 /* 02_SensorData_to_DataGathering@2x.m4v in Resources */,
+				5B1095C51A9FA2CE006631F5 /* consent.pdf in Resources */,
+				5B908AA61A265B1400F9E907 /* TermsAndConditions.json in Resources */,
+				A78116171A96AE5700CEC822 /* 13_RiskToPrivacy@3x.m4v in Resources */,
+				5A004DFB1AA76C1D00F7A9A9 /* BaselineSurvey.json in Resources */,
+				083B0B901A78236700C19E68 /* consent_05@2x.m4v in Resources */,
+				083B0B8E1A78236700C19E68 /* consent_03@2x.m4v in Resources */,
+				083B0B941A78236700C19E68 /* consent_02@3x.m4v in Resources */,
+				F5D44E1F19F841C00011B334 /* Main.storyboard in Resources */,
+				A78116151A96AE5700CEC822 /* 11_IssuesToConsider1@3x.m4v in Resources */,
+				083B0B981A78236700C19E68 /* consent_06@3x.m4v in Resources */,
+				083B0B921A78236700C19E68 /* consent_07@2x.m4v in Resources */,
+				A78116121A96AE5700CEC822 /* 01_Activities_to_SensorData@3x.m4v in Resources */,
+				0857F2EE1A9F85E800587E4D /* diabetes_weekly_survey.json in Resources */,
+				083B0B911A78236700C19E68 /* consent_06@2x.m4v in Resources */,
+				A781160F1A96AE5700CEC822 /* 12_IssuesToConside2@2x.m4v in Resources */,
+				A781160D1A96AE5700CEC822 /* 10_PotentialBenifits@2x.m4v in Resources */,
+				5B15DCE61A114B5600BEA0D1 /* Learn.json in Resources */,
+				083B0B8D1A78236700C19E68 /* consent_02@2x.m4v in Resources */,
+				A78116101A96AE5700CEC822 /* 13_RiskToPrivacy@2x.m4v in Resources */,
+				08B972791A22584200316D49 /* APHGlucoseLog.storyboard in Resources */,
+				F5D44D6F19F83F6F0011B334 /* Images.xcassets in Resources */,
+				083B0B8F1A78236700C19E68 /* consent_04@2x.m4v in Resources */,
+				A781160A1A96AE5700CEC822 /* 00_Blank_to_Activities@2x.m4v in Resources */,
+				083B0B931A78236700C19E68 /* consent_01@3x.m4v in Resources */,
+				083B0B951A78236700C19E68 /* consent_03@3x.m4v in Resources */,
+				A781160E1A96AE5700CEC822 /* 11_IssuesToConsider1@2x.m4v in Resources */,
+				5A004E391AAA47DC00F7A9A9 /* diabetes_A1C.json in Resources */,
+				F5D44E1919F841C00011B334 /* StudyOverview.json in Resources */,
+				087EC87F1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard in Resources */,
+				A78116141A96AE5700CEC822 /* 10_PotentialBenifits@3x.m4v in Resources */,
+				F5D44E1619F841C00011B334 /* APCParameters.json in Resources */,
+				083B0B961A78236700C19E68 /* consent_04@3x.m4v in Resources */,
+				A781160B1A96AE5700CEC822 /* 01_Activities_to_SensorData@2x.m4v in Resources */,
+				F5D44E1E19F841C00011B334 /* LaunchScreen.xib in Resources */,
+				5BBDAECB1A33E7440047DF87 /* HTMLContent in Resources */,
+				A78116131A96AE5700CEC822 /* 02_SensorData_to_DataGathering@3x.m4v in Resources */,
+				5B15DCE71A114B5600BEA0D1 /* WithdrawStudy.json in Resources */,
+				085DAAA11A92876700C30911 /* APHConsentSection.json in Resources */,
+				08DA0E851AD018D500D71E0B /* DiabetesSleepSurvey.json in Resources */,
+				08DA0E841AD018D500D71E0B /* DiabetesQoLSurvey.json in Resources */,
+				F5D44E1719F841C00011B334 /* APHTasksAndSchedules.json in Resources */,
+				5B1D9D7E1A1BD581000F4AD6 /* APHDashboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F51F16DD1A26624D00FECDFF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5D44D5A19F83F6F0011B334 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BB10C201A921286002D2DD2 /* APHTableViewItem.m in Sources */,
+				F5D44E1C19F841C00011B334 /* APHAppDelegate.m in Sources */,
+				5A004DFF1AA76C3D00F7A9A9 /* APHbaseline.m in Sources */,
+				0856122C1A96AA6800BA27DC /* APHGlucoseLevelsDaysViewController.m in Sources */,
+				0864D5CF1A25A77400A7856C /* APHBaselineSurvey.m in Sources */,
+				0867AF911ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m in Sources */,
+				087EC87C1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m in Sources */,
+				088FCFB81A9CF34300D4BC3B /* APHSliderCellView.m in Sources */,
+				F5D44D6419F83F6F0011B334 /* main.m in Sources */,
+				08B9728E1A23CC7F00316D49 /* APHGlucoseEntryViewController.m in Sources */,
+				0857F2F21A9F877600587E4D /* APHDailyCheckSurveyViewController.m in Sources */,
+				F5E542221A0D8AD500639891 /* APHWaistTaskViewController.m in Sources */,
+				F5D44E0919F841C00011B334 /* NSString+CustomMethods.m in Sources */,
+				085612271A9682EC00BA27DC /* APHGlucoseLevelsViewController.m in Sources */,
+				0857F2F61A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m in Sources */,
+				0856122F1A96B14C00BA27DC /* APHGlucoseLevelsMealTimesViewController.m in Sources */,
+				08B9B9671A8FF7010073F77B /* APHFoodInsightsViewController.m in Sources */,
+				5B1D9D7F1A1BD581000F4AD6 /* APHDashboardEditViewController.m in Sources */,
+				08ADDD771AA0463700EAE1D6 /* APHProfileExtender.m in Sources */,
+				7B20DC6D1A9F9E9200AAF855 /* APHSevenDayFitnessAllocationTaskViewController.m in Sources */,
+				F5CD31701A0D7AB300341E51 /* APHBaselineTaskViewController.m in Sources */,
+				088FCFBB1A9CF64B00D4BC3B /* APHSliderViewController.m in Sources */,
+				085614E01A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m in Sources */,
+				08B972841A2300D200316D49 /* APHGlucoseLogTaskViewController.m in Sources */,
+				087EC8751A2FA428009A6768 /* APHFoodLogTaskViewController.m in Sources */,
+				F5CD31771A0D86E900341E51 /* APHEnterWeightTaskViewController.m in Sources */,
+				0894653D1A8C178700A983AC /* APHGlucoseInsightsViewController.m in Sources */,
+				5B1D9D801A1BD581000F4AD6 /* APHDashboardViewController.m in Sources */,
+				08B9727C1A225D7700316D49 /* APHGlucoseLogViewController.m in Sources */,
+				F5D44E0C19F841C00011B334 /* APHInclusionCriteriaViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		743AD1091ABE36490071C218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = APCAppCore;
+			targetProxy = 743AD1081ABE36490071C218 /* PBXContainerItemProxy */;
+		};
+		743AD10D1ABE36500071C218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenResearchKit;
+			targetProxy = 743AD10C1ABE36500071C218 /* PBXContainerItemProxy */;
+		};
+		74B713931ABF034F00FE2553 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = 74B713921ABF034F00FE2553 /* PBXContainerItemProxy */;
+		};
+		74B713CC1AC0714800FE2553 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = 74B713CB1AC0714800FE2553 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		362449881A7C68A800812317 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: THE MASSACHUSETTS GENERAL HOSPITAL (HW8286QHP6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"USE_DATA_VERIFICATION_CLIENT=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
+		362449891A7C68A800812317 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Diabetes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d62c82d8-7458-4b30-9cfe-518384c029f6";
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
+		F5D44D7F19F83F6F0011B334 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: THE MASSACHUSETTS GENERAL HOSPITAL (HW8286QHP6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5D44D8019F83F6F0011B334 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: THE MASSACHUSETTS GENERAL HOSPITAL (HW8286QHP6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5D44D8219F83F6F0011B334 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Diabetes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d62c82d8-7458-4b30-9cfe-518384c029f6";
+			};
+			name = Debug;
+		};
+		F5D44D8319F83F6F0011B334 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Diabetes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d62c82d8-7458-4b30-9cfe-518384c029f6";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5D44D5919F83F6F0011B334 /* Build configuration list for PBXProject "Diabetes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D44D7F19F83F6F0011B334 /* Debug */,
+				362449881A7C68A800812317 /* DebugAndSendToDataVerificationServer */,
+				F5D44D8019F83F6F0011B334 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5D44D8119F83F6F0011B334 /* Build configuration list for PBXNativeTarget "Diabetes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D44D8219F83F6F0011B334 /* Debug */,
+				362449891A7C68A800812317 /* DebugAndSendToDataVerificationServer */,
+				F5D44D8319F83F6F0011B334 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5D44D5619F83F6F0011B334 /* Project object */;
+}

@@ -1,0 +1,65 @@
+{
+    "identifier": "daily_check",
+    "type": "Survey",
+    "name": "Daily Check",
+    "questions":
+    [
+        {
+            "guid":"db8d54db-c00e-4203-af71-2701253aa9e9",
+            "identifier":"sleep_time",
+            "prompt":"How many hours of sleep did you get last night?",
+            "detail":"Use the below scroll to indicate how long, in hours and minutes, you think you slept last night.",
+            "constraints":
+            {
+                "rules":[],
+                "durationUnit":"minutes",
+                "dataType":"duration",
+                "type":"DurationConstraints"
+            },
+            "uiHint":"timepicker",
+            "type":"SurveyQuestion"
+        },
+         
+                      
+        {
+            "guid": "1992b84e-912c-4b05-b29b-5c15f02778d6",
+            "identifier": "foot_check",
+            "prompt": "Did you check your feet today?",
+            "detail": "It is important for diabetics to inspect your feet every day, and remember to seek care early if you do get a foot injury - and remember to seek care early if you see cuts or breaks in the skin, blisters, red spots, an ingrown nail, or if your foot feels painful, unusually warm or cold, or just different",
+            "constraints":
+            {
+                "rules": [],
+                "dataType": "integer",
+                "enumeration":
+                [
+                    {
+                      "label": "I checked and found no problems",
+                      "value": 1,
+                      "type": "SurveyQuestionOption"
+                    },
+                    {
+                      "label": "I checked and found some problems, so I sought care",
+                      "value": 2,
+                      "type": "SurveyQuestionOption"
+                    },
+                    {
+                      "label": "I checked and found some problems, but did not seek care",
+                      "value": 3,
+                      "type": "SurveyQuestionOption"
+                    },
+                    {
+                      "label": "I did not check my feet today",
+                      "value": 4,
+                      "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther":false,
+                "allowMultiple":false,
+                "type":"MultiValueConstraints"
+            },
+            "uiHint":"list",
+            "type": "SurveyQuestion"
+        }
+     
+    ]
+}

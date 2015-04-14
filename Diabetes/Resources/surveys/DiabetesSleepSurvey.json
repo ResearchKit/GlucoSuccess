@@ -1,0 +1,1051 @@
+{
+    "name" : "Sleep Quality Survey",
+    "type" : "Survey",
+  	"identifier" : "Diabetes_Sleep",
+  	"questions" :
+  	 [
+      
+      {
+      "guid": "d50d4262-1e22-4c05-ba3e-e3630db62f99",
+      "identifier": "NHANES-introduction",
+      "type": "SurveyQuestion",
+      "prompt":"These questions ask you about how well you sleep, and whether problems with your sleep affect your daily life.",
+      "detail": "This questionnaire was adapted from the National Health and Nutrition Examination Survey (NHANES) sleep disorders questionnaire (SLQ). Hyattsville, MD: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention (CDC), 2007.",
+      "constraints": {
+      "dataType": "string",
+      "rules": [],
+      "enumeration": [
+                      {
+                      "label": "I read and I understood the information above.",
+                      "value": "0",
+                      "type": "SurveyQuestionOption"
+                      }                      ],
+      "allowOther": false,
+      "allowMultiple": false,
+      "type": "MultiValueConstraints"
+      },
+      "uiHint": "list"
+      },
+
+        
+        {
+            "guid": "31e6973b-da37-4eb0-b817-43e0f15dba01",
+            "identifier": "NHANES-1",
+            "type": "SurveyQuestion",
+            "prompt": "How much sleep do you usually get at night on weekdays or workdays?",
+            "detail": "Enter number of hours",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 19,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slide"
+        },
+        {
+            "guid": "1cd41d53-9966-4e68-92c1-3b3f217d64a02",
+            "identifier": "NHANES-2",
+            "type": "SurveyQuestion",
+            "prompt": "How long does it usually take you to fall asleep at bedtime?",
+            "detail": "Enter number of minutes",
+            "constraints": {
+                "dataType": "integer",
+                "rules": [],
+                "minValue": 0,
+                "maxValue": 300,
+                "type": "IntegerConstraints"
+            },
+            "uiHint": "slider"
+        },
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a03",
+            "identifier": "NHANES-3",
+            "type": "SurveyQuestion",
+            "prompt": "In the past 12 months, how often did you snore while you were sleeping?",
+            "detail": "include if anyone told you that you do this",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely (1-2 nights/week)",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Occasionally (3-4 nights/week)",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Frequently (5 or more nights/week)",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a04",
+            "identifier": "NHANES-4",
+            "type": "SurveyQuestion",
+            "prompt": "In the past 12 months, how often did you snort, gasp, or stop breathing while you were asleep?",
+            "detail": "include if anyone told you that you do this",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely (1-2 nights/week)",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Occasionally (3-4 nights/week)",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Frequently (5 or more nights/week)",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a05",
+            "identifier": "NHANES-5",
+            "type": "SurveyQuestion",
+            "prompt": "Have you ever told a doctor or other health professional that you have trouble sleeping?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't know",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a06",
+            "identifier": "NHANES-6",
+            "type": "SurveyQuestion",
+            "prompt": "Have you ever been told by a doctor or other health professional that you have a sleep disorder?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't know",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a07",
+            "identifier": "NHANES-7",
+            "type": "SurveyQuestion",
+            "prompt": "If you answered yes to the preceding question; what was the sleep disorder?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Sleep apnea",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Insomnia",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Restless legs",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Other",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a08",
+            "identifier": "NHANES-8",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you have trouble falling asleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a09",
+            "identifier": "NHANES-9",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you wake up during the night and have trouble getting back to sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a10",
+            "identifier": "NHANES-10",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you wake up too early in the morning and were unable to get back to sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a11",
+            "identifier": "NHANES-11",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you feel unrested during the day, no matter how many hours of sleep you had?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a12",
+            "identifier": "NHANES-12",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you feel excessively or overly sleepy during the day?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a13",
+            "identifier": "NHANES-13",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you not get enough sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a14",
+            "identifier": "NHANES-14",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you take sleeping pills or other medication to help you sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a15",
+            "identifier": "NHANES-15",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you have leg jerks while trying to sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a16",
+            "identifier": "NHANES-16",
+            "type": "SurveyQuestion",
+            "prompt": "In the past month, how often did you have leg cramps while trying to sleep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Never",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Rarely – 1 time a month",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sometimes – 2-4 times a month",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Often – 5-15 times a month",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Almost always – 16-30 times a month",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a17",
+            "identifier": "NHANES-17",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty concentrating on the things you do because you feel sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a18",
+            "identifier": "NHANES-18",
+            "type": "SurveyQuestion",
+            "prompt": "Do you generally have difficulty remembering things, because you are sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a19",
+            "identifier": "NHANES-19",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty finishing a meal because you become sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a20",
+            "identifier": "NHANES-20",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty working on a hobby (for example sewing, collecting, gardening) because you are sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a21",
+            "identifier": "NHANES-21",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty getting things done because you are too sleepy or tired to drive or take public transportation?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a22",
+            "identifier": "NHANES-22",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty taking care of financial affairs and doing paperwork (for example, paying bills or keeping financial records) because you are sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a23",
+            "identifier": "NHANES-23",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty performing employed or volunteer work because you are sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        
+        {
+            "guid": "d50d4262-1e22-4c05-ba3e-e3630db62a24",
+            "identifier": "NHANES-24",
+            "type": "SurveyQuestion",
+            "prompt": "Do you have difficulty maintaining a telephone conversation because you become sleepy or tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Don’t do this activity for other reasons",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No difficulty",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, a little difficulty",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, moderate difficulty",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, extreme difficulty",
+                        "value": "4",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don’t know",
+                        "value": "5",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        }
+   
+    ]
+}

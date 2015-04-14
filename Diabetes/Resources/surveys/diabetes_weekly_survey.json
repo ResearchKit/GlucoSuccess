@@ -1,0 +1,128 @@
+{
+    "identifier": "weekly_check",
+    "type": "Survey",
+    "name": "Weekly Check",
+    "questions": [
+                  
+                  
+                  {
+                  "guid" : "1992b80e-912c-4b05-b29b-5c15f02688d6",
+                  "identifier" : "med_intake",
+                  "prompt" : "Over the past week, which of the following best describes how you took your diabetes medicines?",
+                  "detail" : "Be as accurate as possible.  Remember, we are only trying to understand your behavior for this study.",
+                  "constraints" :
+                  {
+                  "rules" : [],
+                  "dataType" : "integer",
+                  "enumeration" :
+                  [
+                   {
+                   "label" : "Always - every dose",
+                   "detail" : "",
+                   "value" : 1,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Almost always (rarely miss a dose)",
+                   "detail" : "",
+                   "value" : 2,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Most of the time (more than half)",
+                   "detail" : "",
+                   "value" : 3,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "About half of the time",
+                   "detail" : "",
+                   "value" : 4,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Some of the time (less than half)",
+                   "detail" : "",
+                   "value" : 5,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Never",
+                   "detail" : "",
+                   "value" : 6,
+                   "type" : "SurveyQuestionOption"
+                   }
+                   ],
+                  "allowOther" : false,
+                  "allowMultiple" : false,
+                  "type" : "MultiValueConstraints"
+                  },
+                  "uiHint" : "list",
+                  "type" : "SurveyQuestion"
+                  },
+
+                  {
+                  "guid" : "1992b84e-912c-4b05-b29b-5c15f02688d6",
+                  "identifier" : "health",
+                  "prompt" : "How would you describe your health this week?",
+                  "detail" : "Think about your overall health and chose the answer from the list below that best represents how you felt this week.",
+                  "constraints" :
+                  {
+                  "rules" : [],
+                  "dataType" : "integer",
+                  "enumeration" :
+                  [
+                   {
+                   "label" : "Very good",
+                   "detail" : "You didn't have any health problems this week.",
+                   "value" : 1,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Good",
+                   "detail" : "You only experienced minor health issues this week.",
+                   "value" : 2,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Fair",
+                   "detail" : "You felt OK most of the time this week, with some occasional difficulties.",
+                   "value" : 3,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Poor",
+                   "detail" : "You had significant health problems this week.",
+                   "value" : 4,
+                   "type" : "SurveyQuestionOption"
+                   },
+                   {
+                   "label" : "Very poor",
+                   "detail" : "You had many health problems this week.",
+                   "value" : 5,
+                   "type" : "SurveyQuestionOption"
+                   }
+                   ],
+                  "allowOther" : false,
+                  "allowMultiple" : false,
+                  "type" : "MultiValueConstraints"
+                  },
+                  "uiHint" : "list",
+                  "type" : "SurveyQuestion"
+                  }
+
+                  
+    
+                  
+                  
+                  
+                  
+                  
+                  ]
+
+}
+
+
+
+
+
