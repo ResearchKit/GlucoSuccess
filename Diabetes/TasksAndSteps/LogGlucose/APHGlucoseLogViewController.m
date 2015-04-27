@@ -644,35 +644,37 @@ typedef NS_ENUM(NSUInteger, APHGlucoseLogSections) {
             [weakSelf isDateValidForGlucoseEntry:entryDate
                                          atHours:hours
                                    scheduleError:&entryError
-                                      completion:^(BOOL dateIsValid, NSError *glucoseEntryError) {
-                                          if (dateIsValid) {
-                                              NSError *scheduleError = nil;
+                                      completion:^(BOOL dateIsValid, NSError *glucoseEntryError)
+            {
+                if (dateIsValid) {
+                  NSError *scheduleError = nil;
 
-                                              [weakSelf generateScheduleForGlucoseEntryDate:entryDate
-                                                                                    atHours:hours
-                                                                              scheduleError:&scheduleError
-                                                                                 completion:^(NSError *glucoseEntryError) {
-                                                                                     if (glucoseEntryError) {
-                                                                                         APCLogError2(glucoseEntryError);
-                                                                                     } else {
-                                                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                                                             [self moveBannerOffScreen];
-                                                                                             [self retrieveGlucoseLogSchedules];
-                                                                                             [self.tableView reloadData];
-                                                                                             
-                                                                                             NSInteger logRows = [self.tableView numberOfRowsInSection:APHGlucoseLogSectionHistory];
-                                                                                             
-                                                                                             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:logRows - 1 inSection:APHGlucoseLogSectionHistory];
-                                                                                             
-                                                                                             [self showGlucoseEntryViewAtIndexPath:indexPath];
-                                                                                         });
-                                                                                     }
-                                                                                 }];
+                  [weakSelf generateScheduleForGlucoseEntryDate:entryDate
+                                                        atHours:hours
+                                                  scheduleError:&scheduleError
+                                                     completion:^(NSError *glucoseEntryError)
+                    {
+                         if (glucoseEntryError) {
+                             APCLogError2(glucoseEntryError);
+                         } else {
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 [self moveBannerOffScreen];
+                                 [self retrieveGlucoseLogSchedules];
+                                 [self.tableView reloadData];
+                                 
+                                 NSUInteger newlyAddedRow = [self newlyAddedEntryIndexPathForDate:entryDate];
+                                 
+                                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newlyAddedRow-1 inSection:APHGlucoseLogSectionHistory];
+                                 
+                                 [self showGlucoseEntryViewAtIndexPath:indexPath];
+                             });
+                         }
+                     }];
 
-                                          } else {
-                                              APCLogError2(glucoseEntryError);
-                                          }
-                                  }];
+                } else {
+                  APCLogError2(glucoseEntryError);
+                }
+            }];
         }];
 
     } else {
@@ -682,6 +684,22 @@ typedef NS_ENUM(NSUInteger, APHGlucoseLogSections) {
         
         // TODO: Show the glucose level configuration view.
     }
+}
+
+- (NSUInteger)newlyAddedEntryIndexPathForDate:(NSDate *)entryDate
+{
+    NSInteger __block entryIndex = 0;
+    
+    NSString *entryTitleForDate = [self relativeDateStringForDate:entryDate];
+    
+    [self.glucoseEntries enumerateObjectsUsingBlock:^(APCGroupedScheduledTask *groupedTask, NSUInteger idx, BOOL *stop) {
+        if ([groupedTask.taskTitle isEqualToString:entryTitleForDate]) {
+            entryIndex = idx;
+            *stop = YES;
+        }
+    }];
+    
+    return entryIndex;
 }
 
 @end

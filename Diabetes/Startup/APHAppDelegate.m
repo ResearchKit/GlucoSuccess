@@ -81,6 +81,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 @interface APHAppDelegate ()
 
 @property (nonatomic, strong) APHProfileExtender* profileExtender;
+@property  (nonatomic, assign)  NSInteger environment;
 
 @end
 
@@ -97,10 +98,17 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                               };
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
+    
+#ifdef DEBUG
+    self.environment = SBBEnvironmentStaging;
+#else
+    self.environment = SBBEnvironmentProd;
+#endif
+    
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
+                                           kBridgeEnvironmentKey                : @(self.environment),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
@@ -134,7 +142,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 }
 
 -(void)setUpTasksReminder{
-    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Daily Survey", nil)];
+    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Daily Check", nil)];
     APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Weekly Survey", nil)];
     APCTaskReminder *waistSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWaistCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Waist Measurement", nil)];
     APCTaskReminder *weightSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeightCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Weight Measurement", nil)];
@@ -270,11 +278,11 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                 NSDateComponents *componentForGracePeriodStartOn = [[NSCalendar currentCalendar] components:units
                                                                                                    fromDate:offsetDate];
                 
-                NSString *dayOfMonth = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.day];
+                NSString *dayOfMonth = [NSString stringWithFormat:@"%ld", (long)componentForGracePeriodStartOn.day];
                 NSString *dayOfWeek = nil;
                 
                 if ([taskInfo[kMigrationRecurringKindKey] integerValue] == APHMigrationRecurringKindWeekly) {
-                    dayOfWeek = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.weekday];
+                    dayOfWeek = [NSString stringWithFormat:@"%ld", (long)componentForGracePeriodStartOn.weekday];
                     dayOfMonth = @"*";
                 } else {
                     dayOfWeek = @"*";

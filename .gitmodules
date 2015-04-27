@@ -1,7 +1,6 @@
 [submodule "ResearchKit"]
 	path = ResearchKit
 	url = https://github.com/ResearchKit/ResearchKit.git
-	branch = stable
 [submodule "BridgeSDK"]
 	path = BridgeSDK
 	url = https://github.com/Sage-Bionetworks/Bridge-iOS-SDK.git

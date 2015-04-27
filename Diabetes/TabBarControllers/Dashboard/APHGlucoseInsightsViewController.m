@@ -75,6 +75,10 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) APHAppDelegate *appDelegate;
 
+@property (nonatomic, strong) NSArray *sortedDatastoreKeys;
+@property (nonatomic, strong) NSMutableArray *summaries;
+@property (nonatomic, strong) NSMutableDictionary *insightDatastore;
+
 @end
 
 @implementation APHGlucoseInsightsViewController
@@ -93,9 +97,53 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         [numberFormatter setRoundingMode:NSNumberFormatterRoundDown];
     }
     
+    [self configureInsightsDatastore];
+    
     // This will trigger self-sizing rows in the tableview
     self.tableView.estimatedRowHeight = 90.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)configureInsightsDatastore
+{
+    self.insightDatastore = [NSMutableDictionary new];
+    self.summaries = [NSMutableArray new];
+    
+    [self.summaries addObject:@(APHInsightSummaryRowHeader)];
+    
+    self.insightDatastore[[NSString stringWithFormat:@"%lu", (unsigned long)APHInsightRowCalories]] = self.caloriesInsight;
+    
+    if (self.caloriesInsight.valueGood.doubleValue != 0) {
+        [self.summaries addObject:@(APHInsightSummaryRowCalories)];
+    }
+    
+    self.insightDatastore[[NSString stringWithFormat:@"%lu", (unsigned long)APHInsightRowSteps]] = self.stepInsight;
+    
+    if (self.stepInsight.valueGood.doubleValue != 0) {
+        [self.summaries addObject:@(APHInsightSummaryRowSteps)];
+    }
+    
+    if ((self.sugarInsight.valueGood.doubleValue < self.sugarInsight.valueBad.doubleValue) &&
+        (self.sugarInsight.valueGood.doubleValue != 0) &&
+        (self.caloriesInsight.valueGood.doubleValue != 0)) {
+        self.insightDatastore[[NSString stringWithFormat:@"%lu", (unsigned long)APHInsightRowSugarCalories]] = [self calculateSugarCalories];
+        [self.summaries addObject:@(APHInsightSummaryRowSugar)];
+    }
+    
+    if ((self.carbsInsight.valueGood.doubleValue < self.carbsInsight.valueBad.doubleValue) &&
+        (self.carbsInsight.valueGood.doubleValue != 0) &&
+        (self.caloriesInsight.valueGood.doubleValue != 0)) {
+        self.insightDatastore[[NSString stringWithFormat:@"%lu", (unsigned long)APHInsightRowCarbs]] = self.carbsInsight;
+        self.insightDatastore[[NSString stringWithFormat:@"%lu", (unsigned long)APHInsightRowCarbsCalories]] = [self calculateCarbCalories];
+        [self.summaries addObject:@(APHInsightSummaryRowCarbohydrates)];
+    }
+    
+    self.sortedDatastoreKeys = [self.insightDatastore.allKeys sortedArrayUsingSelector:@selector(compare:)];
 }
 
 
@@ -112,25 +160,9 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
     NSInteger rows = 0;
     
     if (section == APHInsightSectionInsights) {
-        rows = APHInsightTotalNumberOfRows;
+        rows = self.insightDatastore.count;
     } else {
-        rows = APHInsightSummaryTotalNumberOfRows;
-        
-        if (self.caloriesInsight.valueGood.doubleValue == 0) {
-            rows--;
-        }
-        
-        if (self.carbsInsight.valueGood.doubleValue == 0) {
-            rows--;
-        }
-        
-        if (self.sugarInsight.valueGood.doubleValue == 0) {
-            rows--;
-        }
-        
-        if (self.stepInsight.valueGood.doubleValue == 0) {
-            rows--;
-        }
+        rows = self.summaries.count;
     }
     
     return rows;
@@ -158,10 +190,12 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
     
     insightCell.tintColor = [UIColor whiteColor];
     
-    switch (indexPath.row) {
+    NSUInteger insightEnumRawValue = [[self.sortedDatastoreKeys objectAtIndex:indexPath.row] integerValue];
+    
+    switch (insightEnumRawValue) {
         case APHInsightRowCalories:
         {
-            if ([self.caloriesInsight.valueGood doubleValue] >= 1000) {
+            if ([self.caloriesInsight.valueGood doubleValue] != 0) {
                 insightCell.goodInsightCaption = self.caloriesInsight.captionGood;
                 insightCell.goodInsightBar = self.caloriesInsight.valueGood;
             } else {
@@ -169,12 +203,12 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
                 insightCell.goodInsightBar = @(0);
             }
             
-            if ([self.caloriesInsight.valueBad doubleValue] >= 1000) {
+            if ([self.caloriesInsight.valueBad doubleValue] != 0) {
                 insightCell.badInsightBar = self.caloriesInsight.valueBad;
                 insightCell.badInsightCaption = self.caloriesInsight.captionBad;
             } else {
-                insightCell.goodInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
-                insightCell.goodInsightBar = @(0);
+                insightCell.badInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+                insightCell.badInsightBar = @(0);
             }
             
             insightCell.insightImage = [UIImage imageNamed:@"glucose_insights_calories"];
@@ -183,46 +217,12 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
             break;
         case APHInsightRowCarbsCalories:
         {
-            NSString *caloriesCaption = nil;
+            NSDictionary *calsFromCarbs = [self calculateCarbCalories];
 
-            [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
-            
-            if ([self.carbsInsight.valueGood doubleValue] != 0) {
-                
-                NSNumber *gramsOfCarbsConsumed = self.carbsInsight.valueGood;
-                NSNumber *totalNumberOfCaloriesConsumed = self.caloriesInsight.valueGood;
-                double carbsCaloriesConsumed = [gramsOfCarbsConsumed doubleValue] * caloriesPerGramOfCarbsAndSugar;
-                double percentOfCarbsCalories = carbsCaloriesConsumed / [totalNumberOfCaloriesConsumed doubleValue];
-                
-                double carbCals = (percentOfCarbsCalories < 1) ? percentOfCarbsCalories : 1;
-                
-                caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
-                                   [numberFormatter stringFromNumber:@(carbCals)]];
-                
-                insightCell.goodInsightCaption = NSLocalizedString(caloriesCaption, caloriesCaption);
-                insightCell.goodInsightBar = @(carbCals);
-            } else {
-                insightCell.goodInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
-                insightCell.goodInsightBar = @(0);
-            }
-            
-            if ([self.carbsInsight.valueBad doubleValue] != 0) {
-                NSNumber *gramsOfCarbsConsumedBad = self.carbsInsight.valueBad;
-                NSNumber *totalNumberOfCaloriesConsumedBad = self.caloriesInsight.valueBad;
-                double carbsCaloriesConsumedBad = [gramsOfCarbsConsumedBad doubleValue] * caloriesPerGramOfCarbsAndSugar;
-                double badPercentOfCarbsCalories = carbsCaloriesConsumedBad / [totalNumberOfCaloriesConsumedBad doubleValue];
-                
-                double carbCals = (badPercentOfCarbsCalories < 1) ? badPercentOfCarbsCalories : 1;
-                
-                caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
-                                   [numberFormatter stringFromNumber:@(carbCals)]];
-                
-                insightCell.badInsightCaption = NSLocalizedString(caloriesCaption, caloriesCaption);
-                insightCell.badInsightBar = @(carbCals);
-            } else {
-                insightCell.goodInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
-                insightCell.goodInsightBar = @(0);
-            }
+            insightCell.goodInsightCaption = calsFromCarbs[@"goodInsightCaption"];
+            insightCell.goodInsightBar = calsFromCarbs[@"goodInsightBar"];
+            insightCell.badInsightCaption = calsFromCarbs[@"badInsightCaption"];
+            insightCell.badInsightBar = calsFromCarbs[@"badInsightBar"];
             
             insightCell.insightImage = [UIImage imageNamed:@"food_insights_carbs_sugars"];
         }
@@ -247,49 +247,12 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
             break;
         case APHInsightRowSugarCalories:
         {
-            NSString *sugarCaloriesCaption = nil;
-
-            [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+            NSDictionary *calsFromSugar = [self calculateSugarCalories];
             
-            if (([self.caloriesInsight.valueGood doubleValue] != 0) &&
-                ([self.caloriesInsight.valueGood doubleValue] != NSNotFound) &&
-                ([self.sugarInsight.valueGood doubleValue] != 0)) {
-                NSNumber *gramsOfSugarConsumed = self.sugarInsight.valueGood;
-                NSNumber *totalNumberOfCaloriesConsumed = self.caloriesInsight.valueGood;
-                double sugarCaloriesConsumed = [gramsOfSugarConsumed doubleValue] * caloriesPerGramOfCarbsAndSugar;
-                double percentOfSugarCalories = sugarCaloriesConsumed / [totalNumberOfCaloriesConsumed doubleValue];
-                
-                double sugarCals = (percentOfSugarCalories < 1) ? percentOfSugarCalories : 1;
-                
-                sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
-                                                  [numberFormatter stringFromNumber:@(sugarCals)]];
-                
-                insightCell.goodInsightCaption = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
-                insightCell.goodInsightBar = @(sugarCals);
-            } else {
-                insightCell.goodInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
-                insightCell.goodInsightBar = @(0);
-            }
-            
-            if ([self.caloriesInsight.valueBad doubleValue] != 0 &&
-                ([self.caloriesInsight.valueBad doubleValue] != NSNotFound) &&
-                ([self.sugarInsight.valueBad doubleValue] != 0)) {
-                NSNumber *gramsOfSugarConsumedBad = self.sugarInsight.valueBad;
-                NSNumber *totalNumberOfCaloriesConsumedBad = self.caloriesInsight.valueBad;
-                double sugarCaloriesConsumedBad = [gramsOfSugarConsumedBad doubleValue] * caloriesPerGramOfCarbsAndSugar;
-                double badPercentOfSugarCalories = sugarCaloriesConsumedBad / [totalNumberOfCaloriesConsumedBad doubleValue];
-                
-                double sugarCals = (badPercentOfSugarCalories < 1) ? badPercentOfSugarCalories : 1;
-                
-                sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
-                                        [numberFormatter stringFromNumber:@(sugarCals)]];
-                
-                insightCell.badInsightCaption = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
-                insightCell.badInsightBar = @(sugarCals);
-            } else {
-                insightCell.badInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
-                insightCell.badInsightBar = @(0);
-            }
+            insightCell.goodInsightCaption = calsFromSugar[@"goodInsightCaption"];
+            insightCell.goodInsightBar = calsFromSugar[@"goodInsightBar"];
+            insightCell.badInsightCaption = calsFromSugar[@"badInsightCaption"];
+            insightCell.badInsightBar = calsFromSugar[@"badInsightBar"];
             
             insightCell.insightImage = [UIImage imageNamed:@"food_insights_sugars"];
         }
@@ -299,8 +262,8 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         {
             insightCell.goodInsightCaption = @"--";
             insightCell.badInsightCaption = @"--";
-            insightCell.goodInsightBar = @(10);
-            insightCell.badInsightBar = @(5);
+            insightCell.goodInsightBar = @(0);
+            insightCell.badInsightBar = @(0);
         }
             break;
     }
@@ -312,7 +275,9 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
 {
     APCDashboardInsightSummaryTableViewCell *summaryCell = nil;
     
-    if (indexPath.row == APHInsightSummaryRowHeader) {
+    NSUInteger summaryEnumRawValue = [[self.summaries objectAtIndex:indexPath.row] integerValue];
+    
+    if (summaryEnumRawValue == APHInsightSummaryRowHeader) {
         summaryCell = [self.tableView dequeueReusableCellWithIdentifier:kInsightSummaryHeaderCellIdentifier
                                                            forIndexPath:indexPath];
         summaryCell.sidebarColor = [UIColor appTertiaryRedColor];
@@ -327,16 +292,12 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         
         [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
         
-        switch (indexPath.row) {
+        switch (summaryEnumRawValue) {
             case APHInsightSummaryRowCalories:
             {
-                if ([self.caloriesInsight.valueGood doubleValue] >= 1000) {
-                    summary = [NSString stringWithFormat:@"On average, you consumed %@ calories 24-hours prior to a good glucose reading.",
-                               [numberFormatter stringFromNumber:self.caloriesInsight.valueGood]];
-                    summaryCell.summaryCaption = NSLocalizedString(summary, summary);
-                } else {
-                    summaryCell.summaryCaption = NSLocalizedString(@"Not enough data is available for showing the summary for calories.", nil);
-                }
+                summary = [NSString stringWithFormat:@"On average, you consumed %@ calories 24-hours prior to a good glucose reading.",
+                           [numberFormatter stringFromNumber:self.caloriesInsight.valueGood]];
+                summaryCell.summaryCaption = NSLocalizedString(summary, summary);
             }
                 break;
             case APHInsightSummaryRowSugar:
@@ -364,6 +325,111 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
     }
     
     return summaryCell;
+}
+
+- (NSDictionary *)calculateCarbCalories
+{
+    NSMutableDictionary *carbCaloriesData = [NSMutableDictionary new];
+    NSString *caloriesCaption = nil;
+    double carbCalsGood = 0;
+    double carbCalsBad = 0;
+    
+    [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+    
+    if ([self.carbsInsight.valueGood doubleValue] != 0) {
+        
+        NSNumber *gramsOfCarbsConsumed = self.carbsInsight.valueGood;
+        NSNumber *totalNumberOfCaloriesConsumed = self.caloriesInsight.valueGood;
+        double carbsCaloriesConsumed = [gramsOfCarbsConsumed doubleValue] * caloriesPerGramOfCarbsAndSugar;
+        double percentOfCarbsCalories = carbsCaloriesConsumed / [totalNumberOfCaloriesConsumed doubleValue];
+        
+        carbCalsGood = (percentOfCarbsCalories < 1) ? percentOfCarbsCalories : 1;
+        
+        caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
+                           [numberFormatter stringFromNumber:@(carbCalsGood)]];
+        
+        carbCaloriesData[@"goodInsightCaption"] = NSLocalizedString(caloriesCaption, caloriesCaption);
+        carbCaloriesData[@"goodInsightBar"] = @(carbCalsGood);
+    } else {
+        carbCaloriesData[@"goodInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        carbCaloriesData[@"goodInsightBar"] = @(0);
+    }
+    
+    if ([self.carbsInsight.valueBad doubleValue] != 0) {
+        NSNumber *gramsOfCarbsConsumedBad = self.carbsInsight.valueBad;
+        NSNumber *totalNumberOfCaloriesConsumedBad = self.caloriesInsight.valueBad;
+        double carbsCaloriesConsumedBad = [gramsOfCarbsConsumedBad doubleValue] * caloriesPerGramOfCarbsAndSugar;
+        double badPercentOfCarbsCalories = carbsCaloriesConsumedBad / [totalNumberOfCaloriesConsumedBad doubleValue];
+        
+        carbCalsBad = (badPercentOfCarbsCalories < 1) ? badPercentOfCarbsCalories : 1;
+        
+        caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
+                           [numberFormatter stringFromNumber:@(carbCalsBad)]];
+        
+        carbCaloriesData[@"badInsightCaption"] = NSLocalizedString(caloriesCaption, caloriesCaption);
+        carbCaloriesData[@"badInsightBar"] = @(carbCalsBad);
+    } else {
+        carbCaloriesData[@"badInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        carbCaloriesData[@"badInsightBar"] = @(0);
+    }
+    
+    carbCaloriesData[@"insightImage"] = [UIImage imageNamed:@"food_insights_carbs_sugars"];
+    
+    return carbCaloriesData;
+}
+
+- (NSDictionary *)calculateSugarCalories
+{
+    NSMutableDictionary *sugarCaloriesData = [NSMutableDictionary new];
+    NSString *sugarCaloriesCaption = nil;
+    double sugarCalsGood = 0;
+    double sugarCalsBad = 0;
+    
+    [numberFormatter setNumberStyle:NSNumberFormatterPercentStyle];
+    
+    if (([self.caloriesInsight.valueGood doubleValue] != 0) &&
+        ([self.caloriesInsight.valueGood doubleValue] != NSNotFound) &&
+        ([self.sugarInsight.valueGood doubleValue] != 0)) {
+        NSNumber *gramsOfSugarConsumed = self.sugarInsight.valueGood;
+        NSNumber *totalNumberOfCaloriesConsumed = self.caloriesInsight.valueGood;
+        double sugarCaloriesConsumed = [gramsOfSugarConsumed doubleValue] * caloriesPerGramOfCarbsAndSugar;
+        double percentOfSugarCalories = sugarCaloriesConsumed / [totalNumberOfCaloriesConsumed doubleValue];
+        
+        sugarCalsGood = (percentOfSugarCalories < 1) ? percentOfSugarCalories : 1;
+        
+        sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
+                                [numberFormatter stringFromNumber:@(sugarCalsGood)]];
+        
+        sugarCaloriesData[@"goodInsightCaption"] = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
+        sugarCaloriesData[@"goodInsightBar"] = @(sugarCalsGood);
+    } else {
+        sugarCaloriesData[@"goodInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        sugarCaloriesData[@"goodInsightBar"] = @(0);
+    }
+    
+    if ([self.caloriesInsight.valueBad doubleValue] != 0 &&
+        ([self.caloriesInsight.valueBad doubleValue] != NSNotFound) &&
+        ([self.sugarInsight.valueBad doubleValue] != 0)) {
+        NSNumber *gramsOfSugarConsumedBad = self.sugarInsight.valueBad;
+        NSNumber *totalNumberOfCaloriesConsumedBad = self.caloriesInsight.valueBad;
+        double sugarCaloriesConsumedBad = [gramsOfSugarConsumedBad doubleValue] * caloriesPerGramOfCarbsAndSugar;
+        double badPercentOfSugarCalories = sugarCaloriesConsumedBad / [totalNumberOfCaloriesConsumedBad doubleValue];
+        
+        sugarCalsBad = (badPercentOfSugarCalories < 1) ? badPercentOfSugarCalories : 1;
+        
+        sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
+                                [numberFormatter stringFromNumber:@(sugarCalsBad)]];
+        
+        sugarCaloriesData[@"badInsightCaption"] = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
+        sugarCaloriesData[@"badInsightBar"] = @(sugarCalsBad);
+    } else {
+        sugarCaloriesData[@"badInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        sugarCaloriesData[@"badInsightBar"] = @(0);
+    }
+    
+    sugarCaloriesData[@"insightImage"] = [UIImage imageNamed:@"food_insights_sugars"];
+    
+    return sugarCaloriesData;
 }
 
 @end

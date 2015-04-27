@@ -160,8 +160,6 @@ static NSString *kGlucoseContentDictionaryKey = @"glucoseContentDictionaryKey";
 
 #pragma mark - Step Delegates
 
-//- (void)stepViewControllerDidFinish:(ORKStepViewController *)stepViewController
-//                navigationDirection:(ORKStepViewControllerNavigationDirection)direction
 - (void)stepViewController:(ORKStepViewController *)stepViewController didFinishWithNavigationDirection:(ORKStepViewControllerNavigationDirection)direction
 {
     if ([stepViewController.step.identifier isEqualToString:kGlucoseLogListStep]) {

@@ -101,7 +101,7 @@ NSString *const kGlucoseNotMeasured = @"Not Measured";
         if ([glucoseReading isEqualToNumber:@(NSNotFound)]) {
             [self handleNotMeasured:nil];
         } else {
-            self.glucoseReadingTextField.text = [NSString stringWithFormat:@"%lu", [glucoseReading integerValue]];
+            self.glucoseReadingTextField.text = [NSString stringWithFormat:@"%lu", (long)[glucoseReading integerValue]];
             self.glucoseReadingUnitLabel.hidden = NO;
         }
     } else {

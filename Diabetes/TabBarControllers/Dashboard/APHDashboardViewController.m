@@ -47,7 +47,7 @@ static NSString * const kAPCDashboardFoodInsightHeaderCellIdentifier = @"APCDash
 static NSString * const kAPCDashboardFoodInsightCellIdentifier = @"APCDashboardFoodInsightCell";
 static NSInteger  const kDataCountLimit                         = 1;
 
-static double kRefershDelayInSeconds = 180; // 3 minutes
+static double kRefershDelayInSeconds = 60; // 3 minutes
 
 @interface APHDashboardViewController ()<UIViewControllerTransitioningDelegate, APCFoodInsightDelegate, APCPieGraphViewDatasource>
 
@@ -64,7 +64,7 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
 @property (nonatomic, strong) NSArray *allocationDataset;
 @property (nonatomic) NSInteger dataCount;
 
-@property (nonatomic, strong) NSOperationQueue *insightQueryQueue;
+@property (nonatomic, strong) NSOperationQueue *insightAndScoringQueue;
 
 @property (nonatomic, strong) NSTimer *syncDataTimer;
 
@@ -122,13 +122,7 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
 {
     [super viewDidLoad];
     
-    self.insightQueryQueue = [NSOperationQueue new];
-    self.insightQueryQueue.name = @"At the Dashboard. Running HealthKit and Core Data queries...";
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateGlucoseInsights:)
-                                                 name:kAPCInsightDataCollectionIsCompletedNotification
-                                               object:nil];
+    self.insightAndScoringQueue = [NSOperationQueue sequentialOperationQueueWithName:@"Insights and Scoring"];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -224,74 +218,75 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
 {
     [self prepareInsights];
     [self preparingScoringObjects];
+    
     [self prepareData];
 }
 
 - (void)updateVisibleRowsInTableView:(NSNotification *) __unused notification
 {
     self.dataCount++;
-    [self prepareData];
-}
-
-- (void)updateGlucoseInsights:(NSNotification *) __unused notification
-{
-    [self prepareData];
+    
+    __weak APHDashboardViewController *weakSelf = self;
+    
+    [self.insightAndScoringQueue addOperationWithBlock:^{
+        [weakSelf prepareData];
+    }];
 }
 
 #pragma mark - Data
 
 - (void)prepareInsights
 {
-    NSOperationQueue *glucoseInsightQueue = [NSOperationQueue sequentialOperationQueueWithName:@"Glucose Insight Queue"];
-    
     __weak APCInsights *weakStepInsight = self.stepInsight;
     
-    [glucoseInsightQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakStepInsight factorInsight];
     }];
     
     __weak APCInsights *weakCarbsInsight = self.carbsInsight;
     
-    [glucoseInsightQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakCarbsInsight factorInsight];
     }];
     
     __weak APCInsights *weakCaloriesInsight = self.caloriesInsight;
     
-    [glucoseInsightQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakCaloriesInsight factorInsight];
     }];
     
     __weak APCInsights *weakSugarInsight = self.sugarInsight;
     
-    [glucoseInsightQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakSugarInsight factorInsight];
     }];
     
     __weak APCFoodInsight *weakCarbFoodInsight = self.carbFoodInsight;
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakCarbFoodInsight insight];
     }];
     
     __weak APCFoodInsight *weakSugarFoodInsight = self.sugarFoodInsight;
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         [weakSugarFoodInsight insight];
     }];
 }
 
 - (void)preparingScoringObjects
 {
-    [self.insightQueryQueue addOperationWithBlock:^{
+    __weak APHDashboardViewController *weakSelf = self;
+    
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-        self.stepScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        weakSelf.stepScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                         unit:[HKUnit countUnit]
                                                                 numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
-    [self.insightQueryQueue addOperationWithBlock:^{
-        self.glucoseScoring = [[APCScoring alloc] initWithTask:@"APHLogGlucose-42449E07-7124-40EF-AC93-CA5BBF95FC15"
+    [self.insightAndScoringQueue addOperationWithBlock:^{
+        weakSelf.glucoseScoring = [[APCScoring alloc] initWithTask:@"APHLogGlucose-42449E07-7124-40EF-AC93-CA5BBF95FC15"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"value"
                                                        dataKey:nil
@@ -299,30 +294,30 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
                                                        groupBy:APHTimelineGroupDay];
     }];
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-        self.weightScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        weakSelf.weightScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                           unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitPound]
                                                                   numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCarbohydrates];
-        self.carbScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        weakSelf.carbScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                         unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitGram]
                                                                 numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySugar];
-        self.sugarScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        weakSelf.sugarScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                          unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitGram]
                                                                  numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
-    [self.insightQueryQueue addOperationWithBlock:^{
+    [self.insightAndScoringQueue addOperationWithBlock:^{
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
-        self.calorieScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        weakSelf.calorieScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                            unit:[HKUnit unitFromEnergyFormatterUnit:NSEnergyFormatterUnitKilocalorie]
                                                                    numberOfDays:-kNumberOfDaysToDisplay];
     }];
@@ -611,14 +606,14 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
                             item.identifier = kAPCDashboardInsightTableViewCellIdentifier;
                             item.tintColor = [UIColor appTertiaryBlueColor];
                             
-                            if (([self.caloriesInsight.valueGood doubleValue] != NSNotFound) && ([self.caloriesInsight.valueGood doubleValue] >= 1000)) {
-                                item.goodBar = ([self.caloriesInsight.valueGood doubleValue] != NSNotFound) ? @([self.caloriesInsight.valueGood doubleValue]) : @(0);
+                            if (([self.caloriesInsight.valueGood doubleValue] != NSNotFound) && ([self.caloriesInsight.valueGood doubleValue] != 0)) {
+                                item.goodBar = ([self.caloriesInsight.valueGood doubleValue] != NSNotFound) ? self.caloriesInsight.valueGood : @(0);
                             } else {
                                 item.goodBar = @(0);
                             }
                             
-                            if (([self.caloriesInsight.valueBad doubleValue] != NSNotFound) && ([self.caloriesInsight.valueBad doubleValue] >= 1000)) {
-                                item.badBar = ([self.caloriesInsight.valueBad doubleValue] != NSNotFound) ? @([self.caloriesInsight.valueBad doubleValue]) : @(0);
+                            if (([self.caloriesInsight.valueBad doubleValue] != NSNotFound) && ([self.caloriesInsight.valueBad doubleValue] != 0)) {
+                                item.badBar = ([self.caloriesInsight.valueBad doubleValue] != NSNotFound) ? self.caloriesInsight.valueBad : @(0);
                             } else {
                                 item.badBar = @(0);
                             }
@@ -641,13 +636,13 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
                             item.tintColor = [UIColor appTertiaryBlueColor];
                             
                             if (([self.stepInsight.valueGood doubleValue] != NSNotFound)) {
-                                item.goodBar = ([self.stepInsight.valueGood doubleValue] != NSNotFound) ? @([self.stepInsight.valueGood doubleValue]) : @(0);
+                                item.goodBar = ([self.stepInsight.valueGood doubleValue] != NSNotFound) ? self.stepInsight.valueGood : @(0);
                             } else {
                                 item.goodBar = @(0);
                             }
                             
                             if (([self.stepInsight.valueBad doubleValue] != NSNotFound)) {
-                                item.badBar = ([self.stepInsight.valueBad doubleValue] != NSNotFound) ? @([self.stepInsight.valueBad doubleValue]) : @(0);
+                                item.badBar = ([self.stepInsight.valueBad doubleValue] != NSNotFound) ? self.stepInsight.valueBad : @(0);
                             } else {
                                 item.badBar = @(0);
                             }
@@ -714,10 +709,12 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
                             
                             item.insightImage = [UIImage imageNamed:@"food_insights_sugars"];
                             
-                            APCTableViewRow *row = [APCTableViewRow new];
-                            row.item = item;
-                            row.itemType = kAPHDashboardItemTypeInsights;
-                            [rowItems addObject:row];
+                            if ((item.goodBar.doubleValue < item.badBar.doubleValue) && (item.goodBar.doubleValue != 0)) {
+                                APCTableViewRow *row = [APCTableViewRow new];
+                                row.item = item;
+                                row.itemType = kAPHDashboardItemTypeInsights;
+                                [rowItems addObject:row];
+                            }
                         }
                     }
                 }
@@ -731,7 +728,7 @@ static double kRefershDelayInSeconds = 180; // 3 minutes
                         item.identifier = kAPCDashboardFoodInsightHeaderCellIdentifier;
                         item.caption = NSLocalizedString(@"Diet Insights", @"Diet Insights");
                         
-                        if (self.carbFoodInsight.foodHistory && self.sugarFoodInsight.foodHistory) {
+                        if (self.carbFoodInsight.foodHistory.count > 0 && self.sugarFoodInsight.foodHistory.count > 0) {
                             item.detailText = NSLocalizedString(@"Your foods that are high in carbs or sugar", nil);
                         } else {
                             item.detailText = NSLocalizedString(@"Log your meals using the “Log Food” activity to learn about your diet habits",
