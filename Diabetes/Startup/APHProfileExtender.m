@@ -33,8 +33,24 @@
  
 #import "APHProfileExtender.h"
 #import "APHGlucoseLevelsMealTimesViewController.h"
+#import <MessageUI/MFMailComposeViewController.h>
+
+NSString * const kFeedbackEmailAddress = @"glucosuccess.feedback@gmail.com";
 
 static  NSInteger  kDefaultNumberOfExtraSections = 2;
+
+typedef NS_ENUM(NSUInteger, APHProfileSections)
+{
+    APHProfileSectionGlucoseLog = 0,
+    APHProfileSectionFeedback
+};
+
+@interface APHProfileExtender() <MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, strong) NSArray *profileCellsDatasource;
+@property (nonatomic, weak) UINavigationController *weakNavController;
+
+@end
 
 @implementation APHProfileExtender
 
@@ -42,7 +58,7 @@ static  NSInteger  kDefaultNumberOfExtraSections = 2;
     self = [super init];
 
     if (self) {
-        
+        _profileCellsDatasource = @[NSLocalizedString(@"Glucose Log", nil), NSLocalizedString(@"Send Your Feedback", nil)];
     }
     
     return self;
@@ -77,23 +93,23 @@ static  NSInteger  kDefaultNumberOfExtraSections = 2;
     NSInteger count = 0;
     
     if (section == 0) {
-        count = 1;
+        count = self.profileCellsDatasource.count;
     }
     
     return count;
 }
 
-/**
-  * @returns  A default style Table View Cell unless you have special requirements
-  */
-- (UITableViewCell *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)decorateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)__unused indexPath
 {
-    UITableViewCell *cell = nil;
-    if (indexPath.section == 0) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GlucoseLogSetup"];
-        cell.textLabel.text = NSLocalizedString(@"Glucose Log", @"Glucose Log");
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    
+    cell.textLabel.text = [self.profileCellsDatasource objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = @"";
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    
+    if (indexPath.row == APHProfileSectionGlucoseLog) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
 
     return cell;
@@ -119,15 +135,94 @@ static  NSInteger  kDefaultNumberOfExtraSections = 2;
   */
 - (void)navigationController:(UINavigationController *)navigationController didSelectRowAtIndexPath:(NSIndexPath *) __unused indexPath
 {
-    UIStoryboard *sbGlucoseLog = [UIStoryboard storyboardWithName:@"APHOnboarding" bundle:[NSBundle mainBundle]];
-    APHGlucoseLevelsMealTimesViewController *controller = [sbGlucoseLog instantiateViewControllerWithIdentifier:@"APHGlucoseMealTimes"];
+    UIViewController *controller = nil;
     
-    controller.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Glucose Log", @"");
-    controller.hidesBottomBarWhenPushed = YES;
+    switch (indexPath.row) {
+        case APHProfileSectionGlucoseLog:
+        {
+            UIStoryboard *sbGlucoseLog = [UIStoryboard storyboardWithName:@"APHOnboarding" bundle:[NSBundle mainBundle]];
+            APHGlucoseLevelsMealTimesViewController *glucoseController = [sbGlucoseLog instantiateViewControllerWithIdentifier:@"APHGlucoseMealTimes"];
+            
+            glucoseController.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Glucose Log", @"");
+            glucoseController.hidesBottomBarWhenPushed = YES;
+            
+            glucoseController.isConfigureMode = YES;
+            
+            controller = glucoseController;
+            
+            [navigationController pushViewController:controller animated:YES];
+        }
+            break;
+            
+        default:
+        {
+            MFMailComposeViewController *feedbackController = [self feedback];
+            
+            self.weakNavController = navigationController;
+            
+            if (feedbackController) {
+                controller = feedbackController;
+                
+                [navigationController presentViewController:controller animated:YES completion:nil];
+            } else {
+                NSString *addEmailAccountMessage = NSLocalizedString(@"You don't have any email accounts set up. Please add an email account in Settings -> Mail, Contacts, Calendars", nil);
+                UIAlertController *alertView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"No Email Accounts", nil)
+                                                                                   message:addEmailAccountMessage
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * __unused action) {}];
+                
+                [alertView addAction:defaultAction];
+                
+                [self.weakNavController presentViewController:alertView animated:YES completion:nil];
+            }
+        }
+            break;
+    }
     
-    controller.isConfigureMode = YES;
+    [self.profileViewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (MFMailComposeViewController *)feedback
+{
+    MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+    mailComposer.mailComposeDelegate = self;
     
-    [navigationController pushViewController:controller animated:YES];
+    NSString *appInfo = [NSString stringWithFormat:@"%@\n%@", [APCUtilities appName], [APCUtilities appVersion]];
+    NSString *hardware = [APCDeviceHardware platformString];
+    NSString *subject = NSLocalizedString(@"Feedback", nil);
+    [mailComposer setToRecipients:[NSArray arrayWithObjects:kFeedbackEmailAddress, nil]];
+    [mailComposer setSubject:[NSString stringWithFormat:@"%@", subject]];
+    [mailComposer setMessageBody:[NSString stringWithFormat:@"\n\nPlease do not enclose any sensitive information when emailing glucosuccess.feedback@gmail.com\n\n---\n%@\n%@", appInfo, hardware] isHTML:NO];
+    
+    return mailComposer;
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*) __unused controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            APCLogDebug(@"Feedback was canceled");
+            break;
+        case MFMailComposeResultSaved:
+            APCLogDebug(@"Feedback was saved as draft.");
+            break;
+        case MFMailComposeResultSent:
+            APCLogDebug(@"Feedback has been sent.");
+            break;
+        case MFMailComposeResultFailed:
+            APCLogError2(error);
+            break;
+        default:
+            APCLogDebug(@"Feedback was not sent.");
+            break;
+    }
+    
+    [self.weakNavController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

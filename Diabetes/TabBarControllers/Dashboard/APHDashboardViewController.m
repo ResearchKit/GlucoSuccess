@@ -226,11 +226,7 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
 {
     self.dataCount++;
     
-    __weak APHDashboardViewController *weakSelf = self;
-    
-    [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakSelf prepareData];
-    }];
+    [self prepareData];
 }
 
 #pragma mark - Data
@@ -565,7 +561,7 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
                         item.identifier = @"APCDashboardPieGraphTableViewCell";
                         item.tintColor = [UIColor appTertiaryBlueColor];
                         item.editable = YES;
-                        item.info = NSLocalizedString(@"The circle depicts the percentage of time you spent in various levels of activity over the past 7 days. The recommendation in type 2 diabetes is for at least 150 min of moderate activity per week. The daily activity graphic and assessment are courtesy of the Stanford MyHeart Counts study team.", @"");
+                        item.info = NSLocalizedString(@"The circle depicts the percentage of time you spent in various levels of activity over the past 7 days. The recommendation in type 2 diabetes is for at least 150 min of moderate activity per week.\n\n Active minutes = moderate activity minutes + 2x(vigorous activity minutes).", @"");
                         
                         APCTableViewRow *row = [APCTableViewRow new];
                         row.item = item;

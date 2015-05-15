@@ -102,7 +102,7 @@ static NSString *kSevenDayFitnessCompleteStep = @"sevenDayFitnessCompleteStep";
         controller.imagesArray = @[@"tutorial-2", @"tutorial-1"];
         controller.headingsArray = @[
                                      NSLocalizedString(@"Keep Your Phone On You", @""),
-                                     NSLocalizedString(@"Activity Tracker", @"")
+                                     NSLocalizedString(@"Physical Activity Intensity", @"")
                                     ];
         controller.messagesArray = @[
                                      NSLocalizedString(@"To ensure the accuracy of this task, keep your phone on you at all times.", @""),

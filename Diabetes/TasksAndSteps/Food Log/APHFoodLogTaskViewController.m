@@ -78,14 +78,10 @@ static NSString *kFoodLogStepLaunch = @"FoodLogStepLaunch";
                                          NSLocalizedString(@"What Now?", @"What Now?")
                                         ];
         instController.messagesArray = @[
-                                         NSLocalizedString(@"Keeping a current food log allows you to understand your performance trend based on the foods you eat.",
-                                                           @"Keeping a current food log allows you to understand your performance trend based on the foods you eat."),
-                                         NSLocalizedString(@"You will be logging your food data via Lose It! A helpful food tracking resource from the App Store.",
-                                                           @"You will be logging your food data via Lose It! A helpful food tracking resource from the App Store."),
-                                         NSLocalizedString(@"As you log your first meal, Health app will ask for access to future entries. Tap Allow, to quickly sync data and produce the most accurate analysis.",
-                                                           @"As you log your first meal, Health app will ask for access to future entries. Tap Allow, to quickly sync data and produce the most accurate analysis."),
-                                         NSLocalizedString(@"Whenever  you want to log food data, return here and tap Get Started to launch Lose It! Remember to log often for best results.",
-                                                           @"Whenever  you want to log food data, return here and tap Get Started to launch Lose It! Remember to log often for best results.")
+                                         NSLocalizedString(@"Keeping a current food log helps you understand how your diet influences your glucose control.", nil),
+                                         NSLocalizedString(@"You will be logging your food data via “Lose It!”, a helpful food tracking resource from the App Store.", nil),
+                                         NSLocalizedString(@"As you log your first meal, Health app will ask for access to future entries. Tap Allow, to quickly sync data and produce the most accurate analysis.", nil),
+                                         NSLocalizedString(@"Whenever  you want to log food data, return here and tap Get Started to launch Lose It! Remember to log often for best results.", nil)
                                          ];
         controller.delegate = self;
         controller.step = step;

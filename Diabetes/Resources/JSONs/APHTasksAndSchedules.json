@@ -67,6 +67,11 @@
               "taskFileName" : "DiabetesQoLSurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "15 Questions"
+              },
+              {
+              "taskTitle" : "Medication Tracking",
+              "taskID": "APHMedicationTracker-20EF8ED2-E461-4C20-9024-F43FCAAAF4C3",
+              "taskClassName" : "APHMedicationTrackerTaskViewController"
               }
               
               ],
@@ -120,6 +125,11 @@
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 30 * *",
                   "taskID": "QualityOfLife-1E77771-5B02-11E4-8ED6-0811200C9A66"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "APHMedicationTracker-20EF8ED2-E461-4C20-9024-F43FCAAAF4C3"
                   }
                   
                 ]
