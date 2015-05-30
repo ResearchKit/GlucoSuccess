@@ -147,7 +147,7 @@ static CGFloat kHeaderFontSize = 16.0;
         APCAppDelegate * appDelegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
         NSManagedObjectContext *localContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         localContext.parentContext = appDelegate.dataSubstrate.persistentContext;
-    
+        
         for (NSUInteger idx = 0; idx < self.mealTimes.count; idx++) {
             NSDictionary *mealTime = [self.mealTimes objectAtIndex:idx];
             NSNumber *mealTimeValue = mealTime[kGlucoseLevelValueKey];

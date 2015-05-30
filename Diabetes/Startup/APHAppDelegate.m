@@ -132,7 +132,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             if (sampleType)
             {
                 [self.dataSubstrate.healthStore enableBackgroundDeliveryForType:sampleType
-                                                                      frequency:HKUpdateFrequencyHourly
+                                                                      frequency:HKUpdateFrequencyImmediate
                                                                  withCompletion:^(BOOL success, NSError *error)
                  {
                      if (!success)
@@ -155,11 +155,11 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 - (void) setUpInitializationOptions
 {
     NSDictionary *permissionsDescriptions = @{
-                                              @(kSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
-                                              @(kSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
-                                              @(kSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
-                                              @(kSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
-                                              @(kSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant GlucoSuccess access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
+                                              @(kAPCSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
+                                              @(kAPCSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
+                                              @(kAPCSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
+                                              @(kAPCSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
+                                              @(kAPCSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant GlucoSuccess access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
                                               };
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
@@ -188,8 +188,8 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                    HKQuantityTypeIdentifierHeight
                                                    ],
                                            kAppServicesListRequiredKey           : @[
-                                                   @(kSignUpPermissionsTypeLocalNotifications),
-                                                   @(kSignUpPermissionsTypeCoremotion)
+                                                   @(kAPCSignUpPermissionsTypeLocalNotifications),
+                                                   @(kAPCSignUpPermissionsTypeCoremotion)
                                                    ],
                                            kAppServicesDescriptionsKey : permissionsDescriptions,
                                            kAppProfileElementsListKey            : @[
@@ -205,6 +205,24 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     self.initializationOptions = dictionary;
     
     self.profileExtender = [[APHProfileExtender alloc] init];
+}
+
+- (NSDictionary*)researcherSpecifiedUnits
+{
+    NSDictionary* hkUnits =
+    @{
+      HKQuantityTypeIdentifierStepCount                 : [HKUnit countUnit],
+      HKQuantityTypeIdentifierBodyMass                  : [HKUnit gramUnitWithMetricPrefix:HKMetricPrefixKilo],
+      HKQuantityTypeIdentifierHeight                    : [HKUnit meterUnit],
+
+      
+      HKQuantityTypeIdentifierDietaryCarbohydrates      : [HKUnit gramUnit],
+      HKQuantityTypeIdentifierDietarySugar              : [HKUnit gramUnit],
+      HKQuantityTypeIdentifierDietaryEnergyConsumed     : [HKUnit calorieUnit],
+      HKQuantityTypeIdentifierBloodGlucose              : [[HKUnit gramUnitWithMetricPrefix:HKMetricPrefixMilli] unitDividedByUnit:[HKUnit literUnitWithMetricPrefix:HKMetricPrefixDeci]]
+      };
+    
+    return hkUnits;
 }
 
 -(void)setUpTasksReminder{
@@ -232,8 +250,8 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         APCLogEvent(@"This app is being launched for the first time. Turn all reminders on");
         for (APCTaskReminder *reminder in self.tasksReminder.reminders) {
             [[NSUserDefaults standardUserDefaults]setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
-}
-
+        }
+        
         if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone){
             [self.tasksReminder setReminderOn:@YES];
         }
@@ -261,8 +279,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                             NSFontAttributeName : [UIFont appNavBarTitleFont]
                                                             }];
     [[UIView appearance] setTintColor: [UIColor appPrimaryColor]];
-    
-    self.dataSubstrate.parameters.hideExampleConsent = NO;
 }
 
 - (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
@@ -314,19 +330,19 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
                                             },
-             @{
+                                        @{
                                             kMigrationTaskIdKey: kSleepSurveyIdentifier,
                                             kMigrationOffsetByDaysKey: @(29),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
-              },
-             @{
+                                            },
+                                        @{
                                             kMigrationTaskIdKey: kQualityOfLifeSurveyIdentifier,
                                             kMigrationOffsetByDaysKey: @(34),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
-              }
-            ];
+                                            }
+                                        ];
         
         NSArray *schedules = migratedTaskAndSchedules[kJSONSchedulesKey];
         NSMutableArray *migratedSchedules = [NSMutableArray new];
@@ -647,14 +663,11 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                 NSError*        error       = nil;
                 NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
                 
-                if (!attributes)
+                if (error)
                 {
-                    if (error)
-                    {
-                        APCLogError2(error);
-                        
-                        consentDate = [[NSDate date] startOfDay];
-                    }
+                    APCLogError2(error);
+                    
+                    consentDate = [[NSDate date] startOfDay];
                 }
                 else
                 {
@@ -674,13 +687,15 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     APCPassiveDataSink* receiver            = [[APCPassiveDataSink alloc] initWithIdentifier:@"motionActivityCollector"
                                                                                  columnNames:motionColumnNames
                                                                           operationQueueName:@"APCCoreMotion Activity Collector"
-                                                                            andDataProcessor:CoreMotionDataSerializer];
+                                                                               dataProcessor:CoreMotionDataSerializer
+                                                                           fileProtectionKey:NSFileProtectionCompleteUntilFirstUserAuthentication];
     
     [motionCollector setReceiver:receiver];
     [motionCollector setDelegate:receiver];
     [motionCollector start];
     [self.passiveDataCollector addDataSink:motionCollector];
 }
+
 
 - (void)configureObserverQueries
 {
@@ -721,17 +736,16 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         
         return consentDate;
     };
-    
-    NSString*(^QuantityDataSerializer)(id) = ^NSString*(id dataSample)
+
+NSString*(^QuantityDataSerializer)(id, HKUnit*) = ^NSString*(id dataSample, HKUnit* unit)
     {
         HKQuantitySample*   qtySample           = (HKQuantitySample *)dataSample;
         NSString*           startDateTimeStamp  = [qtySample.startDate toStringInISO8601Format];
         NSString*           endDateTimeStamp    = [qtySample.endDate toStringInISO8601Format];
         NSString*           healthKitType       = qtySample.quantityType.identifier;
-        NSString*           quantityValueRep    = [NSString stringWithFormat:@"%@", qtySample.quantity];
-        NSArray*            valueSplit          = [quantityValueRep componentsSeparatedByString:@" "];
-        NSString*           quantityValue       = [valueSplit objectAtIndex:0];
-        NSString*           quantityUnit        = @"";
+        NSNumber*           quantityValue       = @([qtySample.quantity doubleValueForUnit:unit]);
+        NSString*           quantityUnit        = unit.unitString;
+        
         NSString*           correlation         = @"No Data";
         NSDictionary*       metaData            = qtySample.metadata;
         
@@ -744,11 +758,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             {
                 correlation = [NSString stringWithFormat:@"\"%@ - %@\"", meal, foodItem];
             }
-        }
-        
-        for (int i = 1; i < (int)[valueSplit count]; i++)
-        {
-            quantityUnit = [quantityUnit stringByAppendingString:valueSplit[i]];
         }
         
         NSString*           sourceIdentifier    = qtySample.source.bundleIdentifier;
@@ -791,15 +800,15 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         NSString*   startDateTimeStamp          = [sample.startDate toStringInISO8601Format];
         NSString*   endDateTimeStamp            = [sample.endDate toStringInISO8601Format];
         NSString*   healthKitType               = sample.sampleType.identifier;
-        NSString*   activityType                = [HKWorkout workoutActivityTypeStringRepresentation:(int)sample.workoutActivityType];
+        NSString*   activityType                = [HKWorkout apc_workoutActivityTypeStringRepresentation:(int)sample.workoutActivityType];
         double      energyConsumedValue         = [sample.totalEnergyBurned doubleValueForUnit:[HKUnit kilocalorieUnit]];
         NSString*   energyConsumed              = [NSString stringWithFormat:@"%f", energyConsumedValue];
         NSString*   energyUnit                  = [HKUnit kilocalorieUnit].description;
         double      totalDistanceConsumedValue  = [sample.totalDistance doubleValueForUnit:[HKUnit meterUnit]];
         NSString*   totalDistance               = [NSString stringWithFormat:@"%f", totalDistanceConsumedValue];
         NSString*   distanceUnit                = [HKUnit meterUnit].description;
-        NSString*           sourceIdentifier    = sample.source.bundleIdentifier;
-        NSString*           quantitySource      = sample.source.name;
+        NSString*   sourceIdentifier            = sample.source.bundleIdentifier;
+        NSString*   quantitySource              = sample.source.name;
         
         if (quantitySource == nil)
         {
@@ -816,11 +825,21 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                 //  This shouldn't get called.
                 quantitySource = @"iPhone";
             }
-            
         }
         
         NSError*    error                       = nil;
-        NSString*   metaData                    = [NSDictionary convertDictionary:sample.metadata ToStringWithReturningError:&error];
+        NSString*   metaData                    = [NSDictionary apc_stringFromDictionary:sample.metadata error:&error];
+        
+        if (!metaData)
+        {
+            if (error)
+            {
+                APCLogError2(error);
+            }
+            
+            metaData = @"";
+        }
+        
         NSString*   metaDataStringified         = [NSString stringWithFormat:@"\"%@\"", metaData];
         NSString*   stringToWrite               = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
                                                    startDateTimeStamp,
@@ -899,26 +918,33 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         
         return stringToWrite;
     };
-    
+
     NSArray* dataTypesWithReadPermission = self.initializationOptions[kHKReadPermissionsKey];
     
-    // Just a note here that we are using n collectors to 1 data sink for quantity sample type data.
-    NSArray*                    quantityColumnNames= @[@"startTime,endTime,type,value,unit,correlation,sourceIdentifer,sourceName"];
-    APCPassiveDataSink*         quantityreceiver    = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitDataCollector"
-                                                                                         columnNames:quantityColumnNames
-                                                                                  operationQueueName:@"APCHealthKitQuantity Activity Collector"
-                                                                                    andDataProcessor:QuantityDataSerializer];
+    if (!self.passiveDataCollector)
+    {
+        self.passiveDataCollector = [[APCPassiveDataCollector alloc] init];
+    }
     
-    NSArray*                    workoutColumnNames  = @[@"startTime,endTime,type,workoutType,total distance,unit,energy consumed,unit,source,sourceIdentifer,metadata"];
+    // Just a note here that we are using n collectors to 1 data sink for quantity sample type data.
+    NSArray*                    quantityColumnNames = @[@"startTime,endTime,type,value,unit,source,sourceIdentifier"];
+    APCPassiveDataSink*         quantityreceiver    =[[APCPassiveDataSink alloc] initWithQuantityIdentifier:@"HealthKitDataCollector"
+                                                                                                columnNames:quantityColumnNames
+                                                                                         operationQueueName:@"APCHealthKitQuantity Activity Collector"
+                                                                                              dataProcessor:QuantityDataSerializer
+                                                                                          fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
+    NSArray*                    workoutColumnNames  = @[@"startTime,endTime,type,workoutType,total distance,unit,energy consumed,unit,source,sourceIdentifier,metadata"];
     APCPassiveDataSink*         workoutReceiver     = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitWorkoutCollector"
                                                                                          columnNames:workoutColumnNames
                                                                                   operationQueueName:@"APCHealthKitWorkout Activity Collector"
-                                                                                    andDataProcessor:WorkoutDataSerializer];
-    NSArray*                    categoryColumnNames = @[@"startTime,type,category value,value,unit,source,sourceIdentifer"];
+                                                                                       dataProcessor:WorkoutDataSerializer
+                                                                                   fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
+    NSArray*                    categoryColumnNames = @[@"startTime,type,category value,value,unit,source,sourceIdentifier"];
     APCPassiveDataSink*         sleepReceiver       = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitSleepCollector"
                                                                                          columnNames:categoryColumnNames
                                                                                   operationQueueName:@"APCHealthKitSleep Activity Collector"
-                                                                                    andDataProcessor:CategoryDataSerializer];
+                                                                                       dataProcessor:CategoryDataSerializer
+                                                                                   fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
     
     if (dataTypesWithReadPermission)
     {
@@ -949,27 +975,40 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             {
                 // This is really important to remember that we are creating as many user defaults as there are healthkit permissions here.
                 NSString*                               uniqueAnchorDateName    = [NSString stringWithFormat:@"APCHealthKit%@AnchorDate", dataType];
-                APCHealthKitBackgroundDataCollector*    collector               = [[APCHealthKitBackgroundDataCollector alloc] initWithIdentifier:sampleType.identifier
-                                                                                                                                       sampleType:sampleType anchorName:uniqueAnchorDateName
-                                                                                                                                 launchDateAnchor:LaunchDate];
+                APCHealthKitBackgroundDataCollector*    collector               = nil;
                 
                 //If the HKObjectType is a HKWorkoutType then set a different receiver/data sink.
                 if ([sampleType isKindOfClass:[HKWorkoutType class]])
                 {
+                    collector = [[APCHealthKitBackgroundDataCollector alloc] initWithIdentifier:sampleType.identifier
+                                                                                     sampleType:sampleType anchorName:uniqueAnchorDateName
+                                                                               launchDateAnchor:LaunchDate
+                                                                                    healthStore:self.dataSubstrate.healthStore];
                     [collector setReceiver:workoutReceiver];
                     [collector setDelegate:workoutReceiver];
                 }
                 else if ([sampleType isKindOfClass:[HKCategoryType class]])
                 {
+                    collector = [[APCHealthKitBackgroundDataCollector alloc] initWithIdentifier:sampleType.identifier
+                                                                                     sampleType:sampleType anchorName:uniqueAnchorDateName
+                                                                               launchDateAnchor:LaunchDate
+                                                                                    healthStore:self.dataSubstrate.healthStore];
                     [collector setReceiver:sleepReceiver];
                     [collector setDelegate:sleepReceiver];
                 }
                 else
-{
+                {
+                    NSDictionary* hkUnitKeysAndValues = [self researcherSpecifiedUnits];
+                    
+                    collector = [[APCHealthKitBackgroundDataCollector alloc] initWithQuantityTypeIdentifier:sampleType.identifier
+                                                                                                 sampleType:sampleType anchorName:uniqueAnchorDateName
+                                                                                           launchDateAnchor:LaunchDate
+                                                                                                healthStore:self.dataSubstrate.healthStore
+                                                                                                       unit:[hkUnitKeysAndValues objectForKey:sampleType.identifier]];
                     [collector setReceiver:quantityreceiver];
                     [collector setDelegate:quantityreceiver];
                 }
-    
+                
                 [collector start];
                 [self.passiveDataCollector addDataSink:collector];
             }
