@@ -282,7 +282,7 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        weakSelf.glucoseScoring = [[APCScoring alloc] initWithTask:@"APHLogGlucose-42449E07-7124-40EF-AC93-CA5BBF95FC15"
+        weakSelf.glucoseScoring = [[APCScoring alloc] initWithTask:kGlucoseLogSurveyIdentifier
                                                       numberOfDays:-kNumberOfDaysToDisplay
                                                           valueKey:@"value"
                                                            dataKey:nil
