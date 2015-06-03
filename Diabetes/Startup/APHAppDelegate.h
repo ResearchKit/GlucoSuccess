@@ -34,6 +34,8 @@
 #import <UIKit/UIKit.h>
 @import APCAppCore;
 
+extern NSString* const kGlucoseLogSurveyIdentifier;
+
 typedef NS_ENUM(NSUInteger, APHFitnessDaysShows)
 {
     APHFitnessDaysShowsRemaining = 0,
