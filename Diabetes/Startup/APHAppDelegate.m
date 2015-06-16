@@ -629,6 +629,33 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     }
 }
 
+- (NSDate *)proxyConsentDate
+{
+    NSDate *consentDate = [[NSDate date] startOfDay];
+    NSFileManager*  fileManager = [NSFileManager defaultManager];
+    NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
+    
+    if ([fileManager fileExistsAtPath:filePath])
+    {
+        NSError*        error       = nil;
+        NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
+        
+        if (!attributes)
+        {
+            if (error)
+            {
+                APCLogError2(error);
+            }
+        }
+        else
+        {
+            consentDate = [attributes fileCreationDate];
+        }
+    }
+    
+    return consentDate;
+}
+
 - (void)configureMotionActivityObserver
 {
     NSString*(^CoreMotionDataSerializer)(id) = ^NSString *(id dataSample)
@@ -655,25 +682,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         }
         else
         {
-            NSFileManager*  fileManager = [NSFileManager defaultManager];
-            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
-            
-            if ([fileManager fileExistsAtPath:filePath])
-            {
-                NSError*        error       = nil;
-                NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
-                
-                if (error)
-                {
-                    APCLogError2(error);
-                    
-                    consentDate = [[NSDate date] startOfDay];
-                }
-                else
-                {
-                    consentDate = [attributes fileCreationDate];
-                }
-            }
+            consentDate = [self proxyConsentDate];
         }
         
         return consentDate;
@@ -710,28 +719,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         }
         else
         {
-            NSFileManager*  fileManager = [NSFileManager defaultManager];
-            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
-            
-            if ([fileManager fileExistsAtPath:filePath])
-            {
-                NSError*        error       = nil;
-                NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
-                
-                if (!attributes)
-                {
-                    if (error)
-                    {
-                        APCLogError2(error);
-                        
-                        consentDate = [[NSDate date] startOfDay];
-                    }
-                }
-                else
-                {
-                    consentDate = [attributes fileCreationDate];
-                }
-            }
+            consentDate = [self proxyConsentDate];
         }
         
         return consentDate;
@@ -900,11 +888,8 @@ NSString*(^QuantityDataSerializer)(id, HKUnit*) = ^NSString*(id dataSample, HKUn
             }
 
             // Get the difference in seconds between the start and end date for the sample
-            NSDateComponents* secondsSpentInBedOrAsleep = [[NSCalendar currentCalendar] components:NSCalendarUnitSecond
-                                                                                          fromDate:catSample.startDate
-                                                                                            toDate:catSample.endDate
-                                                                                           options:NSCalendarWrapComponents];
-            NSString*           quantityValue   = [NSString stringWithFormat:@"%ld", (long)secondsSpentInBedOrAsleep.second];
+            NSTimeInterval secondsSpentInBedOrAsleep = [catSample.endDate timeIntervalSinceDate:catSample.startDate];
+            NSString*                quantityValue   = [NSString stringWithFormat:@"%f", secondsSpentInBedOrAsleep];
             
             stringToWrite   = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@\n",
                                                            startDateTime,
