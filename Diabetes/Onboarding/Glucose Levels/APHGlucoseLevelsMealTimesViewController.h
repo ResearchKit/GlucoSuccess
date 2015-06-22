@@ -56,4 +56,7 @@ extern NSString *const kGlucoseLevelValueKey;
 @property (strong, nonatomic) NSString *pickedDays;
 @property (nonatomic) BOOL isConfigureMode;
 
++ (void)createGlucoseLogScheduleAndTaskWithScheduledHours:(NSArray *)scheduledHours
+                                            andRepeatDays:(NSString *)repeatDays;
+
 @end

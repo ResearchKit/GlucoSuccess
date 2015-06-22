@@ -39,13 +39,13 @@
 #import "APHTableViewItem.h"
 #import "APHFoodInsightsViewController.h"
 
-static NSString * const kAPCBasicTableViewCellIdentifier       = @"APCBasicTableViewCell";
-static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetailTableViewCell";
+static NSString * const kAPCBasicTableViewCellIdentifier             = @"APCBasicTableViewCell";
+static NSString * const kAPCRightDetailTableViewCellIdentifier       = @"APCRightDetailTableViewCell";
 static NSString * const kAPCDashboardInsightsTableViewCellIdentifier = @"APCDashboardInsightsTableViewCell";
-static NSString * const kAPCDashboardInsightTableViewCellIdentifier = @"APCDashboardInsightTableViewCell";
+static NSString * const kAPCDashboardInsightTableViewCellIdentifier  = @"APCDashboardInsightTableViewCell";
 static NSString * const kAPCDashboardFoodInsightHeaderCellIdentifier = @"APCDashboardFoodInsightHeaderCell";
-static NSString * const kAPCDashboardFoodInsightCellIdentifier = @"APCDashboardFoodInsightCell";
-static NSInteger  const kDataCountLimit                         = 1;
+static NSString * const kAPCDashboardFoodInsightCellIdentifier       = @"APCDashboardFoodInsightCell";
+static NSInteger  const kDataCountLimit                              = 1;
 
 static double kRefershDelayInSeconds = 60; // 3 minutes
 
@@ -330,8 +330,8 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
     {
         NSMutableArray *rowItems = [NSMutableArray new];
         
-        NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfAllScheduledTasksForToday;
-        NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfCompletedScheduledTasksForToday;
+        NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfTotalRequiredTasksForToday;
+        NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfTotalCompletedTasksForToday;
         
         {
             APCTableViewDashboardProgressItem *item = [APCTableViewDashboardProgressItem new];
@@ -558,7 +558,7 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
                             }
                         }
                         
-                        item.identifier = @"APCDashboardPieGraphTableViewCell";
+                        item.identifier = kAPCDashboardPieGraphTableViewCellIdentifier;
                         item.tintColor = [UIColor appTertiaryBlueColor];
                         item.editable = YES;
                         item.info = NSLocalizedString(@"The circle depicts the percentage of time you spent in various levels of activity over the past 7 days. The recommendation in type 2 diabetes is for at least 150 min of moderate activity per week.\n\n Active minutes = moderate activity minutes + 2x(vigorous activity minutes).", @"");
