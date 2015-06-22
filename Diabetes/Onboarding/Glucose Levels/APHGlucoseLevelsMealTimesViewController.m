@@ -64,6 +64,12 @@ NSString *const kGlucoseLevelIndexPath        = @"indexPath";
 NSString *const kGlucoseLevelValueKey         = @"value";
 
 NSString *const kRecurringValueNever          = @"Never";
+NSString *const kRecurringEveryDay            = @"Everyday";
+
+static NSString * const kAPHSampleGlucoseLogTaskAndScheduleFileName = @"APHSampleGlucoseLogTaskAndSchedule.json";
+static NSString * const kAPHListOfTimesMarker                       = @"LIST_OF_TIMES";
+static NSString * const kAPHListOfWeekdaysMarker                    = @"LIST_OF_WEEKDAYS";
+static NSString * const kAPHScheduleStringKey                       = @"scheduleString";
 
 @interface APHGlucoseLevelsMealTimesViewController ()
 
@@ -71,7 +77,7 @@ NSString *const kRecurringValueNever          = @"Never";
 
 @property (nonatomic, strong) NSMutableArray *glucoseLevels;
 
-@property (nonatomic, strong) NSMutableArray *glucoseCheckTimes;
+@property (nonatomic, strong) __block NSMutableArray *glucoseCheckTimes;
 @property (nonatomic, strong) NSMutableArray *glucoseMealTimeConfiguration;
 
 @property (nonatomic, strong) NSArray *glucoseCheckSchedules;
@@ -95,38 +101,38 @@ NSString *const kRecurringValueNever          = @"Never";
     
     self.mealTimeDatasource = @[
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBreakfast, @"Morning Fasting"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Breakfast", @"Morning Fasting"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBreakfast, @"After Breakfast"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Breakfast", @"After Breakfast"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayLunch, @"Before Lunch"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Lunch", @"Before Lunch"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayLunch, @"After Lunch"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Lunch", @"After Lunch"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayDinner, @"Before Dinner"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Dinner", @"Before Dinner"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayDinner, @"After Dinner"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Dinner", @"After Dinner"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBedTime, @"Before Bed Time"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Bed Time", @"Before Bed Time"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
-                                },
+                                    },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayOther, @"Other"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Other", @"Other"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
-                                 }
-                            ];
+                                    }
+                                ];
     
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
@@ -168,7 +174,7 @@ NSString *const kRecurringValueNever          = @"Never";
     } else {
         // save data, if needed to data store.
     }
-
+    
     [super viewWillDisappear: animated];
 }
 
@@ -261,8 +267,8 @@ NSString *const kRecurringValueNever          = @"Never";
     NSDate *scheduleTime = nil;
     
     if (!userWakeTime) {
-        userWakeTime = [[NSCalendar currentCalendar] dateBySettingHour:06
-                                                                minute:00
+        userWakeTime = [[NSCalendar currentCalendar] dateBySettingHour:07
+                                                                minute:30
                                                                 second:00
                                                                 ofDate:[NSDate date]
                                                                options:0];
@@ -333,163 +339,52 @@ NSString *const kRecurringValueNever          = @"Never";
         }
     }
     
-    // To avoid duplicate schedules we will check to see if we already have
-    // a schedule in place.
-    NSFetchRequest *request = [APCSchedule request];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(taskID == %@)", kGlucoseLogTaskId];
-    
-    request.predicate = predicate;
-    
-    NSError *error = nil;
-    NSArray *entries = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request
-                                                                            error:&error];
-    
-    APCSchedule *glucoseSchedule = nil;
-    
     NSArray *sortedScheduleTimes = [scheduleTimes sortedArrayUsingSelector:@selector(compare:)];
     NSString *repeatDays = [self convertDayNames:self.pickedDays];
-    NSString *scheduleString = [NSString stringWithFormat:@"0 %@ * * %@", [sortedScheduleTimes componentsJoinedByString:@","], repeatDays];
     
-    if ([entries count] == 0) {
-        glucoseSchedule = [APCSchedule newObjectForContext:appDelegate.dataSubstrate.mainContext];
-        
-        APCLogDebug(@"Sleep/Wake: %@/%@", userSleepTime, userWakeTime);
-        APCLogDebug(@"Glucose schedule: %@", scheduleString);
-        
-        glucoseSchedule.scheduleString = scheduleString;
-        glucoseSchedule.taskID = kGlucoseLogTaskId;
-        glucoseSchedule.scheduleType = @"recurring";
-        
-        NSError *glucoseScheduleError = nil;
-        BOOL saveSuccess = [glucoseSchedule saveToPersistentStore:&glucoseScheduleError];
-        
-        if (!saveSuccess) {
-            APCLogError2(glucoseScheduleError);
-        }
-        
-        // Send the schedule notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:APCScheduleUpdatedNotification
-                                                            object:nil];
-    } else {
-        glucoseSchedule = [entries firstObject];
-        glucoseSchedule.scheduleString = scheduleString;
-        
-        NSError *glucoseScheduleError = nil;
-        BOOL saveSuccess = [glucoseSchedule saveToPersistentStore:&glucoseScheduleError];
-        
-        if (!saveSuccess) {
-            APCLogError2(glucoseScheduleError);
-        } else {
-            [self createSchedulesForMealTimes:sortedScheduleTimes forSchedule:glucoseSchedule];
-        }
+    [[NSUserDefaults standardUserDefaults] setObject:repeatDays forKey:kGlucoseMealTimePickedDays];
+    
+    if (self.isConfigureMode) {
+        [self.class createGlucoseLogScheduleAndTaskWithScheduledHours:sortedScheduleTimes
+                                                        andRepeatDays:repeatDays];
     }
     
     [self saveGlucoseSetup:sortedScheduleTimes];
 }
 
-- (void)createSchedulesForMealTimes:(NSArray *)hours forSchedule:(APCSchedule *)schedule
++ (void)createGlucoseLogScheduleAndTaskWithScheduledHours:(NSArray *)scheduledHours
+                                            andRepeatDays:(NSString *)repeatDays
 {
-    APCAppDelegate *appDelegate = (APCAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (!scheduledHours) return;
     
-    NSManagedObjectContext * localContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    localContext.parentContext = appDelegate.dataSubstrate.persistentContext;
+    NSError *jsonTemplateError = nil;
+    NSMutableDictionary *glucoseLogSchedule = [[NSDictionary dictionaryWithContentsOfJSONFileWithName:@"APHSampleGlucoseLogTaskAndSchedule.json"
+                                                                                             inBundle:nil
+                                                                                       returningError:&jsonTemplateError] mutableCopy];
     
-    APCSchedule *glucoseSchedule = (APCSchedule *)[localContext objectWithID:schedule.objectID];
-    
-    NSArray *listOfScheduledTasks = [schedule.scheduledTasks allObjects];
-    NSArray *scheduledStartTimes = [[listOfScheduledTasks valueForKey:@"startOn"] sortedArrayUsingSelector:@selector(compare:)];
-    
-    // Get the dates from the scheduled task's start time.
-    NSMutableArray *entryStartDates = [NSMutableArray new];
-    
-    for (NSDate *entryDate in scheduledStartTimes) {
-        NSDate *entryDateAtMidnight = [entryDate startOfDay];
-        [entryStartDates addObject:entryDateAtMidnight];
-    }
-    
-    NSSet *entryDates = [NSSet setWithArray:entryStartDates];
-    
-    // remove items that are in self.glucoseMealTimeConfiguration from the hours array
-    NSArray *existingHours = [self.glucoseMealTimeConfiguration valueForKey:kGlucoseLevelScheduledHourKey];
-    NSMutableArray *newlyAddedHours = [hours mutableCopy];
-    NSMutableArray *removedHours = [NSMutableArray new];
-    
-    for (NSNumber *existingHour in existingHours) {
-        if (![newlyAddedHours containsObject:existingHour]) {
-            [removedHours addObject:existingHour];
-        }
+    if (glucoseLogSchedule) {
+        NSString *scheduleString = glucoseLogSchedule[kAPHScheduleStringKey];
         
-        [newlyAddedHours removeObjectIdenticalTo:existingHour];
-    }
-    
-    NSArray *allMealTimeScheduledTasks = [entryDates allObjects];
-    
-    [self removeScheduledTasks:listOfScheduledTasks forMealTimes:removedHours];
-    
-    [self createScheduledTasks:allMealTimeScheduledTasks forMealTimes:newlyAddedHours forSchedule:glucoseSchedule];
-}
-
-- (void)createScheduledTasks:(NSArray *)allMealTimeScheduledTasks
-                forMealTimes:(NSArray *)newlyAddedHours
-                 forSchedule:(APCSchedule *)glucoseSchedule
-{
-    APCTask *glucoseLogTask = [APCTask taskWithTaskID:kGlucoseLogTaskId
-                                            inContext:glucoseSchedule.managedObjectContext];
-    
-    // Loop through all newly added meal times and create a schedule
-    // for the hours in newlyAddedHours array.
-    for (NSDate *taskStartDate in allMealTimeScheduledTasks) {
+        scheduleString = [scheduleString stringByReplacingOccurrencesOfString: kAPHListOfTimesMarker
+                                                                   withString: [scheduledHours componentsJoinedByString:@","]];
         
-        for (NSNumber *hour in newlyAddedHours) {
-            NSDate *entryDateStart = [[NSCalendar currentCalendar] dateBySettingHour:[hour integerValue]
-                                                                              minute:0
-                                                                              second:0
-                                                                              ofDate:taskStartDate
-                                                                             options:0];
-            
-            NSDate *entryDateEnd = [taskStartDate endOfDay];
-            
-            // Let's create the scheduled task for the provided date
-            APCScheduledTask *scheduledTaskForNewEntry = [APCScheduledTask newObjectForContext:glucoseSchedule.managedObjectContext];
-            scheduledTaskForNewEntry.startOn = entryDateStart;
-            scheduledTaskForNewEntry.endOn = entryDateEnd;
-            scheduledTaskForNewEntry.completed = @(NO);
-            scheduledTaskForNewEntry.task = glucoseLogTask;
-            scheduledTaskForNewEntry.generatedSchedule = glucoseSchedule;
-            
-            NSError *newEntryError = nil;
-            BOOL saveSuccess = [scheduledTaskForNewEntry saveToPersistentStore:&newEntryError];
-            
-            if (!saveSuccess) {
-                APCLogError2(newEntryError);
-            } else {
-                //DEBUG
-                APCLogDebug(@"Scheduled Task UID: %@ (Start: %@ | End: %@)",
-                            scheduledTaskForNewEntry.uid, scheduledTaskForNewEntry.startOn, scheduledTaskForNewEntry.endOn);
-            }
-        }
-    }
-}
-
-- (void)removeScheduledTasks:(NSArray *)listOfScheduledTasks forMealTimes:(NSArray *)removedHours
-{
-    NSSortDescriptor *sortByScheduledHour = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(startOn)) ascending:YES];
-    [listOfScheduledTasks sortedArrayUsingDescriptors:@[sortByScheduledHour]];
-    
-    // Loop through and remove all meal times scheduled tasks
-    for (APCScheduledTask *scheduledTask in listOfScheduledTasks) {
-        NSString *scheduledTaskId = scheduledTask.uid;
-        NSError *scheduleTaskDeleteError = nil;
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour
-                                                                       fromDate:scheduledTask.startOn];
-        if ([removedHours containsObject:@(components.hour)]) {
-            BOOL successDeletingTask = [scheduledTask removeScheduledTask:&scheduleTaskDeleteError];
-            
-            if (!successDeletingTask) {
-                APCLogError2(scheduleTaskDeleteError);
-            } else {
-                APCLogDebug(@"Removed scheduled task: %@", scheduledTaskId);
-            }
+        scheduleString = [scheduleString stringByReplacingOccurrencesOfString: kAPHListOfWeekdaysMarker
+                                                                   withString: repeatDays];
+        
+        glucoseLogSchedule[kAPHScheduleStringKey] = scheduleString;
+        
+        [[APCScheduler defaultScheduler] importScheduleFromDictionary: glucoseLogSchedule
+                                                      assigningSource: APCScheduleSourceGlucoseLog
+                                                  andThenUseThisQueue: [NSOperationQueue mainQueue]
+                                                     toDoThisWhenDone:^(NSError *errorFetchingOrLoading)
+         {
+             if (errorFetchingOrLoading) {
+                 APCLogError2(errorFetchingOrLoading);
+             }
+         }];
+    } else {
+        if (jsonTemplateError) {
+            APCLogError2(jsonTemplateError);
         }
     }
 }
@@ -498,7 +393,7 @@ NSString *const kRecurringValueNever          = @"Never";
 {
     NSString *converted = nil;
     
-    if (!selectedDays || [selectedDays isEqualToString:@"Everyday"]) {
+    if (!selectedDays || selectedDays.length == 0 || [selectedDays isEqualToString:@"*"] || [selectedDays isEqualToString:kRecurringEveryDay]) {
         converted = @"*";
     } else {
         NSArray *days = [selectedDays componentsSeparatedByString:@" "];
@@ -663,7 +558,7 @@ NSString *const kRecurringValueNever          = @"Never";
     
     NSString *mealTimeName = mealTime[kGlucoseLevelTimeOfDayKey];
     NSString *period = mealTime[kGlucoseLevelPeriodKey];
-
+    
     [self updateGlucoseLevelsWithTimeOfDay:mealTimeName
                                    checkAt:period
                                 checkValue:YES

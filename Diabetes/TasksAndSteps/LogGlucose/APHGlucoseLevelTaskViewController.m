@@ -146,9 +146,6 @@ static NSString *kGlucoseLevelHasValueKey = @"hasValue";
     
     [self.scheduledTask completeScheduledTask];
     
-    APCAppDelegate * appDelegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate.scheduler updateScheduledTasksIfNotUpdating:NO];
-    
     [taskViewController dismissViewControllerAnimated:YES completion:nil];
     
     APCLogEventWithData(kTaskEvent, (@{
