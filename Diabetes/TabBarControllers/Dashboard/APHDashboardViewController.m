@@ -236,37 +236,43 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
     __weak APCInsights *weakStepInsight = self.stepInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakStepInsight factorInsight];
+        __strong typeof(weakStepInsight) strongStepInsight = weakStepInsight;
+        [strongStepInsight factorInsight];
     }];
     
     __weak APCInsights *weakCarbsInsight = self.carbsInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakCarbsInsight factorInsight];
+        __strong typeof(weakCarbsInsight) strongCarbsInsight = weakCarbsInsight;
+        [strongCarbsInsight factorInsight];
     }];
     
     __weak APCInsights *weakCaloriesInsight = self.caloriesInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakCaloriesInsight factorInsight];
+        __strong typeof(weakCaloriesInsight) strongCaloriesInsight = weakCaloriesInsight;
+        [strongCaloriesInsight factorInsight];
     }];
     
     __weak APCInsights *weakSugarInsight = self.sugarInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakSugarInsight factorInsight];
+        __strong typeof(weakSugarInsight) strongSugarInsight = weakSugarInsight;
+        [strongSugarInsight factorInsight];
     }];
     
     __weak APCFoodInsight *weakCarbFoodInsight = self.carbFoodInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakCarbFoodInsight insight];
+        __strong typeof(weakCarbFoodInsight) strongCarbFoodInsight = weakCarbFoodInsight;
+        [strongCarbFoodInsight insight];
     }];
     
     __weak APCFoodInsight *weakSugarFoodInsight = self.sugarFoodInsight;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        [weakSugarFoodInsight insight];
+        __strong typeof(weakSugarFoodInsight) strongSugarFoodInsight = weakSugarFoodInsight;
+        [strongSugarFoodInsight insight];
     }];
 }
 
@@ -275,14 +281,16 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
     __weak APHDashboardViewController *weakSelf = self;
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-        weakSelf.stepScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        strongSelf.stepScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                             unit:[HKUnit countUnit]
                                                                     numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
-        weakSelf.glucoseScoring = [[APCScoring alloc] initWithTask:kGlucoseLogSurveyIdentifier
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf.glucoseScoring = [[APCScoring alloc] initWithTask:kGlucoseLogSurveyIdentifier
                                                       numberOfDays:-kNumberOfDaysToDisplay
                                                           valueKey:@"value"
                                                            dataKey:nil
@@ -291,29 +299,33 @@ static double kRefershDelayInSeconds = 60; // 3 minutes
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-        weakSelf.weightScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        strongSelf.weightScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                               unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitPound]
                                                                       numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCarbohydrates];
-        weakSelf.carbScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        strongSelf.carbScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                             unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitGram]
                                                                     numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySugar];
-        weakSelf.sugarScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        strongSelf.sugarScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                              unit:[HKUnit unitFromMassFormatterUnit:NSMassFormatterUnitGram]
                                                                      numberOfDays:-kNumberOfDaysToDisplay];
     }];
     
     [self.insightAndScoringQueue addOperationWithBlock:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         HKQuantityType *hkQuantity = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
-        weakSelf.calorieScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
+        strongSelf.calorieScoring = [[APCScoring alloc] initWithHealthKitQuantityType:hkQuantity
                                                                                unit:[HKUnit unitFromEnergyFormatterUnit:NSEnergyFormatterUnitKilocalorie]
                                                                        numberOfDays:-kNumberOfDaysToDisplay];
     }];
