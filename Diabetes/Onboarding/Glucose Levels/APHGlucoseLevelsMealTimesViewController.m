@@ -64,6 +64,7 @@ NSString *const kGlucoseLevelIndexPath        = @"indexPath";
 NSString *const kGlucoseLevelValueKey         = @"value";
 
 NSString *const kRecurringValueNever          = @"Never";
+NSString *const kRecurringEveryDay            = @"Everyday";
 
 static NSString * const kAPHSampleGlucoseLogTaskAndScheduleFileName = @"APHSampleGlucoseLogTaskAndSchedule.json";
 static NSString * const kAPHListOfTimesMarker                       = @"LIST_OF_TIMES";
@@ -392,7 +393,7 @@ static NSString * const kAPHScheduleStringKey                       = @"schedule
 {
     NSString *converted = nil;
     
-    if (!selectedDays || selectedDays.length == 0 || [selectedDays isEqualToString:@"*"] || [selectedDays isEqualToString:@"Everyday"]) {
+    if (!selectedDays || selectedDays.length == 0 || [selectedDays isEqualToString:@"*"] || [selectedDays isEqualToString:kRecurringEveryDay]) {
         converted = @"*";
     } else {
         NSArray *days = [selectedDays componentsSeparatedByString:@" "];
