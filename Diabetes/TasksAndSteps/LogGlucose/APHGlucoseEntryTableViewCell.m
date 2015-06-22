@@ -55,7 +55,7 @@ NSString *const kGlucoseNotMeasured = @"Not Measured";
     // Initialization code
     self.glucoseReadingUnitLabel.hidden = YES;
     
-    self.notMeasuredLabel.text = NSLocalizedString(kGlucoseNotMeasured, nil);
+    self.notMeasuredLabel.text = NSLocalizedString(@"Not Measured", nil);
     self.notMeasuredLabel.hidden = YES;
     
     [self configureInputAccessoryViewForTextField:self.glucoseReadingTextField];
@@ -166,7 +166,7 @@ NSString *const kGlucoseNotMeasured = @"Not Measured";
     UIToolbar *notMeasuredToolbar = [[UIToolbar alloc] init];
     [notMeasuredToolbar sizeToFit];
     
-    UIBarButtonItem *btnNotMeasured = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(kGlucoseNotMeasured, nil)
+    UIBarButtonItem *btnNotMeasured = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Not Measured", nil)
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self action:@selector(handleNotMeasured:)];
     

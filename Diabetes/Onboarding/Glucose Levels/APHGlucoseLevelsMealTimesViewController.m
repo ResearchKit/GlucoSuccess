@@ -101,35 +101,35 @@ static NSString * const kAPHScheduleStringKey                       = @"schedule
     
     self.mealTimeDatasource = @[
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBreakfast, @"Morning Fasting"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Breakfast", @"Morning Fasting"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBreakfast, @"After Breakfast"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Breakfast", @"After Breakfast"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayLunch, @"Before Lunch"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Lunch", @"Before Lunch"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayLunch, @"After Lunch"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Lunch", @"After Lunch"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayDinner, @"Before Dinner"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Dinner", @"Before Dinner"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayDinner, @"After Dinner"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Dinner", @"After Dinner"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayBedTime, @"Before Bed Time"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Bed Time", @"Before Bed Time"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelBeforeKey
                                     },
                                 @{
-                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(kTimeOfDayOther, @"Other"),
+                                    kGlucoseLevelTimeOfDayKey: NSLocalizedString(@"Other", @"Other"),
                                     kGlucoseLevelPeriodKey: kGlucoseLevelAfterKey
                                     }
                                 ];
