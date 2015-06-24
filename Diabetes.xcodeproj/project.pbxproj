@@ -60,7 +60,6 @@
 		5B908AAB1A265DDF00F9E907 /* APHOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B908AAA1A265DDF00F9E907 /* APHOnboarding.storyboard */; };
 		5BB10C201A921286002D2DD2 /* APHTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */; };
 		5BBDAECB1A33E7440047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAECA1A33E7440047DF87 /* HTMLContent */; };
-		6C86452F1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86452E1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.m */; };
 		743AD1041ABE363C0071C218 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD0F61ABE36180071C218 /* ResearchKit.framework */; };
 		743AD1051ABE36420071C218 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1011ABE36280071C218 /* APCAppCore.framework */; };
 		743AD1071ABE36490071C218 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 743AD1011ABE36280071C218 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -269,8 +268,6 @@
 		5BB10C1E1A921286002D2DD2 /* APHTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTableViewItem.h; sourceTree = "<group>"; };
 		5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTableViewItem.m; sourceTree = "<group>"; };
 		5BBDAECA1A33E7440047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
-		6C86452D1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
-		6C86452E1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
 		743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = researchkit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
 		74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = BridgeSDK/BridgeSDK.xcodeproj; sourceTree = "<group>"; };
@@ -473,15 +470,6 @@
 				5BB10C1F1A921286002D2DD2 /* APHTableViewItem.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		6C8645391AF3FB6700B46C49 /* Migration */ = {
-			isa = PBXGroup;
-			children = (
-				6C86452D1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.h */,
-				6C86452E1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.m */,
-			);
-			name = Migration;
 			sourceTree = "<group>";
 		};
 		743AD0EF1ABE36180071C218 /* Products */ = {
@@ -754,7 +742,6 @@
 				08ADDD761AA0463700EAE1D6 /* APHProfileExtender.m */,
 				F5D44DDC19F841C00011B334 /* APHAppDelegate.h */,
 				F5D44DDD19F841C00011B334 /* APHAppDelegate.m */,
-				6C8645391AF3FB6700B46C49 /* Migration */,
 				F5D44DE019F841C00011B334 /* LaunchScreen.xib */,
 				F5D44DE119F841C00011B334 /* Main.storyboard */,
 			);
@@ -1056,7 +1043,6 @@
 				5B1D9D801A1BD581000F4AD6 /* APHDashboardViewController.m in Sources */,
 				08B9727C1A225D7700316D49 /* APHGlucoseLogViewController.m in Sources */,
 				F5D44E0C19F841C00011B334 /* APHInclusionCriteriaViewController.m in Sources */,
-				6C86452F1AF3FB6000B46C49 /* APHAppDelegate+APHMigration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -238,15 +238,25 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 }
 
 -(void)setUpTasksReminder{
-    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Daily Check", nil)];
-    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklyCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Weekly Survey", nil)];
-    APCTaskReminder *waistSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWaistCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Waist Measurement", nil)];
-    APCTaskReminder *weightSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeightCheckSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Weight Measurement", nil)];
-    APCTaskReminder *glucoseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGlucoseLogSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Glucose Log", nil)];
-    APCTaskReminder *foodSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kFoodLogSurveyIdentifier reminderBody:NSLocalizedString(@"Complete Food Log", nil)];
+    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kDailyCheckSurveyIdentifier
+                                                                      reminderBody:NSLocalizedString(@"Complete Daily Check", nil)];
+    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kWeeklyCheckSurveyIdentifier
+                                                                       reminderBody:NSLocalizedString(@"Complete Weekly Survey", nil)];
+    APCTaskReminder *waistSurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kWaistCheckSurveyIdentifier
+                                                                      reminderBody:NSLocalizedString(@"Complete Waist Measurement", nil)];
+    APCTaskReminder *weightSurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kWeightCheckSurveyIdentifier
+                                                                       reminderBody:NSLocalizedString(@"Complete Weight Measurement", nil)];
+    APCTaskReminder *glucoseSurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kGlucoseLogSurveyIdentifier
+                                                                        reminderBody:NSLocalizedString(@"Complete Glucose Log", nil)];
+    APCTaskReminder *foodSurveyReminder = [[APCTaskReminder alloc] initWithTaskID:kFoodLogSurveyIdentifier
+                                                                     reminderBody:NSLocalizedString(@"Complete Food Log", nil)];
     
     NSPredicate *footCheckPredicate = [NSPredicate predicateWithFormat:@"SELF.integerValue == 1"];
-    APCTaskReminder *footCheckReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyCheckSurveyIdentifier resultsSummaryKey:kFeetCheckStepIdentifier completedTaskPredicate:footCheckPredicate reminderBody:NSLocalizedString(@"Check Your Feet", nil)];
+    
+    APCTaskReminder *footCheckReminder = [[APCTaskReminder alloc] initWithTaskID:kDailyCheckSurveyIdentifier
+                                                               resultsSummaryKey:kFeetCheckStepIdentifier
+                                                          completedTaskPredicate:footCheckPredicate
+                                                                    reminderBody:NSLocalizedString(@"Check Your Feet", nil)];
     
     [self.tasksReminder.reminders removeAllObjects];
     [self.tasksReminder manageTaskReminder:dailySurveyReminder];
@@ -261,7 +271,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     {
         APCLogEvent(@"This app is being launched for the first time. Turn all reminders on");
         for (APCTaskReminder *reminder in self.tasksReminder.reminders) {
-            [[NSUserDefaults standardUserDefaults]setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
+            [[NSUserDefaults standardUserDefaults] setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
         }
         
         if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone){
