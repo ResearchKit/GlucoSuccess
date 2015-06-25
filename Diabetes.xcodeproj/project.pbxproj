@@ -32,6 +32,7 @@
 		085DAAA11A92876700C30911 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 085DAAA01A92876700C30911 /* APHConsentSection.json */; };
 		0864D5CF1A25A77400A7856C /* APHBaselineSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0864D5CE1A25A77400A7856C /* APHBaselineSurvey.m */; };
 		0867AF911ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0867AF901ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m */; };
+		087507B11B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087507B01B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.m */; };
 		087EC8751A2FA428009A6768 /* APHFoodLogTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC8741A2FA428009A6768 /* APHFoodLogTaskViewController.m */; };
 		087EC87C1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC87B1A2FACF9009A6768 /* APHFoodLogLaunchViewController.m */; };
 		087EC87F1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087EC87E1A2FAD25009A6768 /* APHFoodLogLaunch.storyboard */; };
@@ -223,6 +224,8 @@
 		0864D5CE1A25A77400A7856C /* APHBaselineSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHBaselineSurvey.m; sourceTree = "<group>"; };
 		0867AF8F1ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHGlucoseEntryTableViewCell.h; sourceTree = "<group>"; };
 		0867AF901ABB416800AEEE05 /* APHGlucoseEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHGlucoseEntryTableViewCell.m; sourceTree = "<group>"; };
+		087507AF1B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHMedicationTrackerTaskViewController.h; sourceTree = "<group>"; };
+		087507B01B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHMedicationTrackerTaskViewController.m; sourceTree = "<group>"; };
 		087EC8731A2FA428009A6768 /* APHFoodLogTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHFoodLogTaskViewController.h; path = "Food Log/APHFoodLogTaskViewController.h"; sourceTree = "<group>"; };
 		087EC8741A2FA428009A6768 /* APHFoodLogTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHFoodLogTaskViewController.m; path = "Food Log/APHFoodLogTaskViewController.m"; sourceTree = "<group>"; };
 		087EC87A1A2FACF9009A6768 /* APHFoodLogLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHFoodLogLaunchViewController.h; path = "Food Log/APHFoodLogLaunchViewController.h"; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 		08B9B9661A8FF7010073F77B /* APHFoodInsightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHFoodInsightsViewController.m; sourceTree = "<group>"; };
 		08DA0E821AD018D500D71E0B /* DiabetesQoLSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DiabetesQoLSurvey.json; sourceTree = "<group>"; };
 		08DA0E831AD018D500D71E0B /* DiabetesSleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DiabetesSleepSurvey.json; sourceTree = "<group>"; };
+		08FC52A21B03B3B90047D230 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5A004DFA1AA76C1D00F7A9A9 /* BaselineSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BaselineSurvey.json; sourceTree = "<group>"; };
 		5A004DFD1AA76C3D00F7A9A9 /* APHbaseline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHbaseline.h; sourceTree = "<group>"; };
 		5A004DFE1AA76C3D00F7A9A9 /* APHbaseline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHbaseline.m; sourceTree = "<group>"; };
@@ -410,6 +414,15 @@
 				0857F2F51A9F87C100587E4D /* APHWeeklyCheckSurveyViewController.m */,
 			);
 			name = Surveys;
+			sourceTree = "<group>";
+		};
+		087507AE1B01AFD500F83C50 /* Medication Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				087507AF1B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.h */,
+				087507B01B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.m */,
+			);
+			path = "Medication Tracker";
 			sourceTree = "<group>";
 		};
 		087EC8771A2FA42E009A6768 /* Food Log */ = {
@@ -636,6 +649,7 @@
 		F5D44D9519F840690011B334 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08FC52A21B03B3B90047D230 /* MessageUI.framework */,
 				74B7137E1ABF032C00FE2553 /* BridgeSDK.xcodeproj */,
 				743AD0FB1ABE36280071C218 /* APCAppCore.xcodeproj */,
 				743AD0EE1ABE36180071C218 /* ResearchKit.xcodeproj */,
@@ -745,6 +759,7 @@
 		F5D44E0819F841C00011B334 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
+				087507AE1B01AFD500F83C50 /* Medication Tracker */,
 				7B20DC611A9F9E9200AAF855 /* Seven Day Allocation */,
 				F5CD316C1A0D7A9B00341E51 /* BaselineSurvey */,
 				F5CD31731A0D86C700341E51 /* Glucose Log */,
@@ -1020,6 +1035,7 @@
 				F5CD31701A0D7AB300341E51 /* APHBaselineTaskViewController.m in Sources */,
 				088FCFBB1A9CF64B00D4BC3B /* APHSliderViewController.m in Sources */,
 				085614E01A2A4E7B00DF5C9D /* APHGlucoseLevelTaskViewController.m in Sources */,
+				087507B11B01AFD500F83C50 /* APHMedicationTrackerTaskViewController.m in Sources */,
 				08B972841A2300D200316D49 /* APHGlucoseLogTaskViewController.m in Sources */,
 				087EC8751A2FA428009A6768 /* APHFoodLogTaskViewController.m in Sources */,
 				F5CD31771A0D86E900341E51 /* APHEnterWeightTaskViewController.m in Sources */,
@@ -1110,11 +1126,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Diabetes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
 		};
@@ -1211,11 +1232,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Diabetes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1226,11 +1252,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Diabetes/Diabetes.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
+				);
 				INFOPLIST_FILE = Diabetes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

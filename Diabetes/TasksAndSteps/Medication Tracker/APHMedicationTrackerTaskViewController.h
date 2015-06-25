@@ -1,8 +1,8 @@
 // 
-//  Glucose 
+//  APHMedicationTrackerTaskViewController.h 
 //  GlucoSuccess 
 // 
-// Copyright (c) 2015, Massachusetts General Hospital. All rights reserved. 
+// Copyright (c) 2015, Massachusetts General Hospital. All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -31,32 +31,12 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 // 
  
-#import <UIKit/UIKit.h>
 
-@import APCAppCore;
+#import <Foundation/Foundation.h>
 
-extern NSString *const kTimeOfDayBreakfast;
-extern NSString *const kTimeOfDayLunch;
-extern NSString *const kTimeOfDayDinner;
-extern NSString *const kTimeOfDayBedTime;
-extern NSString *const kTimeOfDayAfter;
-extern NSString *const kTimeOfDayBefore;
-extern NSString *const kTimeOfDayMorningFasting;
-extern NSString *const kTimeOfDayOther;
+#import <ResearchKit/ResearchKit.h>
+#import <APCAppCore/APCAppCore.h>
 
-extern NSString *const kGlucoseLevelTimeOfDayKey;
-extern NSString *const kGlucoseLevelPeriodKey;
-extern NSString *const kGlucoseLevelBeforeKey;
-extern NSString *const kGlucoseLevelAfterKey;
-extern NSString *const kGlucoseLevelScheduledHourKey;
-extern NSString *const kGlucoseLevelValueKey;
-
-@interface APHGlucoseLevelsMealTimesViewController : APCSignUpInfoViewController
-
-@property (strong, nonatomic) NSString *pickedDays;
-@property (nonatomic) BOOL isConfigureMode;
-
-+ (void)createGlucoseLogScheduleAndTaskWithScheduledHours:(NSArray *)scheduledHours
-                                            andRepeatDays:(NSString *)repeatDays;
+@interface APHMedicationTrackerTaskViewController : APCBaseTaskViewController
 
 @end

@@ -199,7 +199,7 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
                 insightCell.goodInsightCaption = self.caloriesInsight.captionGood;
                 insightCell.goodInsightBar = self.caloriesInsight.valueGood;
             } else {
-                insightCell.goodInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+                insightCell.goodInsightCaption = NSLocalizedString(@"Not enough data", nil);
                 insightCell.goodInsightBar = @(0);
             }
             
@@ -207,7 +207,7 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
                 insightCell.badInsightBar = self.caloriesInsight.valueBad;
                 insightCell.badInsightCaption = self.caloriesInsight.captionBad;
             } else {
-                insightCell.badInsightCaption = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+                insightCell.badInsightCaption = NSLocalizedString(@"Not enough data", nil);
                 insightCell.badInsightBar = @(0);
             }
             
@@ -295,30 +295,30 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         switch (summaryEnumRawValue) {
             case APHInsightSummaryRowCalories:
             {
-                summary = [NSString stringWithFormat:@"On average, you consumed %@ calories 24-hours prior to a good glucose reading.",
+                summary = [NSString stringWithFormat:NSLocalizedString(@"On average, you consumed %@ calories 24-hours prior to a good glucose reading.", nil),
                            [numberFormatter stringFromNumber:self.caloriesInsight.valueGood]];
-                summaryCell.summaryCaption = NSLocalizedString(summary, summary);
+                summaryCell.summaryCaption = summary;
             }
                 break;
             case APHInsightSummaryRowSugar:
             {
-                summary = [NSString stringWithFormat:@"24 hours prior to a good glucose reading, you consumed %@ g of sugar on average.",
+                summary = [NSString stringWithFormat:NSLocalizedString(@"24 hours prior to a good glucose reading, you consumed %@ g of sugar on average.", nil),
                            [numberFormatter stringFromNumber:self.sugarInsight.valueGood]];
-                summaryCell.summaryCaption = NSLocalizedString(summary, summary);
+                summaryCell.summaryCaption = summary;
             }
                 break;
             case APHInsightSummaryRowSteps:
             {
-                summary = [NSString stringWithFormat:@"On average, you took %@ steps 24-hours prior to a good glucose reading.",
+                summary = [NSString stringWithFormat:NSLocalizedString(@"On average, you took %@ steps 24-hours prior to a good glucose reading.", nil),
                            [numberFormatter stringFromNumber:self.stepInsight.valueGood]];
-                summaryCell.summaryCaption = NSLocalizedString(summary, summary);
+                summaryCell.summaryCaption = summary;
             }
                 break;
             default: // defaulting to carbs
             {
-                summary = [NSString stringWithFormat:@"24 hours prior to a good glucose reading, you consumed %@ g of carbohydrates on average.",
+                summary = [NSString stringWithFormat:NSLocalizedString(@"24 hours prior to a good glucose reading, you consumed %@ g of carbohydrates on average.", nil),
                            [numberFormatter stringFromNumber:self.carbsInsight.valueGood]];
-                summaryCell.summaryCaption = NSLocalizedString(summary, summary);
+                summaryCell.summaryCaption = summary;
             }
                 break;
         }
@@ -345,13 +345,13 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         
         carbCalsGood = (percentOfCarbsCalories < 1) ? percentOfCarbsCalories : 1;
         
-        caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
+        caloriesCaption = [NSString stringWithFormat:NSLocalizedString(@"%@ Calories from Carbs", nil),
                            [numberFormatter stringFromNumber:@(carbCalsGood)]];
         
-        carbCaloriesData[@"goodInsightCaption"] = NSLocalizedString(caloriesCaption, caloriesCaption);
+        carbCaloriesData[@"goodInsightCaption"] = caloriesCaption;
         carbCaloriesData[@"goodInsightBar"] = @(carbCalsGood);
     } else {
-        carbCaloriesData[@"goodInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        carbCaloriesData[@"goodInsightCaption"] = NSLocalizedString(@"Not enough data", nil);
         carbCaloriesData[@"goodInsightBar"] = @(0);
     }
     
@@ -363,13 +363,13 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         
         carbCalsBad = (badPercentOfCarbsCalories < 1) ? badPercentOfCarbsCalories : 1;
         
-        caloriesCaption = [NSString stringWithFormat:@"%@ Calories from Carbs",
+        caloriesCaption = [NSString stringWithFormat:NSLocalizedString(@"%@ Calories from Carbs", nil),
                            [numberFormatter stringFromNumber:@(carbCalsBad)]];
         
-        carbCaloriesData[@"badInsightCaption"] = NSLocalizedString(caloriesCaption, caloriesCaption);
+        carbCaloriesData[@"badInsightCaption"] = caloriesCaption;
         carbCaloriesData[@"badInsightBar"] = @(carbCalsBad);
     } else {
-        carbCaloriesData[@"badInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        carbCaloriesData[@"badInsightCaption"] = NSLocalizedString(@"Not enough data", nil);
         carbCaloriesData[@"badInsightBar"] = @(0);
     }
     
@@ -397,13 +397,13 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         
         sugarCalsGood = (percentOfSugarCalories < 1) ? percentOfSugarCalories : 1;
         
-        sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
+        sugarCaloriesCaption = [NSString stringWithFormat:NSLocalizedString(@"%@ Calories from Sugar", nil),
                                 [numberFormatter stringFromNumber:@(sugarCalsGood)]];
         
-        sugarCaloriesData[@"goodInsightCaption"] = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
+        sugarCaloriesData[@"goodInsightCaption"] = sugarCaloriesCaption;
         sugarCaloriesData[@"goodInsightBar"] = @(sugarCalsGood);
     } else {
-        sugarCaloriesData[@"goodInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        sugarCaloriesData[@"goodInsightCaption"] = NSLocalizedString(@"Not enough data", nil);
         sugarCaloriesData[@"goodInsightBar"] = @(0);
     }
     
@@ -417,13 +417,13 @@ typedef NS_ENUM(NSUInteger, APHInsightSections)
         
         sugarCalsBad = (badPercentOfSugarCalories < 1) ? badPercentOfSugarCalories : 1;
         
-        sugarCaloriesCaption = [NSString stringWithFormat:@"%@ Calories from Sugar",
+        sugarCaloriesCaption = [NSString stringWithFormat:NSLocalizedString(@"%@ Calories from Sugar", nil),
                                 [numberFormatter stringFromNumber:@(sugarCalsBad)]];
         
-        sugarCaloriesData[@"badInsightCaption"] = NSLocalizedString(sugarCaloriesCaption, sugarCaloriesCaption);
+        sugarCaloriesData[@"badInsightCaption"] = sugarCaloriesCaption;
         sugarCaloriesData[@"badInsightBar"] = @(sugarCalsBad);
     } else {
-        sugarCaloriesData[@"badInsightCaption"] = NSLocalizedString(kInsightNoDataIsAvailable, @"Not enough data");
+        sugarCaloriesData[@"badInsightCaption"] = NSLocalizedString(@"Not enough data", nil);
         sugarCaloriesData[@"badInsightBar"] = @(0);
     }
     

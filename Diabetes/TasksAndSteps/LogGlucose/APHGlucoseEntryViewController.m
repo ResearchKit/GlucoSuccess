@@ -61,6 +61,8 @@ static CGFloat kHeaderFontSize = 16.0;
 
 @property (nonatomic) NSUInteger selectedIndex;
 
+@property (nonatomic, strong) NSOperationQueue *glucoseLogQueue;
+
 
 @end
 
@@ -70,6 +72,8 @@ static CGFloat kHeaderFontSize = 16.0;
     [super viewDidLoad];
     
     self.mealTimes = [NSMutableArray array];
+    
+    self.glucoseLogQueue = [NSOperationQueue sequentialOperationQueueWithName:@"Glucose Log queue..."];
     
     self.btnSubmit.backgroundColor = [UIColor appPrimaryColor];
     
@@ -139,19 +143,15 @@ static CGFloat kHeaderFontSize = 16.0;
 {
     id <ORKStepViewControllerDelegate> mainDelegate = self.delegate;
     
-    NSOperationQueue *glucoseLogQueue = [NSOperationQueue sequentialOperationQueueWithName:@"Glucose Log queue..."];
-    
-    [glucoseLogQueue addOperationWithBlock:^{
-    
+    [self.glucoseLogQueue addOperationWithBlock:^{
         APCAppDelegate * appDelegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
         NSManagedObjectContext *localContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         localContext.parentContext = appDelegate.dataSubstrate.persistentContext;
-    
-        [self.mealTimes enumerateObjectsUsingBlock:^(NSDictionary *mealTime, NSUInteger idx, BOOL * __unused stop) {
+        
+        for (NSUInteger idx = 0; idx < self.mealTimes.count; idx++) {
+            NSDictionary *mealTime = [self.mealTimes objectAtIndex:idx];
             NSNumber *mealTimeValue = mealTime[kGlucoseLevelValueKey];
             APCScheduledTask *mainContextScheduledTask = [self.tasks.scheduledTasks objectAtIndex:idx];
-            
-            
             
             APCScheduledTask *scheduledTask = (APCScheduledTask *)[localContext objectWithID:mainContextScheduledTask.objectID];
             
@@ -183,7 +183,7 @@ static CGFloat kHeaderFontSize = 16.0;
                                      error:taskError];
                 
             }
-        }];
+        }
     }];
 
     self.delegate = mainDelegate;

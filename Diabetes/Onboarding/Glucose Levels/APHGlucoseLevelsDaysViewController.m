@@ -156,6 +156,11 @@ static NSDateFormatter *dateFormatter = nil;
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"SegueToMealTimes"]) {
         
+        if (self.pickedDays) {
+            NSOrderedSet *pickedDays = [NSOrderedSet orderedSetWithArray:[self.pickedDays componentsSeparatedByString:@" "]];
+            self.pickedDays = [[pickedDays array] componentsJoinedByString:@" "];
+        }
+        
         // save the pickedDays to User Defaults
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.pickedDays forKey:kGlucoseMealTimePickedDays];
