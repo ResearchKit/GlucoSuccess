@@ -33,7 +33,6 @@
  
 #import "APHAppDelegate.h"
 #import "APHProfileExtender.h"
-#import "APHAppDelegate+APHMigration.h"
 #import "APHGlucoseLevelsMealTimesViewController.h"
 
 #pragma mark - Survey Identifiers
