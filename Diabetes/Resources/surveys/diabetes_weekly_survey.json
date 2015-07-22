@@ -2,7 +2,7 @@
     "identifier": "weekly_check",
     "type": "Survey",
     "name": "Weekly Check",
-    "questions": [
+    "elements": [
                   
                   
                   {

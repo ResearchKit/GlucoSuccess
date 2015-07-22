@@ -77,9 +77,6 @@ static NSString *const kVideoShownKey = @"VideoShown";
 
 static NSString *const kHealthKitMetadataKeyFoodType = @"HKFoodType";
 static NSString *const kHealthKitMetadataKeyFoodMeal = @"HKFoodMeal";
-
-static NSString *const kDatabaseName                  = @"db.sqlite";
-
 static NSString * const kGlucoseMealTimePickedDays   = @"glucoseMealTimePickedDays";
 
 typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)

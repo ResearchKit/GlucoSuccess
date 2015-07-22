@@ -92,7 +92,8 @@ const CGFloat kGlucoseLevelCellHeight = 65.0;
 
 - (APCOnboarding *)onboarding
 {
-    return ((APCAppDelegate *)[UIApplication sharedApplication].delegate).onboarding;
+    return ((id<APCOnboardingManagerProvider>)
+            [UIApplication sharedApplication].delegate).onboardingManager.onboarding;
 }
 
 - (void)setupNavAppearance

@@ -2,7 +2,7 @@
     "name" : "Sleep Quality Survey",
     "type" : "Survey",
   	"identifier" : "QoL_GlucoSuccess",
-  	"questions" :
+  	"elements" :
   	 [
       
       {
