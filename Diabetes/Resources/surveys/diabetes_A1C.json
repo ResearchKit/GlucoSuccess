@@ -2,7 +2,7 @@
     "identifier": "A1C_check",
     "type": "Survey",
     "name": "A1C Check",
-    "questions": [
+    "elements": [
                   
                   
                  {

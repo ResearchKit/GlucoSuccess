@@ -2,7 +2,7 @@
     "identifier": "daily_check",
     "type": "Survey",
     "name": "Daily Check",
-    "questions":
+    "elements":
     [
         {
             "guid":"db8d54db-c00e-4203-af71-2701253aa9e9",
