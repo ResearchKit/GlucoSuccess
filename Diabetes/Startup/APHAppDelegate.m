@@ -160,13 +160,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 
 - (void) setUpInitializationOptions
 {
-    NSDictionary *permissionsDescriptions = @{
-                                              @(kAPCSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", nil),
-                                              @(kAPCSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", nil),
-                                              @(kAPCSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", nil),
-                                              @(kAPCSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", nil),
-                                              @(kAPCSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant GlucoSuccess access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", nil),
-                                              };
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
     
@@ -179,35 +172,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(self.environment),
-                                           kHKReadPermissionsKey                : @[
-                                                   HKQuantityTypeIdentifierBodyMass,
-                                                   HKQuantityTypeIdentifierHeight,
-                                                   HKQuantityTypeIdentifierStepCount,
-                                                   HKQuantityTypeIdentifierDietaryCarbohydrates,
-                                                   HKQuantityTypeIdentifierDietarySugar,
-                                                   HKQuantityTypeIdentifierDietaryEnergyConsumed,
-                                                   HKQuantityTypeIdentifierBloodGlucose,
-                                                   @{kHKWorkoutTypeKey  : HKWorkoutTypeIdentifier},
-                                                   @{kHKCategoryTypeKey : HKCategoryTypeIdentifierSleepAnalysis}
-                                                   ],
-                                           kHKWritePermissionsKey                : @[
-                                                   HKQuantityTypeIdentifierBodyMass,
-                                                   HKQuantityTypeIdentifierHeight
-                                                   ],
-                                           kAppServicesListRequiredKey           : @[
-                                                   @(kAPCSignUpPermissionsTypeLocalNotifications),
-                                                   @(kAPCSignUpPermissionsTypeCoremotion)
-                                                   ],
-                                           kAppServicesDescriptionsKey : permissionsDescriptions,
-                                           kAppProfileElementsListKey            : @[
-                                                   @(kAPCUserInfoItemTypeEmail),
-                                                   @(kAPCUserInfoItemTypeBiologicalSex),
-                                                   @(kAPCUserInfoItemTypeHeight),
-                                                   @(kAPCUserInfoItemTypeWeight),
-                                                   @(kAPCUserInfoItemTypeWakeUpTime),
-                                                   @(kAPCUserInfoItemTypeSleepTime),
-                                                   ]
+                                           kBridgeEnvironmentKey                : @(self.environment)
                                            }];
     
     self.initializationOptions = dictionary;
@@ -703,7 +668,7 @@ static NSDate *determineConsentDate(id object)
         return stringToWrite;
     };
     
-    NSArray* dataTypesWithReadPermission = self.initializationOptions[kHKReadPermissionsKey];
+    NSArray* dataTypesWithReadPermission = [self healthKitQuantityTypesToRead];
     
     if (!self.passiveDataCollector)
     {
@@ -820,6 +785,65 @@ static NSDate *determineConsentDate(id object)
     scene.bundle = [NSBundle mainBundle];
     
     return scene;
+}
+
+-(APCPermissionsManager * __nonnull)permissionsManager
+{
+    return [[APCPermissionsManager alloc] initWithHealthKitCharacteristicTypesToRead:[self healthKitCharacteristicTypesToRead]
+                                                        healthKitQuantityTypesToRead:[self healthKitQuantityTypesToRead]
+                                                       healthKitQuantityTypesToWrite:[self healthKitQuantityTypesToWrite]
+                                                                   userInfoItemTypes:[self userInfoItemTypes] signUpPermissionTypes:[self signUpPermissionsTypes]];
+}
+
+- (NSArray *)healthKitCharacteristicTypesToRead
+{
+    return @[
+             HKCharacteristicTypeIdentifierBiologicalSex,
+             HKCharacteristicTypeIdentifierDateOfBirth
+             ];
+}
+
+- (NSArray *)healthKitQuantityTypesToWrite
+{
+    return @[
+             HKQuantityTypeIdentifierBodyMass,
+             HKQuantityTypeIdentifierHeight
+             ];
+}
+
+- (NSArray *)healthKitQuantityTypesToRead
+{
+    return @[
+             HKQuantityTypeIdentifierBodyMass,
+             HKQuantityTypeIdentifierHeight,
+             HKQuantityTypeIdentifierStepCount,
+             HKQuantityTypeIdentifierDietaryCarbohydrates,
+             HKQuantityTypeIdentifierDietarySugar,
+             HKQuantityTypeIdentifierDietaryEnergyConsumed,
+             HKQuantityTypeIdentifierBloodGlucose,
+             @{kHKWorkoutTypeKey  : HKWorkoutTypeIdentifier},
+             @{kHKCategoryTypeKey : HKCategoryTypeIdentifierSleepAnalysis}
+             ];
+}
+
+- (NSArray *)signUpPermissionsTypes
+{
+    return @[
+             @(kAPCSignUpPermissionsTypeLocalNotifications),
+             @(kAPCSignUpPermissionsTypeCoremotion)
+             ];
+}
+
+- (NSArray *)userInfoItemTypes
+{
+    return  @[
+              @(kAPCUserInfoItemTypeEmail),
+              @(kAPCUserInfoItemTypeBiologicalSex),
+              @(kAPCUserInfoItemTypeHeight),
+              @(kAPCUserInfoItemTypeWeight),
+              @(kAPCUserInfoItemTypeWakeUpTime),
+              @(kAPCUserInfoItemTypeSleepTime),
+              ];
 }
 
 #pragma mark - Consent
